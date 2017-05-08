@@ -1,5 +1,7 @@
 # README
 
+[![Build Status](https://travis-ci.com/alexandre025/trombonne.svg?token=in8sSsy4MxZn4XxNavha&branch=master)](https://travis-ci.com/alexandre025/trombonne)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
