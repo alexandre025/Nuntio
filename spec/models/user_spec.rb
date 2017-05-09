@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { build(:user) }
+
+  it 'can be saved' do
+    expect(user.save).to eq(true)
+  end
 end
