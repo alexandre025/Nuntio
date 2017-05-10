@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
@@ -61,3 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # TODO : Wait for RubyGems release
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
+
+gem 'apartment', git: 'https://github.com/influitive/apartment.git', branch: 'master'
+
+gem 'rubocop-rails', '~> 0.2.1'
