@@ -61,4 +61,8 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
+
+  config.before(:each) do
+    @current_team = create(:team)
+  end
 end
