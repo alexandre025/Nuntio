@@ -1,9 +1,13 @@
 inherit_gem:
- rubocop-rails:
-   - config/rails.yml
+  rubocop-rails:
+    - config/rails.yml
 
 AllCops:
- TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.3
 
 Style/StringLiterals:
- Enabled: false
+  Enabled: true
+  EnforcedStyle: single_quotes
+  Exclude:
+    - '**/bin/*'
+    - '**/db/schema.rb'
