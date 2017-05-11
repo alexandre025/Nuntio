@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def require_team_tenancy
-    redirect_to root_path if Apartment::Tenant.current == 'public'
-  end
+    def require_team_tenancy
+      redirect_to root_path if Apartment::Tenant.current == 'public'
+    end
 end
