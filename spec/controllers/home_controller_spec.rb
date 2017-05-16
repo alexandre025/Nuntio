@@ -12,4 +12,23 @@ RSpec.describe HomeController, type: :controller do
 
   end
 
+  describe 'GET dashboard' do
+
+    it 'http status redirect' do
+      get :dashboard
+      expect(response).to have_http_status(:redirect)
+    end
+
+    context 'as logged in user' do
+      login_user
+
+      it 'http status success' do
+        get :dashboard
+        expect(response).to have_http_status(:success)
+      end
+
+    end
+
+  end
+
 end

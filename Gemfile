@@ -61,6 +61,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # TODO : Wait for RubyGems release
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
 
-gem 'apartment', git: 'https://github.com/influitive/apartment.git', branch: 'master'
-
 gem 'rubocop-rails', '~> 0.2.1'

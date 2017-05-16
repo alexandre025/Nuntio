@@ -1,5 +1,4 @@
-class HomeController < ApplicationController
-  before_action :require_team_tenancy, only: [:dashboard]
+class HomeController < BaseController
   before_action :authenticate_user!, only: [:dashboard]
 
   def index
