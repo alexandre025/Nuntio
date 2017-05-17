@@ -64,3 +64,5 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'maste
 gem 'stripe', '~> 2.8.0'
 
 gem 'rubocop-rails', '~> 0.2.1'
+
+gem 'money-rails', '~> 1.8.0'
