@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517085244) do
+ActiveRecord::Schema.define(version: 20170517091423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20170517085244) do
     t.string "name", limit: 45, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "towers", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "locales", array: true
+    t.integer "price_per_month_cents", default: 0, null: false
+    t.string "price_per_month_currency", default: "EUR", null: false
+    t.string "frequency", limit: 45, null: false
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_towers_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +60,5 @@ ActiveRecord::Schema.define(version: 20170517085244) do
   end
 
   add_foreign_key "categories", "themes"
+  add_foreign_key "towers", "categories"
 end
