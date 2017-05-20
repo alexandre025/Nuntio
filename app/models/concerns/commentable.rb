@@ -6,6 +6,6 @@ module Commentable
   end
 
   def average_notation
-    comments.average(:notation)
+    comments.where.not(notation: nil).average(:notation)
   end
 end
