@@ -8,5 +8,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.1]
       t.datetime :deleted_at
       t.timestamps
     end
+    add_reference :subscriptions, :owner, references: :users, index: true
+    add_foreign_key :subscriptions, :users, column: :owner_id
   end
 end
