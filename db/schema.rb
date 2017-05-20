@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520170448) do
+ActiveRecord::Schema.define(version: 20170520170222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "billings", force: :cascade do |t|
+    t.bigint "subscription_id"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "EUR", null: false
     t.datetime "begin_at"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170520170448) do
     t.string "gateway_payment_profile_id", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subscription_id"], name: "index_billings_on_subscription_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -81,15 +83,6 @@ ActiveRecord::Schema.define(version: 20170520170448) do
     t.index ["tower_id"], name: "index_reports_on_tower_id"
   end
 
-  create_table "subscription_billings", force: :cascade do |t|
-    t.bigint "subscription_id"
-    t.bigint "billing_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["billing_id"], name: "index_subscription_billings_on_billing_id"
-    t.index ["subscription_id"], name: "index_subscription_billings_on_subscription_id"
-  end
-
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "tower_id"
     t.integer "amount_cents", default: 0, null: false
@@ -99,6 +92,8 @@ ActiveRecord::Schema.define(version: 20170520170448) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_subscriptions_on_owner_id"
     t.index ["tower_id"], name: "index_subscriptions_on_tower_id"
   end
 
@@ -121,7 +116,7 @@ ActiveRecord::Schema.define(version: 20170520170448) do
   end
 
   create_table "towers", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title", limit: 255, null: false
     t.text "description", null: false
     t.string "locales", array: true
     t.integer "price_per_month_cents", default: 0, null: false
@@ -159,15 +154,15 @@ ActiveRecord::Schema.define(version: 20170520170448) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "billings", "subscriptions"
   add_foreign_key "categories", "themes"
   add_foreign_key "comments", "users"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "report_sources", "reports"
   add_foreign_key "reports", "tower_guards"
   add_foreign_key "reports", "towers"
-  add_foreign_key "subscription_billings", "billings"
-  add_foreign_key "subscription_billings", "subscriptions"
   add_foreign_key "subscriptions", "towers"
+  add_foreign_key "subscriptions", "users", column: "owner_id"
   add_foreign_key "tower_guards", "towers"
   add_foreign_key "tower_guards", "users", column: "guard_id"
   add_foreign_key "towers", "categories"
