@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CreditCard, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'can be saved' do
+    expect(build(:credit_card).save).to eq(true)
+  end
 end
