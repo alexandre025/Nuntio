@@ -8,6 +8,5 @@ class CreateTowerGuards < ActiveRecord::Migration[5.1]
     end
     add_reference :tower_guards, :guard, references: :users, index: true
     add_foreign_key :tower_guards, :users, column: :guard_id
-
   end
 end

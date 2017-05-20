@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-
   belongs_to :theme
 
   validates :theme, presence: true
