@@ -1,5 +1,4 @@
 class Tower < ApplicationRecord
-
   monetize :price_per_month_cents
 
   belongs_to :category

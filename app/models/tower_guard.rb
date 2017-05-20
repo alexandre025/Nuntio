@@ -1,5 +1,4 @@
 class TowerGuard < ApplicationRecord
-
   belongs_to :guard, class_name: 'User'
   belongs_to :tower
 
