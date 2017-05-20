@@ -1,0 +1,2 @@
+class SubscriptionBilling < ApplicationRecord
+end

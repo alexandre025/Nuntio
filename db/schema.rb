@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520161701) do
+ActiveRecord::Schema.define(version: 20170520170448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "billings", force: :cascade do |t|
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.string "gateway_payment_profile_id", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", limit: 45, null: false
@@ -35,10 +45,24 @@ ActiveRecord::Schema.define(version: 20170520161701) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "month"
+    t.integer "year"
+    t.integer "day"
+    t.integer "last_digits"
+    t.string "cc_type", limit: 45
+    t.string "gateway_customer_profile_id", limit: 45
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
   create_table "report_sources", force: :cascade do |t|
     t.bigint "report_id"
     t.string "url", null: false
-    t.string "title"
+    t.string "title", limit: 255
     t.text "excerpt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +81,27 @@ ActiveRecord::Schema.define(version: 20170520161701) do
     t.index ["tower_id"], name: "index_reports_on_tower_id"
   end
 
+  create_table "subscription_billings", force: :cascade do |t|
+    t.bigint "subscription_id"
+    t.bigint "billing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["billing_id"], name: "index_subscription_billings_on_billing_id"
+    t.index ["subscription_id"], name: "index_subscription_billings_on_subscription_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "tower_id"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.string "recurrence"
+    t.datetime "canceled_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tower_id"], name: "index_subscriptions_on_tower_id"
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string "name", limit: 45, null: false
     t.datetime "created_at", null: false
@@ -67,6 +112,7 @@ ActiveRecord::Schema.define(version: 20170520161701) do
     t.bigint "tower_id"
     t.string "roles", array: true
     t.text "description"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "guard_id"
@@ -85,6 +131,15 @@ ActiveRecord::Schema.define(version: 20170520161701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_towers_on_category_id"
+  end
+
+  create_table "user_subscriptions", force: :cascade do |t|
+    t.bigint "subscription_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscription_id"], name: "index_user_subscriptions_on_subscription_id"
+    t.index ["user_id"], name: "index_user_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,10 +161,16 @@ ActiveRecord::Schema.define(version: 20170520161701) do
 
   add_foreign_key "categories", "themes"
   add_foreign_key "comments", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "report_sources", "reports"
   add_foreign_key "reports", "tower_guards"
   add_foreign_key "reports", "towers"
+  add_foreign_key "subscription_billings", "billings"
+  add_foreign_key "subscription_billings", "subscriptions"
+  add_foreign_key "subscriptions", "towers"
   add_foreign_key "tower_guards", "towers"
   add_foreign_key "tower_guards", "users", column: "guard_id"
   add_foreign_key "towers", "categories"
+  add_foreign_key "user_subscriptions", "subscriptions"
+  add_foreign_key "user_subscriptions", "users"
 end
