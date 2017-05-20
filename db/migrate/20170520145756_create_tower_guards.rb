@@ -4,6 +4,7 @@ class CreateTowerGuards < ActiveRecord::Migration[5.1]
       t.references :tower, foreign_key: true
       t.string :roles, array: true
       t.text :description
+      t.datetime :deleted_at
       t.timestamps
     end
     add_reference :tower_guards, :guard, references: :users, index: true

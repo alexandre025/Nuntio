@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520145756) do
+ActiveRecord::Schema.define(version: 20170520155927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 20170520145756) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["theme_id"], name: "index_categories_on_theme_id"
+  end
+
+  create_table "report_sources", force: :cascade do |t|
+    t.bigint "report_id"
+    t.string "url", null: false
+    t.string "title"
+    t.text "excerpt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_report_sources_on_report_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.bigint "tower_guard_id"
+    t.bigint "tower_id"
+    t.string "title", null: false
+    t.text "excerpt"
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tower_guard_id"], name: "index_reports_on_tower_guard_id"
+    t.index ["tower_id"], name: "index_reports_on_tower_id"
   end
 
   create_table "themes", force: :cascade do |t|
@@ -71,6 +93,9 @@ ActiveRecord::Schema.define(version: 20170520145756) do
   end
 
   add_foreign_key "categories", "themes"
+  add_foreign_key "report_sources", "reports"
+  add_foreign_key "reports", "tower_guards"
+  add_foreign_key "reports", "towers"
   add_foreign_key "tower_guards", "towers"
   add_foreign_key "tower_guards", "users", column: "guard_id"
   add_foreign_key "towers", "categories"
