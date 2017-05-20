@@ -1,4 +1,6 @@
 class Tower < ApplicationRecord
+  include Commentable
+
   monetize :price_per_month_cents
 
   belongs_to :category

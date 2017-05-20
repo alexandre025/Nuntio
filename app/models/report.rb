@@ -1,4 +1,6 @@
 class Report < ApplicationRecord
+  include Commentable
+
   has_many :sources, class_name: 'ReportSource'
 
   belongs_to :tower
