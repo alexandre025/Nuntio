@@ -1,7 +1,7 @@
 class CreateTowers < ActiveRecord::Migration[5.1]
   def change
     create_table :towers do |t|
-      t.string :title, length: 255, null: false
+      t.string :title, limit: 255, null: false
       t.text :description, null: false
       t.string :locales, array: true
       t.monetize :price_per_month, null: false
