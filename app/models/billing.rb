@@ -1,5 +1,4 @@
 class Billing < ApplicationRecord
-
   monetize :amount_cents
 
   belongs_to :subscription
