@@ -1,5 +1,4 @@
 class Subscription < ApplicationRecord
-
   monetize :amount_cents
 
   belongs_to :tower
@@ -35,5 +34,4 @@ class Subscription < ApplicationRecord
       0
     end
   end
-
 end
