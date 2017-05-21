@@ -4,5 +4,6 @@ FactoryGirl.define do
     year 2018
     last_digits 5555
     cc_type { Faker::Business.credit_card_type }
+    user
   end
 end

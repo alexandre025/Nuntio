@@ -6,7 +6,7 @@ class Billing < ApplicationRecord
 
   delegate :owner, to: :subscription
 
-  validates :amout_cents, :subscription, :begin_at, :end_at, presence: true
+  validates :amount_cents, :subscription, :begin_at, :end_at, presence: true
 
   # TODO : Add a state machine
 end
