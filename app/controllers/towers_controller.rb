@@ -1,4 +1,5 @@
 class TowersController < ApplicationController
+  before_action :authenticate_user!
 
   before_action :set_themes, only: [:index, :theme, :category]
 
