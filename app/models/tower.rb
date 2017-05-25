@@ -1,4 +1,7 @@
 class Tower < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   include Commentable
 
   monetize :price_per_month_cents

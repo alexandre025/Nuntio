@@ -1,1 +1,5 @@
+<%- content_for :header_nav_bar do -%>
+  <%= render partial: 'shared/header_nav_bar', locals: { current: :towers } %>
+<%- end -%>
+
 <h1>Dashboard <%= current_user.email %></h1>

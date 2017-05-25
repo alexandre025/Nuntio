@@ -1,6 +1,8 @@
 require 'factory_girl_rails'
 require 'ruby-progressbar'
 
+FactoryGirl.create(:user, email: 'admin@trombonne.net', password: 'trombonne')
+
 puts 'Create themes and categories'
 progressbar = ProgressBar.create(total: 7)
 %w(Developpement Design SEO Marketing Business Finances Juridique).each do |theme_name|

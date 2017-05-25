@@ -9,6 +9,19 @@ Themes : <br>
 
 <br>
 
+Current theme : <%= @theme.name %> <br>
+
+Categories : <br>
+<% @theme.categories.each do |category| %>
+  <%= link_to category.name, category_towers_path(@theme, category)%>
+<% end %>
+
+<br>
+
+Current category : <%= @category.name %> <br>
+
+<br>
+
 Towers : <br>
 <%- @towers.each do |tower| -%>
   <%= render partial: 'towers/tower', locals: { tower: tower } %>
