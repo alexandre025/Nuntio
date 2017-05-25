@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Trombonne</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% render partial: 'shared/head' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body id="<%= "#{controller_name}_#{action_name}"%>">
+    <%= render partial: 'shared/header' %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= render partial: 'shared/footer' %>
   </body>
 </html>
