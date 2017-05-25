@@ -1,9 +1,6 @@
-class HomeController < BaseController
-  before_action :authenticate_user!, only: [:dashboard]
+class HomeController < ApplicationController
 
   def index
   end
 
-  def dashboard
-  end
 end
