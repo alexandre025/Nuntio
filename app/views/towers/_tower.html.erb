@@ -1,3 +1,5 @@
 <%- cache tower do -%>
-  <%= tower.title %>
+  <%= link_to tower_path(tower.category.theme, tower) do %>
+    <%= tower.title %>
+  <% end %>
 <%- end -%>
