@@ -1,0 +1,2 @@
+class TowersController < ApplicationController
+end
