@@ -258,6 +258,7 @@ DEPENDENCIES
   rails (~> 5.1.0)
   rspec-rails (~> 3.5)
   rubocop-rails (~> 0.2.1)
+  ruby-progressbar
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
