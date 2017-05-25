@@ -1,6 +1,8 @@
 class Subscription < ApplicationRecord
   monetize :amount_cents
 
+  # Associations
+
   belongs_to :tower
 
   belongs_to :owner, class_name: 'User'
@@ -15,6 +17,20 @@ class Subscription < ApplicationRecord
   RECURRENCES = %w(monthly quarterly biannual).freeze
 
   validates :amount_cents, :tower, :owner, presence: true
+
+  # State machines
+
+  state_machine initial: :draft do
+
+    state :draft do
+
+    end
+
+    state :complete do
+
+    end
+
+  end
 
   # Methods
 
