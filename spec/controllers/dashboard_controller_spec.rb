@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe DashboardController, type: :controller do
   render_views
 
-  describe 'GET index' do
+  describe 'GET #index' do
 
     it 'http status redirect' do
       get :index

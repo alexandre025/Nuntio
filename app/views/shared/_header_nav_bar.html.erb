@@ -1,0 +1,5 @@
+<% current ||= nil %>
+<ul>
+  <li class="<%= 'active' if current == :dashboard %>"><%= link_to 'Dashboard', dashboard_path %></li>
+  <li class="<%= 'active' if current == :towers %>"><%= link_to 'Trouver un expert', towers_path %></li>
+</ul>

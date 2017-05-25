@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520170222) do
+ActiveRecord::Schema.define(version: 20170525113444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "billings", force: :cascade do |t|
     t.bigint "subscription_id"
+    t.string "state", limit: 45
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "EUR", null: false
     t.datetime "begin_at"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170520170222) do
     t.bigint "theme_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["theme_id"], name: "index_categories_on_theme_id"
   end
 
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170520170222) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "tower_id"
+    t.string "state", limit: 45
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "EUR", null: false
     t.string "recurrence"
@@ -101,6 +104,7 @@ ActiveRecord::Schema.define(version: 20170520170222) do
     t.string "name", limit: 45, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "tower_guards", force: :cascade do |t|
@@ -125,6 +129,7 @@ ActiveRecord::Schema.define(version: 20170520170222) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["category_id"], name: "index_towers_on_category_id"
   end
 

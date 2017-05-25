@@ -68,3 +68,9 @@ gem 'rubocop-rails', '~> 0.2.1'
 gem 'money-rails', '~> 1.8.0'
 
 gem 'ruby-progressbar', '~> 1.8.1'
+
+gem 'kaminari', '~> 1.0.1'
+
+gem 'friendly_id', '~> 5.1.0'
+
+gem 'state_machines-activerecord', '~> 0.4.1'
