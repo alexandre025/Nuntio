@@ -9,7 +9,7 @@ Themes : <br>
 
 <br>
 
-Current theme : <%= @theme.name %> <br>
+<h1>Current theme : <%= @theme.name %></h1>
 
 Categories : <br>
 <% @theme.categories.each do |category| %>
@@ -22,3 +22,5 @@ Towers : <br>
 <%- @towers.each do |tower| -%>
   <%= render partial: 'towers/tower', locals: { tower: tower } %>
 <%- end -%>
+
+<%= paginate @towers %>

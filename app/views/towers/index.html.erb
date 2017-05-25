@@ -13,3 +13,5 @@ Towers : <br>
 <%- @towers.each do |tower| -%>
   <%= render partial: 'towers/tower', locals: { tower: tower } %>
 <%- end -%>
+
+<%= paginate @towers %>
