@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe TowersController, type: :controller do
   render_views
 
+  let(:tower) {create(:tower, :with_category)}
+  let(:theme) { tower.category.theme}
+
   describe 'GET index' do
 
     it 'http status success' do
@@ -14,9 +17,8 @@ RSpec.describe TowersController, type: :controller do
 
   describe 'GET theme' do
 
-
     it 'http status success' do
-      get :theme
+      get :theme, params: {id: theme.id}
       expect(response).to have_http_status(:success)
     end
 
@@ -25,7 +27,7 @@ RSpec.describe TowersController, type: :controller do
   describe 'GET show' do
 
     it 'http status success' do
-      get :show
+      get :show, params:{theme_id: theme.id, id: tower.id}
       expect(response).to have_http_status(:success)
     end
 
