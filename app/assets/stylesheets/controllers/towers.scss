@@ -1,3 +1,37 @@
 // Place all the styles related to the Towers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ------ GLOBAL ------ */
+
+.tower-container{
+  padding-top:64px;
+  padding-bottom:36px;
+}
+
+
+/* ------ CONTROLLERS ------ */
+
+#towers_index{
+
+  header{
+    .header-bottombar{ display:block; }
+  }
+
+}
+
+#towers_theme{
+
+  header{
+    .header-bottombar{ display:block; }
+  }
+
+}
+
+#towers_category{
+
+  header{
+    .header-bottombar{ display:block; }
+  }
+
+}

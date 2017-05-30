@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require lodash/core
+//= require slick-carousel
 //= require rails-ujs
 //= require turbolinks
 //= require_self

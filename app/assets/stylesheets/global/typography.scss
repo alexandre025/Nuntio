@@ -1,0 +1,27 @@
+/* ------ TITLES ------ */
+
+.header-menu-title{
+  font-family: $raleway;
+  font-weight: $extrabold;
+  font-size: 15px;
+  color: $darker-gray;
+  letter-spacing: 1px;
+}
+
+.footer-menu-link{
+  font-family: $raleway;
+  font-weight:$semibold;
+  font-size: 10px;
+  color: $darker-gray;
+  letter-spacing: 0.5px;
+  text-decoration:none;
+}
+
+.list-title{
+  font-family: $raleway;
+  font-weight: $extrabold;
+  font-size: 25px;
+  color: $darker-gray;
+  letter-spacing: 1px;
+  margin-bottom:44px;
+}

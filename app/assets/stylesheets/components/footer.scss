@@ -1,5 +1,22 @@
 footer{
-  height:$footer-height;
+  height:117px;
   width:100%;
-  background-color:blue;
+  background-color:$white;
+  border-top: 1px solid #DDDDDD;
+
+  .footer-container{
+    @extend .grid;
+
+    .footer-menu{
+
+    }
+
+    .footer-credits{
+      font-family: $raleway;
+      font-weight:$semibold;
+      font-size: 10px;
+      color: $dark-gray;
+      letter-spacing: 0.6px;
+    }
+  }
 }

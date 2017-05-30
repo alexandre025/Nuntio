@@ -1,3 +1,4 @@
+<!--
 <%- content_for :header_nav_bar do -%>
   <%= render partial: 'shared/header_nav_bar', locals: { current: :towers } %>
 <%- end -%>
@@ -15,3 +16,20 @@ Towers : <br>
 <%- end -%>
 
 <%= paginate @towers %>
+-->
+
+<div class="tower-container">
+
+  <% 3.times do |i| %>
+    <div class="tower-list">
+      <h2 class="tower-list__title">Les plus populaires du moment</h2>
+
+      <div class="tower-list__slider">
+        <% 10.times do |i| %>
+          <div class="tower-card tower-list__slider--card"><%= i %></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

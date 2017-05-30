@@ -1,5 +1,20 @@
 header{
-  height:$header-height;
   width:100%;
-  background-color:blue;
+  background-color:$white;
+  border-bottom: 1px solid #E4E4E4;
+  @include box-shadow(0 1px 6px 0 rgba(0,0,0,0.11));
+
+  .header-container{
+    @extend .grid;
+
+    .header-mainbar{
+      height:84px;
+      width:100%;
+    }
+    .header-bottombar{
+      display:none;
+      height:55px;
+      width:100%;
+    }
+  }
 }

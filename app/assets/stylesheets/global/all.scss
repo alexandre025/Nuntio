@@ -2,6 +2,15 @@ html, body {
   height: 100%;
   padding:0;
   margin:0;
+  font-family:$raleway;
+  background-color:#F9F9F9;
+}
+
+.grid{
+  width: 1200px;
+  padding: 0 15px;
+  box-sizing:border-box;
+  margin:0 auto;
 }
 
 .wrapper{
@@ -11,5 +20,6 @@ html, body {
 }
 
 .container{
+  @extend .grid;
   flex: 1 0 300px;
 }
