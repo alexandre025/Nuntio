@@ -5,12 +5,14 @@
   </head>
 
   <body id="<%= "#{controller_name}_#{action_name}"%>">
-    <%= render partial: 'shared/header' %>
+    <div class="wrapper">
+      <%= render partial: 'shared/header' %>
 
-    <div class="container">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
+
+      <%= render partial: 'shared/footer' %>
     </div>
-
-    <%= render partial: 'shared/footer' %>
   </body>
 </html>
