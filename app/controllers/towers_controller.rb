@@ -25,7 +25,7 @@ class TowersController < ApplicationController
 
   private
 
-  def set_themes
-    @themes = Theme.all
-  end
+    def set_themes
+      @themes = Theme.all
+    end
 end

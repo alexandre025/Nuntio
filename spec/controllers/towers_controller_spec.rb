@@ -5,8 +5,8 @@ RSpec.describe TowersController, type: :controller do
 
   login_user
 
-  let(:tower) {create(:tower, :with_category)}
-  let(:theme) { tower.category.theme}
+  let(:tower) { create(:tower, :with_category) }
+  let(:theme) { tower.category.theme }
 
   describe 'GET #index' do
 
@@ -20,7 +20,7 @@ RSpec.describe TowersController, type: :controller do
   describe 'GET #theme' do
 
     it 'http status success' do
-      get :theme, params: {id: theme.id}
+      get :theme, params: { id: theme.id }
       expect(response).to have_http_status(:success)
     end
 
@@ -29,7 +29,7 @@ RSpec.describe TowersController, type: :controller do
   describe 'GET #category' do
 
     it 'http status success' do
-      get :category, params:{theme_id: theme.id, id: tower.category.id}
+      get :category, params: { theme_id: theme.id, id: tower.category.id }
       expect(response).to have_http_status(:success)
     end
 
@@ -38,7 +38,7 @@ RSpec.describe TowersController, type: :controller do
   describe 'GET #show' do
 
     it 'http status success' do
-      get :show, params: {id: tower.id}
+      get :show, params: { id: tower.id }
       expect(response).to have_http_status(:success)
     end
 

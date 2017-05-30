@@ -23,9 +23,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
-
   end
 
   private
-
 end
