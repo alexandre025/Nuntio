@@ -28,7 +28,6 @@ before_install:
 
 before_script:
   - psql -c 'create database trombonne_test;' -U postgres
-  - bin/yarn
 
 script:
   - bundle exec rubocop
