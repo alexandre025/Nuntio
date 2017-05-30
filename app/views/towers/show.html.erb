@@ -3,3 +3,10 @@
 <%- end -%>
 
 <%= @tower.title %>
+
+<%= simple_form_for @subscription, url: subscription_path do |f| %>
+  <%= f.input :tower_id, as: :hidden %>
+  <%= f.input :owner_id, as: :hidden %>
+  <%= f.input :state, as: :hidden %>
+  <%= f.button :submit %>
+<% end %>

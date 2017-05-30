@@ -21,11 +21,13 @@ class TowersController < ApplicationController
 
   def show
     @tower = Tower.friendly.find(params[:id])
+
+    @subscription = Subscription.new(tower: @tower, owner: current_user)
   end
 
   private
 
-  def set_themes
-    @themes = Theme.all
-  end
+    def set_themes
+      @themes = Theme.all
+    end
 end

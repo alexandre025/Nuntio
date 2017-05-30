@@ -10,14 +10,14 @@ RSpec.describe SubscriptionsController, type: :controller do
   describe 'POST #create' do
 
     it 'redirect to edit' do
-      post :create, params: {tower_id: tower.id }
+      post :create, params: { tower_id: tower.id }
       expect(response).to redirect_to(edit_subscription_url)
     end
 
   end
 
   describe 'GET #edit' do
-    let(:subscription) { create(:subscription, tower: tower, owner: controller.view_context.current_user)}
+    let(:subscription) { create(:subscription, tower: tower, owner: controller.view_context.current_user) }
 
     it 'http status success' do
       session[:current_subscription_id] = subscription.id
