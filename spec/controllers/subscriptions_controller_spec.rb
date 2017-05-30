@@ -10,7 +10,7 @@ RSpec.describe SubscriptionsController, type: :controller do
   describe 'POST #create' do
 
     it 'redirect to edit' do
-      post :create, params: { tower_id: tower.id }
+      post :create, params: { subscription: { tower_id: tower.id, owner_id: controller.view_context.current_user, state: :draft } }
       expect(response).to redirect_to(edit_subscription_url)
     end
 
