@@ -14,4 +14,6 @@
 //= require lodash/core
 //= require rails-ujs
 //= require turbolinks
+//= require_tree ./components
+//= require_tree ./controllers
 //= require_tree .
