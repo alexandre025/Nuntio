@@ -76,3 +76,5 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'state_machines-activerecord', '~> 0.4.1'
 
 gem 'simple_form', '~> 3.5.0'
+
+gem 'ransack', '~> 1.8.2'
