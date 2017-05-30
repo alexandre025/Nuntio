@@ -31,6 +31,7 @@ before_script:
   - yarn
 
 script:
+  - bundle exec rubocop
   - bundle exec rspec --format doc
 
 notifications:
