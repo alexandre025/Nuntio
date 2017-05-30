@@ -2,8 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    tower = Tower.find(params[:tower_id])
-    subscription = Subscription.find_or_initialize_by(owner: current_user, tower: tower, state: :draft)
+    subscription = Subscription.find_or_initialize_by(subscription_params)
 
     if subscription.save!
       session[:current_subscription_id] = subscription.id
@@ -26,4 +25,8 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def subscription_params
+    params.require(:subscription).permit(:tower_id, :owner_id, :state)
+  end
 end
