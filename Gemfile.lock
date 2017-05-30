@@ -211,6 +211,9 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    simple_form (3.5.0)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     sixarm_ruby_unaccent (1.1.1)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -284,6 +287,7 @@ DEPENDENCIES
   ruby-progressbar (~> 1.8.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form (~> 3.5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   state_machines-activerecord (~> 0.4.1)
