@@ -11,6 +11,38 @@
   .more-offers{
     margin:0 auto;
   }
+
+  .tower-list-full{
+    @include e('filters'){
+
+    }
+
+    @include e('header'){
+
+    }
+
+    @include e('cards'){
+      position:relative;
+      padding:0 15px;
+      box-sizing:border-box;
+      @include flexbox;
+      flex-wrap:wrap;
+      align-content: flex-start;
+
+      @include m('card'){
+        margin:15px 0;
+        margin-left:29px;
+
+        &:nth-child(4n+1){
+          margin-left:0;
+        }
+
+        &:nth-of-type(-n+4) {
+          margin-top:0;
+        }
+      }
+    }
+  }
 }
 
 
