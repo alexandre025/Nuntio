@@ -42,8 +42,6 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails', '~> 4.7.0'
-  gem 'faker'
 end
 
 group :development do
@@ -78,3 +76,7 @@ gem 'state_machines-activerecord', '~> 0.4.1'
 gem 'simple_form', '~> 3.5.0'
 
 gem 'ransack', '~> 1.8.2'
+
+gem 'factory_girl_rails', '~> 4.7.0'
+
+gem 'faker'
