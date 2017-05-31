@@ -1,5 +1,5 @@
 <% current ||= nil %>
-<ul>
+<ul class="header-mainbar__menu">
   <li class="<%= 'active' if current == :towers %>"><%= link_to 'Devenir un expert', towers_path %></li>
   <%- if user_signed_in? -%>
     <li class="<%= 'active' if current == :dashboard %>"><%= link_to 'Mon tableau de bord', dashboard_path %></li>

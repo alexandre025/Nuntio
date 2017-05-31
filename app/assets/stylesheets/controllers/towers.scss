@@ -7,6 +7,10 @@
 .tower-container{
   padding-top:64px;
   padding-bottom:36px;
+
+  .more-offers{
+    margin:0 auto;
+  }
 }
 
 
@@ -18,6 +22,8 @@
     .header-bottombar{ display:block; }
   }
 
+  .tower-container{}
+
 }
 
 #towers_theme{
@@ -26,12 +32,24 @@
     .header-bottombar{ display:block; }
   }
 
+  .tower-container{
+    .tower-container__top{
+      text-align:center;
+    }
+  }
+
 }
 
 #towers_category{
 
   header{
     .header-bottombar{ display:block; }
+  }
+
+  .tower-container{
+    .tower-container__top{
+      text-align:center;
+    }
   }
 
 }

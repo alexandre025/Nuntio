@@ -85,6 +85,12 @@
   box-shadow: #{$params};
 }
 
+/* ------ DISPLAY ------ */
+@mixin flexbox() {
+  display: -webkit-flex;
+  display: flex;
+}
+
 /* ------ CENTERING ELEMENT ------ (DON'T FORGET TO ADD --> position: absolute;) */
 @mixin center-content($type) {
   @if $type == "all" {

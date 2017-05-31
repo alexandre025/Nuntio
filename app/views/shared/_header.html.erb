@@ -1,9 +1,14 @@
 <header>
   <div class="header-container">
     <div class="header-mainbar">
-      <p>Toasted</p>
+      <%= link_to 'Toasted.', root_path, class: 'logo' %>
+      <form class="search">
+        <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
+        <input type="text" placeholder="Une nouvelle recherche ?" />
+      </form>
       <%= yield :header_nav_bar %>
     </div>
-    <div class="header-bottombar"></div>
+
+    <%= yield :header_sub_nav_bar %>
   </div>
 </header>

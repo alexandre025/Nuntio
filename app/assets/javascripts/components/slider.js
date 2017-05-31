@@ -3,7 +3,7 @@ App.ready(function(){
   // TOWER LIST CAROUSEL
   $(".tower-list__slider").slick({
     infinite: false,
-    speed: 600,
+    speed: 400,
     slidesToShow: 4,
     slidesToScroll: 1,
     variableWidth: true,

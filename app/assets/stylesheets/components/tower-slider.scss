@@ -33,11 +33,11 @@
 
       &.slick-arrow-prev{
         left:-6px;
-        background-image:url(image_path('arrow-slider-prev.png'));
+        background-image:url(image_path('icons/icon-arrow-slider-prev.png'));
       }
       &.slick-arrow-next{
         right:-6px;
-        background-image:url(image_path('arrow-slider-next.png'));
+        background-image:url(image_path('icons/icon-arrow-slider-next.png'));
       }
 
       &.slick-disabled{

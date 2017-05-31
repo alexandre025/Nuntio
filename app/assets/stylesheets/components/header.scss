@@ -8,13 +8,117 @@ header{
     @extend .grid;
 
     .header-mainbar{
+      position:relative;
       height:84px;
       width:100%;
+      line-height:84px;
+
+      .logo{
+        display:inline-block;
+        font-family: $raleway;
+        font-weight:$extrabold;
+        font-size: 20px;
+        color: $light-black;
+        letter-spacing: 2px;
+        text-transform:uppercase;
+      }
+
+      .search{
+        position:relative;
+        display:inline-block;
+        margin-left:68px;
+
+        .icon-search{
+          position:absolute;
+          @include center-content('y');
+          left:9px;
+          height:15px;
+          width:14px;
+        }
+
+        input{
+          font-family: $raleway;
+          font-weight:$semibold;
+          font-size: 15px;
+          color: $dark-gray;
+          letter-spacing: 1px;
+          border:0;
+          border-bottom: 2px solid $light-gray;
+          width:417px;
+          padding:9px 0;
+          padding-left:34px;
+          padding-right:16px;
+          box-sizing:border-box;
+        }
+      }
+
+      @include e('menu'){
+        display:inline-block;
+        float:right;
+
+        li{
+          display:inline-block;
+          display:inline-block;
+          margin-left:66px;
+
+          &:first-child{ margin-left:0; }
+
+          a{
+            @extend .header-menu-title;
+          }
+        }
+      }
     }
     .header-bottombar{
       display:none;
       height:55px;
       width:100%;
+
+      @include e('towers'){
+        text-align:center;
+        line-height:55px;
+
+        li{
+          position:relative;
+          display:inline-block;
+          vertical-align:middle;
+          margin-left:86px;
+          box-sizing:border-box;
+
+          &:first-child{ margin-left:0; }
+
+          &:after{
+            display:none;
+            content: '';
+            position: absolute;
+            bottom: 1px;
+            left:0;
+            width: 100%;
+            height: 1px;
+            background-color: $purple;
+          }
+
+          &.active, &:hover{
+            &:after{ display:block; }
+            a{ color: $purple; }
+          }
+
+          a{
+            display:block;
+            height:100%;
+            font-family: $raleway;
+            font-size: 15px;
+            color: $dark-gray;
+          }
+        }
+
+        @include m('theme'){
+
+        }
+        @include m('category'){
+
+        }
+      }
     }
   }
 }
