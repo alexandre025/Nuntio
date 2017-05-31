@@ -11,8 +11,17 @@ class TowersController < ApplicationController
   def theme
     @theme = Theme.friendly.find(params[:id])
 
-    @q = @theme.towers.ransack(params[:q])
-    @towers = @q.result.page(params[:page]).per(20)
+    if params[:all]
+      @q = @theme.towers.ransack(params[:q])
+      @towers = @q.result.page(params[:page]).per(20)
+
+      render :theme_all
+    else
+      @q = @theme.towers.ransack(params[:q])
+
+      @newest_towers = @q.result.order(:created_at).limit(10)
+      @popular_towers = @q.result.order(:created_at).limit(10)
+    end
   end
 
   def category
