@@ -2,10 +2,10 @@
 <ul class="header-mainbar__menu">
   <li class="<%= 'active' if current == :towers %>"><%= link_to 'Devenir un expert', towers_path %></li>
   <%- if user_signed_in? -%>
-    <li class="<%= 'active' if current == :dashboard %>"><%= link_to 'Mon tableau de bord', dashboard_path %></li>
+    <li class="<%= 'active' if current == :dashboard %>"><%= link_to 'Mon tableau de bord', dashboard_path, class: 'new-reports' %></li>
     <li><a href="#">Mon compte</a></li>
     <li><%= link_to 'Deconnexion', destroy_user_session_path, data: { method: :delete }%></li>
   <%- else -%>
-    <%= link_to 'Connexion', new_user_session_path, data: { modal: :load, remote: true } %>
+    <li><%= link_to 'Connexion', new_user_session_path, data: { modal: :load, remote: true } %></li>
   <%- end -%>
 </ul>
