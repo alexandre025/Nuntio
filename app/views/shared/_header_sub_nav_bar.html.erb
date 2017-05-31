@@ -4,12 +4,21 @@
   <% if [:towers_index].include? current_sub %>
     <ul class="header-bottombar__towers header-bottombar__towers--theme">
       <% Theme.all.each do |t| %>
-        <li><%= link_to t.name, theme_towers_path(t.id) %></li>
+        <li class="tower-main-link"><%= link_to t.name, theme_towers_path(t.id) %></li>
       <% end %>
     </ul>
   <% elsif [:towers_theme, :towers_category].include? current_sub %>
     <ul class="header-bottombar__towers header-bottombar__towers--category">
-
+      <% theme_id = params[:theme_id] ? params[:theme_id].to_i : params[:id].to_i %>
+      <li class="all-themes"><%= link_to '< Tous les thèmes', towers_path %></li>
+      <li class="current-theme"><%= link_to Theme.find(theme_id).name, theme_towers_path(theme_id) %></li>
+      <% Category.where(theme: theme_id).all.each do |c| %>
+        <li class="tower-main-link"><%= link_to c.name, category_towers_path(c.theme_id, c.id) %></li>
+      <% end %>
+      <li class="more-categories">
+        <%= image_tag 'icons/icon-menu-three-points.png', class: 'icon-menu-more' %>
+        <ul class="header-bottombar__submenu"></ul>
+      </li>
     </ul>
   <% end %>
 </div>

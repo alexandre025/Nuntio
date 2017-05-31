@@ -15,6 +15,7 @@ header{
 
       .logo{
         display:inline-block;
+        vertical-align:middle;
         font-family: $raleway;
         font-weight:$extrabold;
         font-size: 20px;
@@ -26,6 +27,7 @@ header{
       .search{
         position:relative;
         display:inline-block;
+        vertical-align:middle;
         margin-left:68px;
 
         .icon-search{
@@ -54,17 +56,33 @@ header{
 
       @include e('menu'){
         display:inline-block;
+        vertical-align:middle;
         float:right;
 
         li{
+          position:relative;
           display:inline-block;
-          display:inline-block;
+          vertical-align:middle;
           margin-left:66px;
 
           &:first-child{ margin-left:0; }
 
           a{
             @extend .header-menu-title;
+            position:relative;
+
+            &.new-reports{
+              &:after{
+                content: '';
+                position:absolute;
+                top:-2px;
+                right:-10px;
+                height:8px;
+                width:8px;
+                border-radius:100%;
+                background-color:$purple;
+              }
+            }
           }
         }
       }
@@ -75,14 +93,14 @@ header{
       width:100%;
 
       @include e('towers'){
-        text-align:center;
+        height:100%;
+        width:100%;
         line-height:55px;
 
         li{
           position:relative;
           display:inline-block;
           vertical-align:middle;
-          margin-left:86px;
           box-sizing:border-box;
 
           &:first-child{ margin-left:0; }
@@ -98,9 +116,9 @@ header{
             background-color: $purple;
           }
 
-          &.active, &:hover{
+          &:not(.all-themes):not(.current-theme):not(.more-categories).active, &:not(.all-themes):not(.current-theme):not(.more-categories):not(.more-categories):hover{
             &:after{ display:block; }
-            a{ color: $purple; }
+            &.tower-main-link a{ color: $purple; }
           }
 
           a{
@@ -110,13 +128,74 @@ header{
             font-size: 15px;
             color: $dark-gray;
           }
+
+          &.all-themes a{
+            font-weight: $bold;
+            color:$darker-gray;
+          }
+
+          &.current-theme a{
+            font-weight: $bold;
+            color:$purple;
+          }
         }
 
         @include m('theme'){
+          @include flexbox;
+          justify-content:center;
 
+          li{
+            margin-left:86px;
+          }
         }
         @include m('category'){
+          text-align:left;
+          white-space: nowrap;
 
+          li{
+            position:relative;
+            margin-left:59px;
+
+            &.more-categories{
+              display:none;
+              margin-left:12px;
+              height:100%;
+              width:40px;
+
+              &:hover{
+                .header-bottombar__submenu{ display: block; }
+              }
+
+              .icon-menu-more{
+                position:absolute;
+                @include center-content('all');
+                height:16px;
+              }
+
+              .header-bottombar__submenu{
+                display:none;
+                position:absolute;
+                top:55px;
+                right:0;
+                width:190px;
+                background-color:$white;
+                @include box-shadow(0 4px 6px 0 rgba(0,0,0,0.07));
+
+                li{
+                  display:block;
+                  margin-left:0;
+
+                  &.tower-main-link.active, &.tower-main-link:hover{
+                    &:after{ display:none !important; }
+                  }
+
+                  a{
+                    padding: 0 15px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
