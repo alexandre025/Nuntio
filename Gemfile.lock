@@ -221,6 +221,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    sentry-raven (2.4.0)
+      faraday (>= 0.7.6, < 1.0)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -298,6 +300,7 @@ DEPENDENCIES
   ruby-progressbar (~> 1.8.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sentry-raven (~> 2.4.0)
   simple_form (~> 3.5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
