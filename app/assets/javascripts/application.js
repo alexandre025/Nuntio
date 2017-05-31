@@ -11,7 +11,22 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ujs
 //= require lodash/core
-//= require rails-ujs
+//= require slick-carousel
 //= require turbolinks
+//= require_self
+//= require_tree ./components
+//= require_tree ./controllers
 //= require_tree .
+
+var App = {
+
+  ready: function (callback) {
+
+    $(document).on('turbolinks:load', function(){
+      callback.call(this);
+    });
+
+  }
+};

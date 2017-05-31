@@ -1,0 +1,49 @@
+.tower-list{
+  margin-bottom:57px;
+
+  @include e('title'){
+    @extend .list-title;
+    margin-bottom:34px;
+  }
+
+  @include e('slider'){
+    position:relative;
+    overflow-x:hidden;
+    padding:0 15px;
+    box-sizing:border-box;
+
+    @include m('card'){
+      float:left;
+      margin:10px 0;
+      margin-right:29px;
+
+      &:first-child{
+        margin-left:0;
+      }
+    }
+
+    .slick-arrow{
+      z-index:10;
+      position:absolute;
+      height:51px;
+      width:51px;
+      background-size:contain;
+      cursor:pointer;
+      @include center-content('y');
+
+      &.slick-arrow-prev{
+        left:-6px;
+        background-image:url(image_path('icons/icon-arrow-slider-prev.png'));
+      }
+      &.slick-arrow-next{
+        right:-6px;
+        background-image:url(image_path('icons/icon-arrow-slider-next.png'));
+      }
+
+      &.slick-disabled{
+        display:none !important;
+      }
+    }
+
+  }
+}

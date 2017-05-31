@@ -1,0 +1,15 @@
+<% current_sub ||= nil %>
+
+<div class="header-bottombar">
+  <% if [:towers_index].include? current_sub %>
+    <ul class="header-bottombar__towers header-bottombar__towers--theme">
+      <% Theme.all.each do |t| %>
+        <li><%= link_to t.name, theme_towers_path(t.id) %></li>
+      <% end %>
+    </ul>
+  <% elsif [:towers_theme, :towers_category].include? current_sub %>
+    <ul class="header-bottombar__towers header-bottombar__towers--category">
+
+    </ul>
+  <% end %>
+</div>

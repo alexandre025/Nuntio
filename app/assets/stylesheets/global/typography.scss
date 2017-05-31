@@ -1,0 +1,49 @@
+/* ------ GLOBAL ------ */
+a{
+  text-decoration:none;
+}
+
+/* ------ TITLES ------ */
+
+.header-menu-title{
+  font-family: $raleway;
+  font-weight: $extrabold;
+  font-size: 15px;
+  color: $darker-gray;
+  letter-spacing: 1px;
+}
+
+.footer-menu-link{
+  font-family: $raleway;
+  font-weight:$semibold;
+  font-size: 10px;
+  color: $darker-gray;
+  letter-spacing: 0.5px;
+}
+
+.list-title{
+  font-family: $raleway;
+  font-weight: $extrabold;
+  font-size: 25px;
+  color: $darker-gray;
+  letter-spacing: 1px;
+  margin-bottom:44px;
+}
+
+/* ------ LINKS ------ */
+
+.main-link{
+  border: 1px solid $purple;
+  border-radius: 100px;
+  font-family: $raleway;
+  font-weight:$extrabold;
+  font-size: 15px;
+  color: $purple;
+  letter-spacing: 1px;
+  padding:7px 22px;
+
+  &:hover{
+    color:$white;
+    background-color:$purple;
+  }
+}

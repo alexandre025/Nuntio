@@ -1,0 +1,119 @@
+/* ------ BEM ------ */
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+/* ------ MEDIA QUERIES ------ */
+@mixin desktop {
+  @media (max-width: #{$large-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+@mixin small-mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+/* ------ TRANSITIONS ------ */
+@mixin transition($params...) {
+  -webkit-transition: $params;
+  -moz-transition: $params;
+  -ms-transition: $params;
+  -o-transition: $params;
+  transition: $params;
+}
+/* ------ ANIMATIONS ------ */
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+@mixin animation($params...) {
+  -webkit-animation: #{$params};
+  -moz-animation: #{$params};
+  -ms-animation: #{$params};
+  -o-animation: #{$params};
+  animation: #{$params};
+}
+/* ------ TRANSFORM ------ */
+@mixin transform($params...) {
+  -webkit-transform: #{$params};
+  -moz-transform: #{$params};
+  -ms-transform: #{$params};
+  -o-transform: #{$params};
+  transform: #{$params};
+}
+@mixin transform-origin($params...) {
+  -webkit-transform-origin: #{$params};
+  -moz-transform-origin: #{$params};
+  -ms-transform-origin: #{$params};
+  -o-transform-origin: #{$params};
+  transform-origin: #{$params};
+}
+/* ------ BOX SHADOW ------ */
+@mixin box-shadow($params) {
+  -webkit-box-shadow: #{$params};
+  -moz-box-shadow: #{$params};
+  box-shadow: #{$params};
+}
+
+/* ------ DISPLAY ------ */
+@mixin flexbox() {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* ------ CENTERING ELEMENT ------ (DON'T FORGET TO ADD --> position: absolute;) */
+@mixin center-content($type) {
+  @if $type == "all" {
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    -moz-transform:translate(-50%, -50%);
+    -ms-transform:translate(-50%, -50%);
+    -o-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+  } @else if $type == "x" {
+    left:50%;
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+    transform:translateX(-50%);
+  } @else if $type == "y" {
+    top:50%;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    transform:translateY(-50%);
+  }
+}

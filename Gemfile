@@ -63,7 +63,7 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'maste
 
 gem 'stripe', '~> 2.8.0'
 
-gem 'rubocop-rails', '~> 0.2.1'
+gem 'rubocop-rails', '~> 0.4.0'
 
 gem 'money-rails', '~> 1.8.0'
 
@@ -76,3 +76,5 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'state_machines-activerecord', '~> 0.4.1'
 
 gem 'simple_form', '~> 3.5.0'
+
+gem 'ransack', '~> 1.8.2'
