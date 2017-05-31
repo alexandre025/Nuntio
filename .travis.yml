@@ -17,10 +17,6 @@ cache:
 before_install:
   - gem update --system
   - gem --version
-  - nvm install node
-  - node -v
-  - npm i -g yarn
-  - yarn
 
 before_script:
   - psql -c 'create database trombonne_test;' -U postgres
