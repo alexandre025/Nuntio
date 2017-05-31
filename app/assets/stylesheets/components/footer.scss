@@ -1,17 +1,49 @@
 footer{
-  height:117px;
   width:100%;
   background-color:$white;
   border-top: 1px solid #DDDDDD;
 
   .footer-container{
     @extend .grid;
+    padding-top:20px;
+    padding-bottom:30px;
+
+    .logo{
+      display:inline-block;
+      vertical-align:top;
+      font-family: $raleway;
+      font-weight:$extrabold;
+      font-size: 20px;
+      color: $light-black;
+      letter-spacing: 2px;
+      text-transform:uppercase;
+      width:212px;
+    }
 
     .footer-menu{
+      display:inline-block;
+      vertical-align:top;
+      margin-top:24px;
 
+      @include e('row'){
+        display:inline-block;
+        vertical-align:top;
+        width:238px;
+      }
+
+      @include e('link'){
+        display:block;
+        margin-top:16px;
+
+        &:first-child{
+          margin-top:0;
+        }
+      }
     }
 
     .footer-credits{
+      display:inline-block;
+      vertical-align:bottom;
       font-family: $raleway;
       font-weight:$semibold;
       font-size: 10px;

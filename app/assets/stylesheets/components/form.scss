@@ -1,0 +1,65 @@
+.main-form{
+  text-align:left;
+
+  &.main-form-modal{
+    width:360px;
+  }
+
+  .field{
+    position:relative;
+    margin-bottom:29px;
+
+    input, select, textarea{
+      width:100%;
+      font-family: $raleway;
+      font-weight:$medium;
+      font-size: 20px;
+      color: $dark-gray;
+      border: 1px solid $gray;
+      padding:0 18px;
+      box-sizing:border-box;
+      outline:none;
+
+      &:focus{
+        border-color:$purple;
+      }
+    }
+
+    input, select{
+      height:51px;
+    }
+
+    textarea{
+      min-height:102px;
+    }
+
+    input[type="password"]{
+      background-image:url(image_path('icons/icon-lock-gray.png'));
+      background-size: 12px 16px;
+      background-position: right 18px center;
+      background-repeat: no-repeat;
+      padding-right:44px;
+    }
+  }
+
+  .actions{
+    position:relative;
+
+    input[type="submit"]{
+      margin-top:33px;
+      cursor:pointer;
+      background-color: $purple;
+      border:1px solid $purple;
+      border-radius: 100px;
+      font-family: $raleway;
+      font-weight:$extrabold;
+      font-size: 15px;
+      color: $white;
+      letter-spacing: 1px;
+      height:46px;
+      width:100%;
+      outline:none;
+    }
+  }
+
+}

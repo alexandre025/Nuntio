@@ -29,10 +29,17 @@ Towers : <br>
       <h2 class="tower-list__title">Les plus populaires du moment</h2>
 
       <div class="tower-list__slider">
-        <% 10.times do |i| %>
-          <div class="tower-card tower-list__slider--card"><%= i %></div>
+        <% 10.times do |s| %>
+          <div class="tower-card tower-list__slider--card">
+            <a href="#">
+              <%= s %>
+            </a>
+          </div>
         <% end %>
       </div>
+
+      <a href="javascript:void(0);" class="customSliderLink-<%= i %> tower-list__slider-arrow arrow-prev" data-target="prev"></a>
+      <a href="javascript:void(0);" class="customSliderLink-<%= i %> tower-list__slider-arrow arrow-next" data-target="next"></a>
     </div>
   <% end %>
 

@@ -1,6 +1,12 @@
 .tower-card{
-  height:395px;
-  width:263px;
+  height:395px !important;
+  width:263px !important;
   background-color:$white;
   @include box-shadow(0 0 3px 2px rgba(0,0,0,0.05));
+
+  & > a{
+    display:block;
+    height:100%;
+    width:100%;
+  }
 }
