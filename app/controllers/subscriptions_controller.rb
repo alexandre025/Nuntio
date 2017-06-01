@@ -41,7 +41,7 @@ class SubscriptionsController < ApplicationController
 
   def simulate
     subscription = Subscription.new(subscription_params)
-    render json: { price_with_selected_commitment: subscription.calculate_amount_for_commitment.to_d, final_price: subscription.calculate_amount_for_commitment_and_quantity.to_d }
+    render json: { quantity_discount_percent: subscription.quantity_discount_percent, amount: subscription.calculate_amount.to_d, total_discount: subscription.total_discount.to_d }
   end
 
   private

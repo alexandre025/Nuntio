@@ -1,4 +1,6 @@
-<%= simple_form_for @subscription do |f| %>
+<%= simple_form_for @subscription, url: edit_subscription_path do |f| %>
+  <%= f.input :owner_id, as: :hidden %>
+  <%= f.input :tower_id, as: :hidden %>
   <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons %>
   <%= f.input :quantity %>
   <%= f.button :submit %>

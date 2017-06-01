@@ -26,6 +26,10 @@ class Subscription < ApplicationRecord
 
     end
 
+    state :payment do
+
+    end
+
     state :complete do
 
     end
@@ -34,37 +38,42 @@ class Subscription < ApplicationRecord
 
   # Methods
 
-  def calculate_and_set_amount
-    self.amount = calculate_amount_for_commitment_and_quantity
+  def calculate_amount
+    tower.price_per_month - total_discount
   end
 
-  def calculate_amount_for_commitment
-    base_price = tower.price_per_month
-    final_price = base_price
+  def total_discount
+    tower.price_per_month * (commitment_discount_percent + quantity_discount_percent)
+  end
+
+  def commitment_discount_percent
+    discount = 0
 
     case commitment
     when 'biannual'
-      final_price = base_price * 0.95
+      discount = 0.05
     when 'yearly'
-      final_price = base_price * 0.90
+      discount = 0.1
     end
 
-    return final_price
+    return discount
   end
 
-  def calculate_amount_for_commitment_and_quantity
-    final_price = calculate_amount_for_commitment
+    def quantity_discount_percent
+      self.quantity ||= 1
+      discount = 0
 
-    if quantity >= 2 && quantity <= 5
-      final_price = final_price * 0.95
-    elsif quantity >= 6 && quantity <= 20
-      final_price = final_price * 0.90
-    elsif quantity >= 21 && quantity <= 50
-      final_price = final_price * 0.85
-    elsif quantity >= 51
-      final_price = final_price * 0.80
+      if quantity >= 2 && quantity <= 5
+        discount = 0.05
+      elsif quantity >= 6 && quantity <= 20
+        discount = 0.1
+      elsif quantity >= 21 && quantity <= 50
+        discount = 0.15
+      elsif quantity >= 51
+        discount = 0.2
+      end
+
+      return discount
     end
 
-    return final_price * quantity
-  end
 end
