@@ -40,14 +40,13 @@ class SubscriptionsController < ApplicationController
   end
 
   def simulate
-    # Simulate prices for subscription_params
-    # Return JSON
-    render json: { price_with_selected_commitment: '', final_price: '' }
+    subscription = Subscription.new(subscription_params)
+    render json: { price_with_selected_commitment: subscription.calculate_amount_for_commitment.to_d, final_price: subscription.calculate_amount_for_commitment_and_quantity.to_d }
   end
 
   private
 
     def subscription_params
-      params.require(:subscription).permit(:tower_id, :owner_id, :state)
+      params.require(:subscription).permit(:tower_id, :owner_id, :state, :commitment, :quantity)
     end
 end

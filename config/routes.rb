@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'reports/:id', to: 'reports#show'
 
   resource :subscription, only: [:create, :edit, :update] do
-
+    post 'simulate'
+    get 'payment'
   end
 
   get ':id', to: 'towers#show', as: :tower

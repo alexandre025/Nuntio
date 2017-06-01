@@ -35,14 +35,14 @@ class Subscription < ApplicationRecord
   # Methods
 
   def calculate_and_set_amount
-    self.amount = calculate_amount_for(commitment, quantity)
+    self.amount = calculate_amount_for_commitment_and_quantity
   end
 
-  def calculate_amount_for_commitment(selected_commitment)
+  def calculate_amount_for_commitment
     base_price = tower.price_per_month
     final_price = base_price
 
-    case selected_commitment
+    case commitment
     when 'biannual'
       final_price = base_price * 0.95
     when 'yearly'
@@ -52,19 +52,19 @@ class Subscription < ApplicationRecord
     return final_price
   end
 
-  def calculate_amount_for(selected_commitment, selected_quantity = 1)
-    final_price = calculate_amount_for_commitment(selected_commitment)
+  def calculate_amount_for_commitment_and_quantity
+    final_price = calculate_amount_for_commitment
 
-    if selected_quantity >= 2 && selected_quantity <= 5
+    if quantity >= 2 && quantity <= 5
       final_price = final_price * 0.95
-    elsif selected_quantity >= 6 && selected_quantity <= 20
+    elsif quantity >= 6 && quantity <= 20
       final_price = final_price * 0.90
-    elsif selected_quantity >= 21 && selected_quantity <= 50
+    elsif quantity >= 21 && quantity <= 50
       final_price = final_price * 0.85
-    elsif selected_quantity >= 51
+    elsif quantity >= 51
       final_price = final_price * 0.80
     end
 
-    return final_price
+    return final_price * quantity
   end
 end
