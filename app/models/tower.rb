@@ -20,6 +20,8 @@ class Tower < ApplicationRecord
 
   FREQUENCIES = %w(monthly).freeze
 
+  GRADES = %w(beginner intermediate advanced).freeze
+
   # Validators
 
   validates :category, :title, :description, presence: true
