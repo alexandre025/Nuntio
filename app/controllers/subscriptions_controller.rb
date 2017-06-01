@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
   def edit
     # We use find_by because we don't want to raise an error if record not found
     if @subscription = Subscription.find_by(id: session[:current_subscription_id])
-
+      @subscription.update(state: :draft) unless @subscription.draft?
     else
       redirect_to dashboard_path
     end
@@ -32,7 +32,7 @@ class SubscriptionsController < ApplicationController
     if subscription.draft?
       subscription.update(subscription_params)
       subscription.to_payment!
-      redirect_to subscription_payment_path
+      return redirect_to payment_subscription_path
     elsif subscription.payment?
       # Proceed payment
       # redirect to dashboard

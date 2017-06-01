@@ -30,8 +30,16 @@ class Subscription < ApplicationRecord
 
     end
 
-    state :complete do
+    state :confirmed do
 
+    end
+
+    event :to_payment do
+      transition draft: :payment
+    end
+
+    before_transition draft: :payment do |subscription|
+      subscription.amount = subscription.calculate_amount
     end
 
   end
