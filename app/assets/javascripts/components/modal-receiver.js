@@ -19,6 +19,12 @@ App.ready(function(){
         $(document).trigger('modal:init', elem);
     });
 
+    // $('#modal-receiver .modal-close').on('click', function(e){
+    //   console.log('close');
+    //   $('#modal-receiver').find('.modal').hide();
+    //   $('#modal-receiver').html('');
+    // });
+
 });
 
 // Init ajax:success listener

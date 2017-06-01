@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery-ujs
 //= require lodash/core
-//= require slick-carousel
+//= require sudoslider/js/jquery.sudoSlider.min.js
 //= require turbolinks
 //= require_self
 //= require_tree ./components

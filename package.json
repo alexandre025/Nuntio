@@ -30,6 +30,7 @@
     "sass-loader": "^6.0.5",
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.18.1",
+    "sudoslider": "^3.4.10",
     "webpack": "^2.6.1",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0"

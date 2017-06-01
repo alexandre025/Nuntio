@@ -13,7 +13,7 @@
       <li class="all-themes"><%= link_to '< Tous les thèmes', towers_path %></li>
       <li class="current-theme"><%= link_to Theme.find(theme_id).name, theme_towers_path(theme_id) %></li>
       <% Category.where(theme: theme_id).all.each do |c| %>
-        <li class="tower-main-link"><%= link_to c.name, category_towers_path(c.theme_id, c.id) %></li>
+        <li class="<%= 'active' if c.id == category_id.to_i %> tower-main-link"><%= link_to c.name, category_towers_path(c.theme_id, c.id) %></li>
       <% end %>
       <li class="more-categories">
         <%= image_tag 'icons/icon-menu-three-points.png', class: 'icon-menu-more' %>

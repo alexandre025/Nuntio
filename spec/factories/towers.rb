@@ -5,6 +5,7 @@ FactoryGirl.define do
     price_per_month { Faker::Number.decimal(2, 2) }
     locales [:fr]
     frequency Tower::FREQUENCIES.first
+    grade Tower::GRADES.first
 
     trait :with_category do
       association :category, factory: [:category, :with_theme]

@@ -2271,7 +2271,7 @@ jquery-ujs@^1.2.2:
   dependencies:
     jquery ">=1.8.0"
 
-jquery@>=1.7.2, jquery@>=1.8.0, jquery@^3.2.1:
+jquery@>=1.7, jquery@>=1.7.2, jquery@>=1.8.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -4111,6 +4111,12 @@ style-loader@^0.18.1:
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
+
+sudoslider@^3.4.10:
+  version "3.4.10"
+  resolved "https://registry.yarnpkg.com/sudoslider/-/sudoslider-3.4.10.tgz#ca2463db92653448364e06b7e1d29597b91918b1"
+  dependencies:
+    jquery ">=1.7"
 
 sugarss@^1.0.0:
   version "1.0.0"

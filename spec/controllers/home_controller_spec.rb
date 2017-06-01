@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
-  render_views
+  # render_views
 
   describe 'GET #index' do
 

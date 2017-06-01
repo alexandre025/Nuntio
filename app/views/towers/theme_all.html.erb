@@ -3,7 +3,7 @@
 <%- end -%>
 
 <%- content_for :header_sub_nav_bar do -%>
-  <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_theme } %>
+  <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_theme, category_id: nil } %>
 <%- end -%>
 
 <!--
@@ -33,7 +33,31 @@ Towers : <br>
 
 <div class="tower-container">
 
-  <div class="tower-container__top">
+  <div class="tower-list-full">
+    <div class="tower-list-full__filters">
+      <%#= search_form_for @q, url: theme_towers_path(all: true), data: { remote: true } do |f| %>
+        <%#= f.select :activity_schedule_season_id_eq, Lump::Season.order('date_begin ASC').map { |s| [s.label, s.id] }, { include_blank: 'Fourchette de prix' }, {onchange: 'this.form.submit();'} %>
+      <%# end %>
+    </div>
+
+    <div class="tower-list-full__header">
+      <div class="tower-list-full__header--left">
+        <h2 class="list-title">Les offres de <%= @theme.name %></h2>
+      </div>
+      <div class="tower-list-full__header--right">
+
+      </div>
+    </div>
+
+    <div class="tower-list-full__cards">
+      <% 10.times do |s| %>
+        <div class="tower-card tower-list-full__cards--card">
+          <a href="#">
+            <%= s %>
+          </a>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </div>

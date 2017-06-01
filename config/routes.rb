@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'towers/:id', to: 'towers#theme', as: :theme_towers
   get 'towers/:theme_id/:id', to: 'towers#category', as: :category_towers
 
+  get 'reports/:id', to: 'reports#show'
+
   resource :subscription, only: [:create, :edit, :update] do
 
   end
