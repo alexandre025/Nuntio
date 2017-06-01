@@ -30,11 +30,7 @@ Towers : <br>
 
       <div class="tower-list__slider">
         <% 10.times do |s| %>
-          <div class="tower-card tower-list__slider--card">
-            <a href="#">
-              <%= s %>
-            </a>
-          </div>
+          <%= render partial: 'towers/tower_card', locals: {} %>
         <% end %>
       </div>
 

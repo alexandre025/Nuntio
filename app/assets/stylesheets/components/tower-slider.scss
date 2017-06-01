@@ -12,7 +12,7 @@
     padding:0 15px;
     box-sizing:border-box;
 
-    @include m('card'){
+    .tower-card{
       float:left;
       margin:10px 0 !important;
       margin-right:29px !important;

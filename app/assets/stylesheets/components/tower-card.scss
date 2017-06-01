@@ -5,8 +5,154 @@
   @include box-shadow(0 0 3px 2px rgba(0,0,0,0.05));
 
   & > a{
+    position:relative;
     display:block;
     height:100%;
     width:100%;
+  }
+
+  @include e('header'){
+    height:139px;
+    width:100%;
+    background:$gray no-repeat center;
+    background-size:cover;
+  }
+
+  @include e('content'){
+    position:relative;
+    box-sizing:border-box;
+    padding:18px;
+    padding-top:12px;
+    padding-bottom:60px;
+    height:calc(100% - 139px);
+
+    @include m('main'){
+
+      .theme{
+        font-family: $raleway;
+        font-weight:$bold;
+        font-size: 10px;
+        color: $gray;
+        line-height: 27px;
+        text-transform:uppercase;
+      }
+
+      .title{
+        font-family: $raleway;
+        font-weight:$extrabold;
+        font-size: 15px;
+        color: $darker-gray;
+        letter-spacing: 0.5px;
+        line-height: 20px;
+        margin-top:5px;
+      }
+
+      .attributes{
+        margin:7px 0;
+        margin-left:2px;
+
+        .frequency, .level{
+          display:inline-block;
+          vertical-align:middle;
+          font-family: $raleway;
+          font-weight:$medium;
+          font-size: 10px;
+          color: $darker-gray;
+          line-height: 27px;
+
+          img{
+            display:inline-block;
+            vertical-align:middle;
+            height:14px;
+            margin-right:6px;
+          }
+          span{
+            display:inline-block;
+            vertical-align:middle;
+          }
+        }
+
+        .frequency{
+
+        }
+
+        .level{
+          margin-left:22px;
+
+        }
+      }
+
+      .description{
+        height:45px;
+        width:100%;
+        font-family: $raleway;
+        font-weight:$regular;
+        font-size: 12px;
+        color: $dark-gray;
+        line-height: 15px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .rating{
+        font-family: $raleway;
+        font-weight:$medium;
+        font-size: 12px;
+        color: $dark-gray;
+        line-height: 27px;
+        margin-top:6px;
+
+        .rating-stars, p{
+          cursor:pointer;
+          display:inline-block;
+          vertical-align:middle;
+        }
+
+        p{
+          margin-left:8px;
+        }
+      }
+
+    }
+
+    @include m('footer'){
+      position:absolute;
+      bottom:0;
+      @include center-content('x');
+      height:44px;
+      line-height:38px;
+      width:calc(100% - 36px);
+      border-top:1px solid $gray;
+
+      .author{
+        display:inline-block;
+        vertical-align:middle;
+        font-family: $raleway;
+        font-weight:$medium;
+        font-size: 11px;
+        color: $dark-gray;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width:calc(100% - 100px);
+      }
+
+      .price{
+        display:inline-block;
+        vertical-align:middle;
+        float:right;
+        font-family: $raleway;
+        font-weight:$bold;
+        font-size: 15px;
+        color: $purple;
+        letter-spacing: 0.5px;
+
+        span{
+          font-size:12px;
+        }
+      }
+    }
+
   }
 }
