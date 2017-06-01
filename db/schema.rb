@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525113444) do
+ActiveRecord::Schema.define(version: 20170531143209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,12 +90,14 @@ ActiveRecord::Schema.define(version: 20170525113444) do
     t.string "state", limit: 45
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "EUR", null: false
-    t.string "recurrence"
+    t.string "commitment"
     t.datetime "canceled_at"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id"
+    t.datetime "confirmed_at"
+    t.integer "quantity"
     t.index ["owner_id"], name: "index_subscriptions_on_owner_id"
     t.index ["tower_id"], name: "index_subscriptions_on_tower_id"
   end
