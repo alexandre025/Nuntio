@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TowersController, type: :controller do
-  render_views
+  # render_views
 
   login_user
 
