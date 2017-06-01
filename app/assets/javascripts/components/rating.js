@@ -10,11 +10,27 @@ App.ready(function(){
             rating: rating,
             maxValue: 5,
             spacing: '1px',
-            normalFill: '#C6C6C6',
-            ratedFill: '#FFDE01',
+            normalFill: '#DBDBDB',
+            ratedFill: '#29339E',
             starWidth: '12px'
         });
 
     });
+
+    $('.report-container__content').find('.rating-stars').each(function(){
+          var elem = this;
+          var rating = $(elem).data('rating');
+
+          $(elem).rateYo({
+              numStars: 5,
+              maxValue: 5,
+              spacing: '2px',
+              normalFill: '#DBDBDB',
+              ratedFill: '#29339E',
+              starWidth: '26px',
+              fullStar: true
+          });
+
+      });
 
 });

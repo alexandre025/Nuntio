@@ -53,7 +53,7 @@ Towers : <br>
       <% 10.times do |s| %>
         <div class="tower-card">
           <a href="#">
-            <%= s %>
+            <%= render partial: 'towers/tower_card', locals: {} %>
           </a>
         </div>
       <% end %>
