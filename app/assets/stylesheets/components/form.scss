@@ -7,13 +7,13 @@
 
   .field{
     position:relative;
-    margin-bottom:29px;
+    margin-bottom:25px;
 
     input, select, textarea{
       width:100%;
       font-family: $raleway;
       font-weight:$medium;
-      font-size: 20px;
+      font-size: 16px;
       color: $dark-gray;
       border: 1px solid $gray;
       padding:0 18px;
@@ -26,7 +26,7 @@
     }
 
     input, select{
-      height:51px;
+      height:49px;
     }
 
     textarea{

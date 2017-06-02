@@ -2,6 +2,16 @@
   <%= render partial: 'shared/header_nav_bar', locals: { current: :reports } %>
 <%- end -%>
 
+<div class="report-header header-behind is-hidden">
+  <div class="report-header-container">
+    <%= link_to 'Toasted.', root_path, class: 'logo' %>
+    <hr>
+    <div class="title">
+      <h2>L’ indispensable de la VR avec Oculus avec plein de trucs</h2>
+    </div>
+  </div>
+</div>
+
 <div class="report-container">
 
   <div class="report-container__header">
@@ -24,7 +34,7 @@
   </div>
 
   <div class="report-container__content">
-    <p class="title">L’ indispensable de la VR avec Oculus avec plein de trucs</p>
+    <h2 class="title">L’ indispensable de la VR avec Oculus avec plein de trucs</h2>
     <div class="text">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet, diam at rutrum tincidunt, tortor leo vulputate risus, et tincidunt libero lectus sed nunc. Vivamus imperdiet augue quis diam condimentum molestie. Aliquam tincidunt finibus ligula, vel dictum ante sodales vitae. Morbi viverra et turpis lobortis lobortis. Proin bibendum magna a lorem aliquet sodales. Sed mattis, magna in venenatis porta, massa odio accumsan orci, non varius ante enim sit amet nulla. Nunc at luctus eros.
@@ -46,7 +56,36 @@
     <div class="rating">
       <p>Vous avez aimé ? Vous aussi donnez votre avis !</p>
       <div class="rating-stars"></div>
-      <p class="comments">342 avis</p>
+      <p class="rating-number">342 avis</p>
+    </div>
+
+    <div class="comments-container">
+      <p class="comments-container__count">4 commentaires</p>
+
+      <div class="comments-container__form">
+        <form action="#">
+          <textarea name="" id="" placeholder="Ecrire un commentaire"></textarea>
+          <input type="submit" value="Commenter">
+        </form>
+      </div>
+
+      <div class="comments-container__list">
+        <ul>
+          <% 3.times do |i| %>
+            <li>
+              <div class="comments-container__list--header">
+                <div class="profile"></div>
+                <p class="name">Alexandre Ferraille</p>
+                <p class="date">Il y a 2 jours</p>
+              </div>
+              <p class="comments-container__list--text">
+                Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+              </p>
+            </li>
+          <% end %>
+        </ul>
+        <a href="#" class="more">Charger plus de commentaires</a>
+      </div>
     </div>
   </div>
 

@@ -2,7 +2,7 @@ App.ready(function(){
 
   $('.tower-card').find('.rating-stars').each(function(){
         var elem = this;
-        var rating = $(elem).data('rating');
+        var rating = Math.round(2.3/0.5) * 0.5;
 
         $(elem).rateYo({
             readOnly: true,

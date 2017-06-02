@@ -27,10 +27,20 @@
     z-index:10;
     position:absolute;
     bottom:180px;
-    height:51px;
-    width:51px;
+    height:44px;
+    width:44px;
     background-size:contain;
     cursor:pointer;
+    border:1px solid $lighter-gray;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+    border-radius:100%;
+    background-color:$white;
+    @include transition(box-shadow 0.2s, bottom 0.2s);
+
+    &:active{
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+      bottom:178px;
+    }
 
     &.arrow-prev{
       left:-6px;

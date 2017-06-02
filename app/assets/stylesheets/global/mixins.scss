@@ -91,6 +91,27 @@
   display: flex;
 }
 
+/* ------ PLACEHOLDER COLOR ------ */
+@mixin placeholder-color($params) {
+  ::-webkit-input-placeholder {
+      color: #{$params};
+  }
+  :-moz-placeholder {
+     color: #{$params};
+     opacity:  1;
+  }
+  ::-moz-placeholder {
+     color: #{$params};
+     opacity:  1;
+  }
+  :-ms-input-placeholder {
+     color: #{$params};
+  }
+  ::-ms-input-placeholder {
+     color: #{$params};
+  }
+}
+
 /* ------ CENTERING ELEMENT ------ (DON'T FORGET TO ADD --> position: absolute;) */
 @mixin center-content($type) {
   @if $type == "all" {

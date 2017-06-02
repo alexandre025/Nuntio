@@ -5,6 +5,61 @@
 /* ------ CONTROLLERS ------ */
 
 #reports_show{
+
+  .report-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:98;
+    background-color:$white;
+    border-bottom: 1px solid #E4E4E4;
+    @include box-shadow(0 1px 6px 0 rgba(0,0,0,0.11));
+
+    .report-header-container{
+      @extend .grid;
+      position:relative;
+      height:84px;
+      line-height:84px;
+
+      .logo{
+        @extend .main-logo;
+        display:inline-block;
+        vertical-align:middle;
+        width:195px;
+      }
+
+      hr{
+        display:inline-block;
+        vertical-align:middle;
+        height:58px;
+        width:1px;
+        background-color:$light-gray;
+        border:0;
+      }
+
+      .title{
+        position:absolute;
+        @include center-content('all');
+        font-family: $raleway;
+        font-weight:$bold;
+        font-size: 20px;
+        color: $darker-gray;
+        letter-spacing: 1.5px;
+        line-height: 26px;
+        max-width:620px;
+        text-align:center;
+
+        h2{
+          overflow:hidden;
+          max-height:52px;
+        }
+
+      }
+
+    }
+  }
+
   .report-container{
     @extend .grid;
     width:750px;
@@ -94,7 +149,7 @@
         margin:0 auto;
 
         h1, h2, h3, h4, h5, h6{
-          font-family: 'Times New Roman', Georgia, Times, serif;
+          font-family: $times-new-roman;
           font-weight:bold;
           font-size: 25px;
           color: $darker-gray;
@@ -104,7 +159,7 @@
         }
 
         p{
-          font-family: 'Times New Roman', Georgia, Times, serif;
+          font-family: $times-new-roman;
           font-size: 21px;
           color: $darker-gray;
           letter-spacing: 0.5px;
@@ -136,9 +191,13 @@
           margin-bottom:8px;
         }
 
-        .comments{
+        .rating-numbers{
           font-weight:$bold;
         }
+      }
+
+      .comments-container{
+        margin-top:74px;
       }
     }
   }
