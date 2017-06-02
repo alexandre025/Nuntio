@@ -48,3 +48,31 @@ a{
     background-color:$purple;
   }
 }
+
+.return-back-link{
+  height:32px;
+  line-height: 32px;
+  width:165px;
+  background-color: $white;
+  border: 1px solid $light-gray;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05);
+  border-radius: 4px;
+  text-align:center;
+
+  img{
+    display:inline-block;
+    vertical-align:middle;
+    height:14px;
+    margin-right:6px;
+  }
+
+  span{
+    display:inline-block;
+    vertical-align:middle;
+    font-family: $raleway;
+    font-weight:$medium;
+    font-size: 10px;
+    color: $darker-gray;
+    line-height: 27px;
+  }
+}
