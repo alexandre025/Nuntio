@@ -5,6 +5,7 @@ App.ready(function(){
         $receiver = $(this);
         $receiver.find('.modal').hide();
         $receiver.html(data);
+        setModalPosition($receiver.find('.modal'));
         $receiver.find('.modal').show();
 
         $form = $receiver.find('form');
@@ -42,3 +43,12 @@ $(document).on('modal:init', function(e, elem) {
       $('#modal-receiver').trigger('modal:load', data, status);
     });
 });
+
+function setModalPosition(modal){
+  var modalContainer = modal.find('.modal-container');
+  if(modalContainer.height() > $(window).height() - 120){
+    modalContainer.addClass('high-modal');
+  } else{
+    modalContainer.removeClass('high-modal');
+  }
+}

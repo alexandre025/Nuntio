@@ -31,12 +31,19 @@
       <div class="field">
         <%= f.password_field :password, autocomplete: "off", placeholder: 'Mot de passe' %>
         <% if @minimum_password_length %>
-          <br /><em>(<%= @minimum_password_length %> characters minimum)</em>
+          <!--<br /><em>(<%#= @minimum_password_length %> characters minimum)</em>-->
         <% end %>
       </div>
 
       <div class="field">
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirmation du mot de passe' %>
+      </div>
+
+      <div class="field">
+        <%= f.fields_for :user do |u| %>
+          <%= u.check_box :terms %>
+          <%= u.label :terms, "J'accepte les #{ link_to("conditions générales", "#") }".html_safe %>
+        <% end %>
       </div>
 
       <div class="actions">

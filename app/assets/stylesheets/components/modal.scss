@@ -6,11 +6,22 @@
   height:100%;
   width:100%;
   background-color: rgba(48,50,52,0.69);
+  overflow-y:scroll;
 }
 
 .modal-container{
   position:absolute;
   @include center-content('all');
+  width:486px;
+  box-sizing:border-box;
+
+  &.high-modal{
+    position:relative;
+    top:inherit;
+    @include center-content('x');
+    margin-top:90px;
+    margin-bottom:90px;
+  }
 }
 
 .modal-alternative{
