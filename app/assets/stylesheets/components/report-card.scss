@@ -1,0 +1,154 @@
+.report-card{
+  position:relative;
+  height:199px !important;
+  width:682px !important;
+  background-color:$white;
+  box-sizing:border-box;
+  padding: 17px 19px;
+  @include box-shadow(0 0 3px 2px rgba(0,0,0,0.05));
+  opacity:0.6;
+  @include transition(opacity 0.5s);
+
+  &:hover{
+    opacity:1;
+  }
+
+  &.new-card{
+    opacity:1;
+
+    .icon-new{
+      display:block;
+    }
+  }
+
+  & > a{
+    position:relative;
+    display:block;
+    height:100%;
+    width:100%;
+  }
+
+  .icon-new{
+    display:none;
+    position:absolute;
+    top:10px;
+    right:10px;
+    height:11px;
+    width:11px;
+    border-radius:100%;
+    background-color:$purple;
+  }
+
+  @include e('left'){
+    display:inline-block;
+    vertical-align:top;
+    position:relative;
+    height:100%;
+    width:238px;
+    background:$gray no-repeat center;
+    background-size:cover;
+  }
+
+  @include e('right'){
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    height:100%;
+    width:calc(100% - 285px);
+    margin-left:41px;
+    box-sizing:border-box;
+
+    .title{
+      font-family: $raleway;
+      font-weight:$extrabold;
+      font-size: 15px;
+      color: $darker-gray;
+      letter-spacing: 0.5px;
+      line-height: 20px;
+      height:20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .details{
+      font-family: $raleway;
+      font-weight:$medium;
+      font-size: 10px;
+      color: $darker-gray;
+
+      .author{
+        font-family: $raleway;
+        font-weight:$semibold;
+        font-size: 12px;
+        color: $darker-gray;
+        line-height: 27px;
+      }
+    }
+
+    .time{
+      font-family: $raleway;
+      font-weight:$medium;
+      font-size: 10px;
+      color: $darker-gray;
+      margin-bottom:8px;
+    }
+
+    .description{
+      font-family: $raleway;
+      font-weight:$light;
+      font-size: 12px;
+      color: $dark-gray;
+      line-height: 17px;
+      height:68px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .more{
+        font-weight:$bold;
+        color:$purple;
+        text-decoration:underline;
+      }
+    }
+
+    .bottom{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+
+      .date{
+        display:inline-block;
+        vertical-align:middle;
+        font-family: $raleway;
+        font-weight:$medium;
+        font-size: 10px;
+        color: $darker-gray;
+        line-height: 27px;
+      }
+
+      .rating{
+        display:inline-block;
+        vertical-align:middle;
+        float:right;
+        font-family: $raleway;
+        font-weight:$regular;
+        font-size: 12px;
+        color: $dark-gray;
+        line-height: 27px;
+
+        .rating-stars, p{
+          cursor:pointer;
+          display:inline-block;
+          vertical-align:middle;
+        }
+
+        p{
+          margin-left:8px;
+          width:48px;
+        }
+      }
+
+    }
+  }
+
+}

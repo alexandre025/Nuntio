@@ -1,6 +1,7 @@
 App.ready(function(){
 
-  $('.tower-card').find('.rating-stars').each(function(){
+  // TOWER CARD & REPORT CARD
+  $('.tower-card, .report-card').find('.rating-stars').each(function(){
         var elem = this;
         var rating = Math.round(2.3/0.5) * 0.5;
 
@@ -17,6 +18,7 @@ App.ready(function(){
 
     });
 
+    // REPORT SHOW
     $('.report-container__content').find('.rating-stars').each(function(){
           var elem = this;
           var rating = $(elem).data('rating');
