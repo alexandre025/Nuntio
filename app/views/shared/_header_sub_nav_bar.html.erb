@@ -9,8 +9,8 @@
     </ul>
   <% elsif [:towers_theme, :towers_category].include? current_sub %>
     <ul class="header-bottombar__towers header-bottombar__towers--category">
-      <% theme_id = params[:theme_id] ? params[:theme_id] : params[:id]
-        theme = Theme.friendly.find(theme_id)
+      <%
+        theme = category ? Category.friendly.find(category).theme : Theme.friendly.find(params[:id])
       %>
       <li class="all-themes"><%= link_to '< Tous les thèmes', towers_path %></li>
       <li class="current-theme <%= 'active' if category.nil? %>"><%= link_to theme.name, theme_towers_path(theme) %></li>

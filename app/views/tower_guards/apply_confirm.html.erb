@@ -1,0 +1,22 @@
+<% unless request.xhr? %>
+  <%- content_for :header_nav_bar do -%>
+    <%= render partial: 'shared/header_nav_bar', locals: { current: nil } %>
+  <%- end -%>
+  <div class="modal-alternative">
+<% else %>
+  <%= image_tag 'icons/icon-close-black.png', class: 'modal-close', data: { dismiss: 'modal' } %>
+<% end %>
+
+<h2 class="modal-title has-description">Merci !</h2>
+
+<p class="modal-big-description">
+  Votre demande a bien été prise en compte !
+  Nous reviendrons vers vous très rapidement !
+</p>
+
+<a href="#" class="modal-button" data-dismiss="modal">Fermer</a>
+
+
+<% unless request.xhr? %>
+  </div>
+<% end %>
