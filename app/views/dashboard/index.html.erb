@@ -2,4 +2,44 @@
   <%= render partial: 'shared/header_nav_bar', locals: { current: :towers } %>
 <%- end -%>
 
-<h1>Dashboard <%= current_user.email %></h1>
+<div class="dashboard-container">
+
+  <h2 class="dashboard-container__title">Tableau de bord</h2>
+
+  <div class="dashboard-container__filters">
+    <form class="search">
+      <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
+      <input type="text" placeholder="Rechercher parmi vos abonnements" />
+    </form>
+  </div>
+
+  <div class="dashboard-container__list">
+
+    <ul>
+      <div class="list-title">
+        <p>2 <span class="light">non lue(s)</span></p>
+        <hr>
+      </div>
+      <% 2.times do |r| %>
+        <li><%= render partial: 'reports/report_card', locals: { new: true } %></li>
+      <% end %>
+
+      <div class="list-title">
+        <p>Mai 2017</p>
+        <hr>
+      </div>
+      <% 2.times do |r| %>
+        <li><%= render partial: 'reports/report_card', locals: { new: false } %></li>
+      <% end %>
+
+      <div class="list-title">
+        <p>Avril 2017</p>
+        <hr>
+      </div>
+      <% 2.times do |r| %>
+        <li><%= render partial: 'reports/report_card', locals: { new: false } %></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

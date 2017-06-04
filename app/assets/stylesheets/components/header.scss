@@ -1,35 +1,40 @@
 header{
+  position:fixed;
+  top:0;
+  left:0;
   z-index:99;
   width:100%;
   background-color:$white;
   border-bottom: 1px solid #E4E4E4;
   @include box-shadow(0 1px 6px 0 rgba(0,0,0,0.11));
 
+  @include transform(translateZ(0));
+	will-change: transform;
+	@include transition(transform .5s);
+
+	&.is-hidden {
+		@include transform(translateY(-100%));
+	}
+
   .header-container{
     @extend .grid;
 
     .header-mainbar{
+      z-index:101;
       position:relative;
       height:84px;
       width:100%;
       line-height:84px;
 
       .logo{
-        display:inline-block;
-        vertical-align:middle;
-        font-family: $raleway;
-        font-weight:$extrabold;
-        font-size: 20px;
-        color: $light-black;
-        letter-spacing: 2px;
-        text-transform:uppercase;
+        @extend .main-logo;
       }
 
       .search{
         position:relative;
         display:inline-block;
         vertical-align:middle;
-        margin-left:68px;
+        margin-left:60px;
 
         .icon-search{
           position:absolute;
@@ -47,15 +52,17 @@ header{
           letter-spacing: 1px;
           border:0;
           border-bottom: 2px solid $light-gray;
-          width:417px;
+          width:408px;
           padding:9px 0;
           padding-left:34px;
           padding-right:16px;
           box-sizing:border-box;
+          outline:none;
         }
       }
 
       @include e('menu'){
+        position:relative;
         display:inline-block;
         vertical-align:middle;
         float:right;
@@ -68,7 +75,13 @@ header{
 
           &:first-child{ margin-left:0; }
 
-          a{
+          &.has-submenu:hover{
+            .header-mainbar__submenu{
+              display:block;
+            }
+          }
+
+          & > p, & > a{
             @extend .header-menu-title;
             position:relative;
 
@@ -87,8 +100,35 @@ header{
           }
         }
       }
+
+      @include e('submenu'){
+        display:none;
+        position:absolute;
+        top:56px;
+        right:0;
+        width:190px;
+        background-color:$white;
+        @include box-shadow(0 4px 6px 0 rgba(0,0,0,0.07));
+
+        li{
+          display:block;
+          margin-left:0;
+
+          a{
+            display:block;
+            height:100%;
+            padding: 0 15px;
+
+            &:hover{
+              color:$purple;
+            }
+          }
+        }
+      }
     }
     .header-bottombar{
+      position:relative;
+      z-index:100;
       display:none;
       height:55px;
       width:100%;
@@ -135,9 +175,9 @@ header{
             color:$darker-gray;
           }
 
-          &.current-theme a{
-            font-weight: $bold;
-            color:$purple;
+          &.current-theme {
+            a{ font-weight: $bold; }
+            &.active a{ color:$purple; }
           }
         }
 

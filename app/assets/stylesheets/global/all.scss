@@ -1,9 +1,8 @@
 html, body {
-  height: 100%;
   padding:0;
   margin:0;
   font-family:$raleway;
-  background-color:#F9F9F9;
+  background-color:$main-bg;
   overflow-x:hidden;
 }
 
@@ -23,4 +22,25 @@ html, body {
 .container{
   @extend .grid;
   flex: 1 0 300px;
+}
+
+.main-logo{
+  display:inline-block;
+  vertical-align:middle;
+  font-family: $raleway;
+  font-weight:$extrabold;
+  font-size: 20px;
+  color: $light-black;
+  letter-spacing: 2px;
+  text-transform:uppercase;
+}
+
+.header-behind{
+  z-index:98;
+
+  &.is-hidden{
+    opacity:0;
+    @include transition(opacity 1s);
+    transition-delay:1s;
+  }
 }

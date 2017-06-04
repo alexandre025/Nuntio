@@ -25,6 +25,7 @@
     "precss": "^1.4.0",
     "prop-types": "^15.5.10",
     "rails-erb-loader": "^5.0.1",
+    "rateyo": "^2.3.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "sass-loader": "^6.0.5",

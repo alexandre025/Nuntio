@@ -1,0 +1,24 @@
+<div class="report-card <%= 'new-card' if new %> ">
+  <div class="icon-new"></div>
+  <a href="#">
+
+    <div class="report-card__left" style="background-image:url();"></div>
+
+    <div class="report-card__right">
+      <p class="title">Les tendances de la typographie</p>
+      <p class="details"><span class="author">Martin Charpentier</span> | Design</p>
+      <p class="time">8 minutes à lire</p>
+      <p class="description">
+        Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+        <span class="more">Lire la suite</span>
+      </p> <!-- TODO &.truncate(255, separator: ' ') -->
+      <div class="bottom">
+        <p class="date">Il y a 1 jour</p>
+        <div class="rating">
+          <div class="rating-stars" data-rating="3.2"></div>
+          <p>342 avis</p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

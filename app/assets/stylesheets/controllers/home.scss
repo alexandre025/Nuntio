@@ -1,3 +1,70 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home_index{
+
+  .container{
+    width:100%;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .home-header{
+    position:relative;
+    height:618px;
+    width:100%;
+    border-bottom:1px solid $gray;
+
+    @include e('container'){
+      position:absolute;
+      @include center-content('all');
+      width:944px;
+
+      @include m('content'){
+        width:735px;
+
+        p{
+          font-family: $raleway;
+          font-weight:$extrabold;
+          font-size: 25px;
+          color: $light-black;
+          letter-spacing: 1.5px;
+          line-height: 40px;
+        }
+
+        form{
+          margin-top:57px;
+
+          .field, .actions{
+            display:inline-block;
+            vertical-align:middle;
+            margin:0;
+          }
+          input{
+            background-color:transparent;
+          }
+          input[type="text"]{
+            width:488px;
+          }
+          input[type="submit"]{
+            width:194px;
+            margin:0;
+            margin-left:30px;
+
+            &:hover{
+              color:$white;
+              background-color:$purple;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .home-discover{
+    @extend .grid;
+  }
+
+}

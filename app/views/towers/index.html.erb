@@ -8,39 +8,59 @@
 
 <!--
 Themes : <br>
-<% @themes.each do |theme| %>
-  <%= link_to theme.name, theme_towers_path(theme)%>
-<% end %>
+<#% @themes.each do |theme| %>
+  <#%= link_to theme.name, theme_towers_path(theme)%>
+<#% end %>
 
 <br>
 
 Towers : <br>
-<%- @towers.each do |tower| -%>
-  <%= render partial: 'towers/tower', locals: { tower: tower } %>
-<%- end -%>
+<#%- @towers.each do |tower| -%>
+  <#%= render partial: 'towers/tower', locals: { tower: tower } %>
+<#%- end -%>
 
-<%= paginate @towers %>
+<#%= paginate @towers %>
 -->
 
 <div class="tower-container">
 
-  <% 3.times do |i| %>
-    <div class="tower-list">
-      <h2 class="tower-list__title">Les plus populaires du moment</h2>
+  <div class="tower-list">
+    <h2 class="tower-list__title">Recommandés pour vous</h2>
 
-      <div class="tower-list__slider">
-        <% 10.times do |s| %>
-          <div class="tower-card tower-list__slider--card">
-            <a href="#">
-              <%= s %>
-            </a>
-          </div>
-        <% end %>
-      </div>
-
-      <a href="javascript:void(0);" class="customSliderLink-<%= i %> tower-list__slider-arrow arrow-prev" data-target="prev"></a>
-      <a href="javascript:void(0);" class="customSliderLink-<%= i %> tower-list__slider-arrow arrow-next" data-target="next"></a>
+    <div class="tower-list__slider">
+      <% 10.times do |s| %>
+        <%= render partial: 'towers/tower_card', locals: {} %>
+      <% end %>
     </div>
-  <% end %>
+
+    <div class="customSliderLink-recommended tower-list__slider-arrow arrow-prev" data-target="prev"></div>
+    <div class="customSliderLink-recommended tower-list__slider-arrow arrow-next" data-target="next"></div>
+  </div>
+
+  <div class="tower-list">
+    <h2 class="tower-list__title">Les dernières nouveautés</h2>
+
+    <div class="tower-list__slider">
+      <% 10.times do |s| %>
+        <%= render partial: 'towers/tower_card', locals: {} %>
+      <% end %>
+    </div>
+
+    <div class="customSliderLink-new tower-list__slider-arrow arrow-prev" data-target="prev"></div>
+    <div class="customSliderLink-new tower-list__slider-arrow arrow-next" data-target="next"></div>
+  </div>
+
+  <div class="tower-list">
+    <h2 class="tower-list__title">Les plus populaires du moment</h2>
+
+    <div class="tower-list__slider">
+      <% 10.times do |s| %>
+        <%= render partial: 'towers/tower_card', locals: {} %>
+      <% end %>
+    </div>
+
+    <div class="customSliderLink-popular tower-list__slider-arrow arrow-prev" data-target="prev"></div>
+    <div class="customSliderLink-popular tower-list__slider-arrow arrow-next" data-target="next"></div>
+  </div>
 
 </div>

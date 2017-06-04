@@ -1,3 +1,94 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#dashboard_index{
+
+  .dashboard-container{
+    padding-top:64px;
+    padding-bottom:36px;
+    width:945px;
+    margin:0 auto;
+
+    @include e('title'){
+      @extend .list-title;
+      margin-bottom:28px;
+    }
+
+    @include e('filters'){
+      .search{
+        position:relative;
+        display:block;
+
+        .icon-search{
+          position:absolute;
+          @include center-content('y');
+          left:9px;
+          height:15px;
+          width:14px;
+        }
+
+        input{
+          font-family: $raleway;
+          font-weight:$semibold;
+          font-size: 15px;
+          color: $dark-gray;
+          letter-spacing: 1px;
+          border:0;
+          border-bottom: 2px solid $light-gray;
+          width:100%;
+          padding:9px 0;
+          padding-left:34px;
+          padding-right:16px;
+          box-sizing:border-box;
+          outline:none;
+          background-color:transparent;
+        }
+      }
+    }
+
+    @include e('list'){
+      position:relative;
+      width:682px;
+      margin-left:165px;
+
+      .list-title{
+        position:relative;
+        margin:24px 0;
+
+        p{
+          position:absolute;
+          top:-14px;
+          left:-165px;
+          height:28px;
+          width:132px;
+          text-align:right;
+          font-family: $raleway;
+          font-weight:$bold;
+          font-size: 15px;
+          color: $darker-gray;
+          line-height: 28px;
+
+          .light{
+            font-weight:$medium;
+          }
+        }
+
+        hr{
+          height:1px;
+          width:100%;
+          border:0;
+          background-color:$gray;
+        }
+      }
+
+      li{
+        display:block;
+        width:100%;
+        margin-bottom:16px;
+      }
+
+    }
+  }
+
+}

@@ -29,7 +29,7 @@
       flex-wrap:wrap;
       align-content: flex-start;
 
-      @include m('card'){
+      .tower-card{
         margin:15px 0;
         margin-left:29px;
 

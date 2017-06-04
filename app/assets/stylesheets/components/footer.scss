@@ -9,14 +9,7 @@ footer{
     padding-bottom:30px;
 
     .logo{
-      display:inline-block;
-      vertical-align:top;
-      font-family: $raleway;
-      font-weight:$extrabold;
-      font-size: 20px;
-      color: $light-black;
-      letter-spacing: 2px;
-      text-transform:uppercase;
+      @extend .main-logo;
       width:212px;
     }
 

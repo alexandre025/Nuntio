@@ -1,0 +1,97 @@
+<%- content_for :header_nav_bar do -%>
+  <%= render partial: 'shared/header_nav_bar', locals: { current: :reports } %>
+<%- end -%>
+
+<div class="report-header header-behind is-hidden">
+  <div class="report-header-container">
+    <%= link_to 'Toasted.', root_path, class: 'logo' %>
+    <hr>
+    <div class="title">
+      <h2>L’ indispensable de la VR avec Oculus avec plein de trucs</h2>
+    </div>
+  </div>
+</div>
+
+<div class="report-container">
+
+  <%= link_to dashboard_path, class: 'report-container__back' do %>
+    <%= image_tag 'icons/icon-arrow-left' %>
+    <span>Retour au tableau de bord</span>
+  <% end %>
+
+  <div class="report-container__header">
+
+    <div class="report-container__header--left">
+      <div class="bg-author"></div>
+      <div class="text-author">
+        <p class="name">Martin Charpentier</p>
+        <p>Co-fondateur chez Source et intervenant à HETIC | Paris Innovation</p>
+      </div>
+    </div>
+
+    <div class="report-container__header--right">
+      <div>
+        <p>25 Mai 2017</p>
+        <p>6 mn à lire</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="report-container__content">
+    <h2 class="title">L’ indispensable de la VR avec Oculus avec plein de trucs</h2>
+    <div class="text">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet, diam at rutrum tincidunt, tortor leo vulputate risus, et tincidunt libero lectus sed nunc. Vivamus imperdiet augue quis diam condimentum molestie. Aliquam tincidunt finibus ligula, vel dictum ante sodales vitae. Morbi viverra et turpis lobortis lobortis. Proin bibendum magna a lorem aliquet sodales. Sed mattis, magna in venenatis porta, massa odio accumsan orci, non varius ante enim sit amet nulla. Nunc at luctus eros.
+        <br />
+        Donec quis odio vel lectus sollicitudin tincidunt sed at dolor. Quisque eget accumsan sapien, et interdum magna. Suspendisse auctor, dolor eget vestibulum fringilla, justo metus bibendum felis, quis tristique metus felis eu felis. Cras luctus mi a felis laoreet, mattis suscipit magna mattis. Integer in malesuada augue, eu maximus magna. Praesent cursus leo non nisi cursus, vel efficitur justo ornare. Duis at lorem vitae leo tempus tincidunt vel vitae ex. Etiam ligula arcu, sagittis non faucibus eu, feugiat sit amet mauris. Vivamus eu posuere leo. Etiam egestas lectus id sapien fringilla, scelerisque tempor ante convallis. Aliquam mollis, mi ac tincidunt tincidunt, erat erat scelerisque libero, eu volutpat augue leo ac nibh. Maecenas in justo sit amet tellus hendrerit maximus vitae quis nulla. Nam cursus maximus felis, eget volutpat ex semper id.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet, diam at rutrum tincidunt, tortor leo vulputate risus, et tincidunt libero lectus sed nunc. Vivamus imperdiet augue quis diam condimentum molestie. Aliquam tincidunt finibus ligula, vel dictum ante sodales vitae. Morbi viverra et turpis lobortis lobortis. Proin bibendum magna a lorem aliquet sodales. Sed mattis, magna in venenatis porta, massa odio accumsan orci, non varius ante enim sit amet nulla. Nunc at luctus eros.
+        <br />
+        Donec quis odio vel lectus sollicitudin tincidunt sed at dolor. Quisque eget accumsan sapien, et interdum magna. Suspendisse auctor, dolor eget vestibulum fringilla, justo metus bibendum felis, quis tristique metus felis eu felis. Cras luctus mi a felis laoreet, mattis suscipit magna mattis. Integer in malesuada augue, eu maximus magna. Praesent cursus leo non nisi cursus, vel efficitur justo ornare. Duis at lorem vitae leo tempus tincidunt vel vitae ex. Etiam ligula arcu, sagittis non faucibus eu, feugiat sit amet mauris. Vivamus eu posuere leo. Etiam egestas lectus id sapien fringilla, scelerisque tempor ante convallis. Aliquam mollis, mi ac tincidunt tincidunt, erat erat scelerisque libero, eu volutpat augue leo ac nibh. Maecenas in justo sit amet tellus hendrerit maximus vitae quis nulla. Nam cursus maximus felis, eget volutpat ex semper id.
+      </p>
+      <h1>Les balises de données</h1>
+      <p>
+        Phasellus nec justo id ligula laoreet convallis. Duis volutpat leo ut lectus rutrum tempus. Sed tincidunt erat lacus, id volutpat dui consectetur vitae. Maecenas elementum dui lorem, sit amet convallis erat molestie sit amet. Maecenas vitae faucibus diam. Quisque scelerisque mi in ligula porta, varius luctus justo iaculis. Phasellus eu iaculis dui, et interdum ligula. Nunc nibh arcu, porta quis arcu eu, tempor lacinia felis. Sed consectetur magna vitae lectus elementum, viverra pellentesque nunc ullamcorper. Pellentesque id suscipit magna. Aliquam volutpat dapibus feugiat. Pellentesque molestie viverra imperdiet. Integer a lectus sit amet orci porttitor iaculis. Duis facilisis dolor ipsum, sed semper leo imperdiet in.
+        <br />
+        Aenean convallis metus felis, non suscipit quam facilisis et. Nam ut maximus dolor. Integer nec tellus tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi et odio at neque bibendum cursus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sed sem at mauris ullamcorper viverra. In lacinia efficitur quam, eget lacinia magna malesuada quis. Nam fermentum venenatis eros, in cursus nulla eleifend eget. Ut mollis erat nec ex pretium, ut condimentum nisl venenatis. Praesent elementum volutpat nisi non sagittis.
+      </p>
+    </div>
+    <div class="rating">
+      <p>Vous avez aimé ? Vous aussi donnez votre avis !</p>
+      <div class="rating-stars"></div>
+      <p class="rating-number">342 avis</p>
+    </div>
+
+    <div class="comments-container">
+      <p class="comments-container__count">4 commentaires</p>
+
+      <div class="comments-container__form">
+        <form action="#">
+          <textarea name="" id="" placeholder="Ecrire un commentaire"></textarea>
+          <input type="submit" value="Commenter">
+        </form>
+      </div>
+
+      <div class="comments-container__list">
+        <ul>
+          <% 3.times do |i| %>
+            <li>
+              <div class="comments-container__list--header">
+                <div class="profile"></div>
+                <p class="name">Alexandre Ferraille</p>
+                <p class="date">Il y a 2 jours</p>
+              </div>
+              <p class="comments-container__list--text">
+                Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+              </p>
+            </li>
+          <% end %>
+        </ul>
+        <a href="#" class="more">Charger plus de commentaires</a>
+      </div>
+    </div>
+  </div>
+
+</div>

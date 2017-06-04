@@ -5,6 +5,7 @@ App.ready(function(){
         $receiver = $(this);
         $receiver.find('.modal').hide();
         $receiver.html(data);
+        setModalPosition($receiver.find('.modal'));
         $receiver.find('.modal').show();
 
         $form = $receiver.find('form');
@@ -19,11 +20,18 @@ App.ready(function(){
         $(document).trigger('modal:init', elem);
     });
 
-    // $('#modal-receiver .modal-close').on('click', function(e){
-    //   console.log('close');
-    //   $('#modal-receiver').find('.modal').hide();
-    //   $('#modal-receiver').html('');
-    // });
+    $(document).on('click', '.modal-close', function(e){
+      console.log('close');
+      $('#modal-receiver').find('.modal').hide();
+      $('#modal-receiver').html('');
+    });
+
+    $(document).on('click', '.modal', function(e){
+      if(e.target !== e.currentTarget) return;
+
+      $('#modal-receiver').find('.modal').hide();
+      $('#modal-receiver').html('');
+    });
 
 });
 
@@ -35,3 +43,12 @@ $(document).on('modal:init', function(e, elem) {
       $('#modal-receiver').trigger('modal:load', data, status);
     });
 });
+
+function setModalPosition(modal){
+  var modalContainer = modal.find('.modal-container');
+  if(modalContainer.height() > $(window).height() - 120){
+    modalContainer.addClass('high-modal');
+  } else{
+    modalContainer.removeClass('high-modal');
+  }
+}

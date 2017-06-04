@@ -4,16 +4,18 @@
   <% if [:towers_index].include? current_sub %>
     <ul class="header-bottombar__towers header-bottombar__towers--theme">
       <% Theme.all.each do |t| %>
-        <li class="tower-main-link"><%= link_to t.name, theme_towers_path(t.id) %></li>
+        <li class="tower-main-link"><%= link_to t.name, theme_towers_path(t) %></li>
       <% end %>
     </ul>
   <% elsif [:towers_theme, :towers_category].include? current_sub %>
     <ul class="header-bottombar__towers header-bottombar__towers--category">
-      <% theme_id = params[:theme_id] ? params[:theme_id].to_i : params[:id].to_i %>
+      <% theme_id = params[:theme_id] ? params[:theme_id] : params[:id]
+        theme = Theme.friendly.find(theme_id)
+      %>
       <li class="all-themes"><%= link_to '< Tous les thèmes', towers_path %></li>
-      <li class="current-theme"><%= link_to Theme.find(theme_id).name, theme_towers_path(theme_id) %></li>
-      <% Category.where(theme: theme_id).all.each do |c| %>
-        <li class="<%= 'active' if c.id == category_id.to_i %> tower-main-link"><%= link_to c.name, category_towers_path(c.theme_id, c.id) %></li>
+      <li class="current-theme <%= 'active' if category.nil? %>"><%= link_to theme.name, theme_towers_path(theme) %></li>
+      <% Category.where(theme: theme).each do |c| %>
+        <li class="<%= 'active' if c.slug == category %> tower-main-link"><%= link_to c.name, category_towers_path(theme, c) %></li>
       <% end %>
       <li class="more-categories">
         <%= image_tag 'icons/icon-menu-three-points.png', class: 'icon-menu-more' %>

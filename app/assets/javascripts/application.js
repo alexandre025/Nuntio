@@ -14,6 +14,7 @@
 //= require jquery-ujs
 //= require lodash/core
 //= require sudoslider/js/jquery.sudoSlider.min.js
+//= require rateyo/min/jquery.rateyo.min.js
 //= require turbolinks
 //= require_self
 //= require_tree ./components
