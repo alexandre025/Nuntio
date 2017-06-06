@@ -194,13 +194,14 @@
             }
 
             &.active, &:hover{
-              a{
+              span{
                 padding-bottom:5px;
                 border-bottom: 2px solid $purple;
               }
             }
 
-            a{
+            span{
+              cursor:pointer;
               font-family: $raleway;
               font-weight:$bold;
               font-size: 18px;

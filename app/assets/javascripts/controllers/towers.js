@@ -11,21 +11,27 @@ App.ready(function(){
     };
 
     var self = this,
-        selfLimit = $(self).offset().top - values.fixedTop,
-        divLimit = $('body').find('.tower-show__others'),
-        scrollLimit = divLimit.offset().top - $(self).height() + values.defaultTop - values.fixedTop; //$(self).offset().top - 93 + divLimit.scrollTop() + divLimit.height()
+        selfLimit = $(self).offset().top - values.fixedTop;
 
-    setSidePosition(self, selfLimit, scrollLimit, values);
+    setSidePosition(self, selfLimit, values);
 
-    $(window).scroll(function() {
-      setSidePosition(self, selfLimit, scrollLimit, values);
+    $(window).bind('scroll', function() {
+      if($('#towers_show').is('*')) {
+        setSidePosition(self, selfLimit, values);
+      } else{
+        $(window).unbind('scroll');
+      }
     });
+
   });
+
 
 });
 
-function setSidePosition(self, selfLimit, scrollLimit, values){
-  var currentSelfPosition = $(self).offset();
+function setSidePosition(self, selfLimit, values){
+  var currentSelfPosition = $(self).offset(),
+      divLimit = $('body').find('.tower-show__others'),
+      scrollLimit = divLimit.offset().top - $(self).height() + values.defaultTop - values.fixedTop;
 
   if($(window).scrollTop() >= selfLimit) {
     if($(window).scrollTop() <= scrollLimit){

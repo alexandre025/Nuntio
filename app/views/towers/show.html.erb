@@ -28,23 +28,23 @@
 
 <div class="tower-show__content">
   <div class="tower-show__content--container">
-    <div class="tower-show__content--main">
+    <div class="tower-show__content--main tabs-wrapper">
       <ul class="nav-tabs">
-        <li class="active"><a href="#">Présentation</a></li>
-        <li><a href="#">Auteur et contributions</a></li>
-        <li><a href="#">Commentaires</a></li>
+        <li class="tab-link active" data-tab="tab-1"><span>Présentation</span></li>
+        <li class="tab-link" data-tab="tab-2"><span>Auteur et contributions</span></li>
+        <li class="tab-link" data-tab="tab-3"><span>Commentaires</span></li>
       </ul>
 
       <div class="tab-content">
-        <div class="tab-pane tab-pane__product active">
+        <div id="tab-1" class="tab-pane tab-pane__product active">
           <%= render partial: 'towers/tabs/product', locals: {} %>
         </div>
 
-        <div class="tab-pane tab-pane__author">
+        <div id="tab-2" class="tab-pane tab-pane__author">
           <%= render partial: 'towers/tabs/author', locals: {} %>
         </div>
 
-        <div class="tab-pane tab-pane__comment">
+        <div id="tab-3" class="tab-pane tab-pane__comment">
           <%= render partial: 'towers/tabs/comment', locals: {} %>
         </div>
       </div>
