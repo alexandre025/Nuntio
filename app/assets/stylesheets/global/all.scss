@@ -6,6 +6,13 @@ html, body {
   overflow-x:hidden;
 }
 
+body{
+  &.disable-scroll{
+    position: fixed;
+    overflow: hidden;
+  }
+}
+
 .grid{
   width: 1200px;
   padding: 0 15px;

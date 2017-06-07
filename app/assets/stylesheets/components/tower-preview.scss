@@ -1,0 +1,125 @@
+.tower-preview{
+  display:none;
+  z-index:10001;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  opacity:0;
+  background-color: $modal-bg;
+  @include transition(opacity 0.3s);
+
+  &.preview-show{
+    opacity:1;
+  }
+
+  @include e('container'){
+    position:absolute;
+    top:0;
+    right:0;
+    height:100%;
+    width:1000px;
+    background-color:$white;
+    padding:82px 138px;
+    padding-top:0;
+    box-sizing:border-box;
+
+    .preview-close{
+      cursor:pointer;
+      position:absolute;
+      top:59px;
+      left:70px;
+      height:22px;
+      width:22px;
+    }
+  }
+
+  @include e('content'){
+    position:relative;
+    box-sizing:border-box;
+    height:100%;
+    padding-top:82px;
+    overflow:scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .report-container__content{
+      position:relative;
+      max-height:1000px;
+      overflow:hidden;
+    }
+  }
+
+  @include e('hide-text'){
+    position:absolute;
+    bottom:0;
+    left:0;
+    height:333px;
+    width:100%;
+    background-image: -webkit-linear-gradient(rgba(255,255,255,0.19) 23%, #FFFFFF 82%);
+    background-image: -o-linear-gradient(rgba(255,255,255,0.19) 23%, #FFFFFF 82%);
+    background-image: linear-gradient(rgba(255,255,255,0.19) 23%, #FFFFFF 82%);
+  }
+
+  @include e('footer'){
+    position:fixed;
+    bottom:0;
+    right:0;
+    background-color:$purple;
+    height:88px;
+    width:1000px;
+
+    .tower-preview__footer-content{
+      width:682px;
+      margin: 0 auto;
+      padding: 18px 0;
+      box-sizing: border-box;
+
+      .tower-preview__footer-bg, p, a{
+        display:inline-block;
+        vertical-align:middle;
+      }
+
+      .tower-preview__footer-bg{
+        height:50px;
+        width:50px;
+        border-radius:100%;
+        background:$gray no-repeat center;
+        background-size:cover;
+      }
+
+      p{
+        font-family: $raleway;
+        font-weight:$medium;
+        font-size: 15px;
+        color: $white;
+        line-height: 24px;
+        width:406px;
+        margin-left:28px;
+      }
+
+      a{
+        border: 1px solid $white;
+        border-radius: 100px;
+        font-family: $raleway;
+        font-weight:$extrabold;
+        font-size: 15px;
+        color: $white;
+        letter-spacing: 1px;
+        height:31px;
+        line-height:31px;
+        width:153px;
+        text-align:center;
+        margin-left:32px;
+
+        &:hover{
+          background-color: $white;
+          color:$purple;
+        }
+      }
+    }
+
+  }
+}
