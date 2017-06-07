@@ -6,11 +6,8 @@ class TowerGuardsController < ApplicationController
   end
 
   def apply_confirm
-
   end
 
   def apply_create
-
   end
-
 end

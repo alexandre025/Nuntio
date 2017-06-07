@@ -67,21 +67,20 @@ class Subscription < ApplicationRecord
     return discount
   end
 
-    def quantity_discount_percent
-      self.quantity ||= 1
-      discount = 0
+  def quantity_discount_percent
+    self.quantity ||= 1
+    discount = 0
 
-      if quantity >= 2 && quantity <= 5
-        discount = 0.05
-      elsif quantity >= 6 && quantity <= 20
-        discount = 0.1
-      elsif quantity >= 21 && quantity <= 50
-        discount = 0.15
-      elsif quantity >= 51
-        discount = 0.2
-      end
-
-      return discount
+    if quantity >= 2 && quantity <= 5
+      discount = 0.05
+    elsif quantity >= 6 && quantity <= 20
+      discount = 0.1
+    elsif quantity >= 21 && quantity <= 50
+      discount = 0.15
+    elsif quantity >= 51
+      discount = 0.2
     end
 
+    return discount
+  end
 end

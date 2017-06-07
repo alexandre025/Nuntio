@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   attr_accessor :terms
 
   # Include default devise modules. Others available are:
