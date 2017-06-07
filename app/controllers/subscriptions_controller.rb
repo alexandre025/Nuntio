@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
   def edit
     # We use find_by because we don't want to raise an error if record not found
     if @subscription = Subscription.find_by(id: session[:current_subscription_id])
-
+      @subscription.update(state: :draft) unless @subscription.draft?
     else
       redirect_to dashboard_path
     end
@@ -32,7 +32,7 @@ class SubscriptionsController < ApplicationController
     if subscription.draft?
       subscription.update(subscription_params)
       subscription.to_payment!
-      redirect_to subscription_payment_path
+      return redirect_to payment_subscription_path
     elsif subscription.payment?
       # Proceed payment
       # redirect to dashboard
@@ -40,14 +40,13 @@ class SubscriptionsController < ApplicationController
   end
 
   def simulate
-    # Simulate prices for subscription_params
-    # Return JSON
-    render json: { price_with_selected_commitment: '', final_price: '' }
+    subscription = Subscription.new(subscription_params)
+    render json: { quantity_discount_percent: subscription.quantity_discount_percent * 100, amount: subscription.calculate_amount.to_d, total_discount: subscription.total_discount.to_d }
   end
 
   private
 
     def subscription_params
-      params.require(:subscription).permit(:tower_id, :owner_id, :state)
+      params.require(:subscription).permit(:tower_id, :owner_id, :state, :commitment, :quantity)
     end
 end

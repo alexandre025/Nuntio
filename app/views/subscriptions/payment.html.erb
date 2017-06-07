@@ -1,0 +1,9 @@
+<%= simple_form_for :payment, url: subscription_path do |f| %>
+  <%= Money.new(@subscription.amount, 'EUR') %>
+  <%= f.input :credit_card_owner %>
+  <%= f.input :credit_card %>
+  <%= f.input :expiration_year %>
+  <%= f.input :expiration_month %>
+  <%= f.input :ccv %>
+  <%= f.button :submit %>
+<% end %>

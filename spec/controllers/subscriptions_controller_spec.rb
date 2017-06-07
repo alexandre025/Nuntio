@@ -10,7 +10,7 @@ RSpec.describe SubscriptionsController, type: :controller do
   describe 'POST #create' do
 
     it 'redirect to edit' do
-      post :create, params: { subscription: { tower_id: tower.id, owner_id: controller.view_context.current_user, state: :draft } }
+      post :create, params: { subscription: { tower_id: tower.id, owner_id: controller.view_context.current_user } }
       expect(response).to redirect_to(edit_subscription_url)
     end
 
@@ -29,6 +29,14 @@ RSpec.describe SubscriptionsController, type: :controller do
     it 'failed and redirect to dashboard' do
       get :edit
       expect(response).to redirect_to(dashboard_url)
+    end
+  end
+
+  describe 'POST #simulate' do
+
+    it 'http state success' do
+      post :simulate, params: { subscription: { tower_id: tower.id, owner_id: controller.view_context.current_user, quantity: 10, commitment: Subscription::COMMITMENTS.first } }
+      expect(response).to have_http_status(:success)
     end
   end
 end
