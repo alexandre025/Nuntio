@@ -47,11 +47,11 @@ class Subscription < ApplicationRecord
   # Methods
 
   def calculate_amount
-    tower.price_per_month - total_discount
+    tower.price_per_month * quantity - total_discount
   end
 
   def total_discount
-    tower.price_per_month * (commitment_discount_percent + quantity_discount_percent)
+    tower.price_per_month * (commitment_discount_percent + quantity_discount_percent) * quantity
   end
 
   def commitment_discount_percent

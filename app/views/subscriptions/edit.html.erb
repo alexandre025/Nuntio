@@ -3,5 +3,8 @@
   <%= f.input :tower_id, as: :hidden %>
   <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons %>
   <%= f.input :quantity %>
+  <div class="quantity-discount">Réduction <span>0</span>%</div>
+  <div class="total-discount-amount">Réduction totale <span>0</span>€</div>
+  <div class="total-amount">Total <span><%= @subscription.amount %></span>€ / mois TTC</div>
   <%= f.button :submit %>
 <% end %>

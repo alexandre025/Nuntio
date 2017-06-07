@@ -3,13 +3,20 @@
 
 App.ready(function(){
 
-  $('form').on('change', function(e) {
-    data = $(this).serialize();
+  if($('#subscriptions_edit').is('*')) {
+    $('form').on('change', function(e) {
+      data = $(this).serialize();
 
-    $.ajax({
-      url: App.routes.simulate_subscription_path+'?'+data,
-      method: 'post'
+      $.ajax({
+        url: App.routes.simulate_subscription_path+'?'+data,
+        method: 'post'
+      })
+      .done(function(data) {
+        $('.quantity-discount span').html(data['quantity_discount_percent'])
+        $('.total-discount-amount span').html(data['total_discount'])
+        $('.total-amount span').html(data['amount'])
+      });
     });
-  });
+  }
 
 });
