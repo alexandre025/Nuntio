@@ -44,3 +44,14 @@ html, body {
     transition-delay:1s;
   }
 }
+
+.author-tag{
+  font-family: $raleway;
+  font-weight:$medium;
+  font-size: 10px;
+  color: $light-black;
+  line-height: 16px;
+  background: $yellow;
+  padding:1px 5px;
+  border-radius: 4px;
+}

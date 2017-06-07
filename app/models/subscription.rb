@@ -26,45 +26,61 @@ class Subscription < ApplicationRecord
 
     end
 
-    state :complete do
+    state :payment do
 
+    end
+
+    state :confirmed do
+
+    end
+
+    event :to_payment do
+      transition draft: :payment
+    end
+
+    before_transition draft: :payment do |subscription|
+      subscription.amount = subscription.calculate_amount
     end
 
   end
 
   # Methods
 
-  def calculate_and_set_amount
-    self.amount = calculate_amount_for(commitment, quantity)
+  def calculate_amount
+    tower.price_per_month * quantity - total_discount
   end
 
-  def calculate_amount_for_commitment(selected_commitment)
-    base_price = tower.price_per_month
-    final_price = base_price
+  def total_discount
+    tower.price_per_month * (commitment_discount_percent + quantity_discount_percent) * quantity
+  end
 
-    case selected_commitment
+  def commitment_discount_percent
+    discount = 0
+
+    case commitment
     when 'biannual'
-      final_price = base_price * 0.95
+      discount = 0.05
     when 'yearly'
-      final_price = base_price * 0.90
+      discount = 0.1
     end
 
-    return final_price
+    return discount
   end
 
-  def calculate_amount_for(selected_commitment, selected_quantity = 1)
-    final_price = calculate_amount_for_commitment(selected_commitment)
+  def quantity_discount_percent
+    self.quantity ||= 1
+    discount = 0
 
-    if selected_quantity >= 2 && selected_quantity <= 5
-      final_price = final_price * 0.95
-    elsif selected_quantity >= 6 && selected_quantity <= 20
-      final_price = final_price * 0.90
-    elsif selected_quantity >= 21 && selected_quantity <= 50
-      final_price = final_price * 0.85
-    elsif selected_quantity >= 51
-      final_price = final_price * 0.80
+    if quantity >= 2 && quantity <= 5
+      discount = 0.05
+    elsif quantity >= 6 && quantity <= 20
+      discount = 0.1
+    elsif quantity >= 21 && quantity <= 50
+      discount = 0.15
+    elsif quantity >= 51
+      discount = 0.2
     end
 
-    return final_price
+    return discount
   end
 end

@@ -8,8 +8,6 @@ RSpec.describe Subscription, type: :model do
   end
 
   it 'calculate and set amount' do
-    subscription.calculate_and_set_amount
-
-    expect(subscription.amount).to eq(subscription.tower.price_per_month)
+    expect(subscription.calculate_amount).to eq(subscription.tower.price_per_month)
   end
 end

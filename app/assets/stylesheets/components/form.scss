@@ -60,6 +60,18 @@ input[type="checkbox"]:checked + label:after{
   width:26px;
 }
 
+// -------- SELECT --------
+select{
+    cursor:pointer;
+    background-image: image-url('icons/icon-arrow-select-black.png') !important;
+    background-repeat:no-repeat;
+    background-position: right 20px center;
+    background-size:11px 6px;
+    padding-right: 42px !important;
+    line-height:inherit;
+  }
+  select::-ms-expand { display: none; }
+
 
 
 /* --------- FORMS --------- */
@@ -74,7 +86,7 @@ input[type="checkbox"]:checked + label:after{
     position:relative;
     margin-bottom:25px;
 
-    input, select, textarea{
+    input, select, textarea, select{
       width:100%;
       font-family: $raleway;
       font-weight:$medium;
@@ -84,6 +96,11 @@ input[type="checkbox"]:checked + label:after{
       padding:0 18px;
       box-sizing:border-box;
       outline:none;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      -webkit-border-radius: 0 !important;
+      border-radius:0 !important;
+      background-color:$white;
 
       &:focus{
         border-color:$purple;

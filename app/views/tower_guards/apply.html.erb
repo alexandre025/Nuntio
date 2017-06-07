@@ -1,0 +1,55 @@
+<% unless request.xhr? %>
+  <%- content_for :header_nav_bar do -%>
+    <%= render partial: 'shared/header_nav_bar', locals: { current: nil } %>
+  <%- end -%>
+  <div class="modal-alternative">
+<% else %>
+  <%= image_tag 'icons/icon-close-black.png', class: 'modal-close', data: { dismiss: 'modal' } %>
+<% end %>
+
+<h2 class="modal-title has-description">Devenir expert</h2>
+
+<p class="modal-description">Rejoignez notre plateforme et faites profiter la communauté de votre expertise</p>
+
+<%= form_for(@tower_guard, url: apply_tower_guards_path, method: :post, data: { remote: true }, html: { class: 'main-form main-form-modal' }) do |f| %>
+  <!-- TODO -->
+  <div class="field">
+    <%#= f.input_field :name, autofocus: true, placeholder: 'Prénom' %>
+    <input type="text" placeholder="Prénom" />
+  </div>
+
+  <!-- TODO -->
+  <div class="field">
+    <%#= f.input_field :name, autofocus: true, placeholder: 'Nom' %>
+    <input type="text" placeholder="Nom" />
+  </div>
+
+  <!-- TODO -->
+  <div class="field">
+    <%#= f.input_field :name, autofocus: true, placeholder: 'Nom' %>
+    <input type="email" placeholder="Adresse e-mail" />
+  </div>
+
+  <!-- TODO -->
+  <div class="field">
+    <%#= f.input_field :name, autofocus: true, placeholder: 'Nom' %>
+    <input type="text" placeholder="Lien Linkedin" />
+  </div>
+
+  <!-- TODO -->
+  <div class="field">
+    <select>
+      <option value="" disabled selected>Dans quel domaine ?</option>
+      <option value="valeur1">Valeur 1</option>
+      <option value="valeur2">Valeur 2</option>
+    </select>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Soumettre" %>
+  </div>
+<% end %>
+
+<% unless request.xhr? %>
+  </div>
+<% end %>
