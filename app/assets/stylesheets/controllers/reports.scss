@@ -1,42 +1,147 @@
 /* ------ GLOBAL ------ */
 
+.report-container__header{
 
+  @include m('left'){
+    display:inline-block;
+    vertical-align:middle;
+
+    .bg-author{
+      display:inline-block;
+      vertical-align:middle;
+      height:68px;
+      width:68px;
+      border-radius:100%;
+      background:$gray no-repeat center;
+      background-size:cover;
+    }
+
+    .text-author{
+      display:inline-block;
+      vertical-align:middle;
+      margin-left:20px;
+      max-width: 400px;
+      font-family: $raleway;
+      font-weight:$light;
+      font-size: 12px;
+      color: $darker-gray;
+      line-height: 15px;
+
+      .name{
+        font-size:15px;
+        font-weight:$semibold;
+        line-height:27px;
+      }
+    }
+
+  }
+
+  @include m('right'){
+    display:inline-block;
+    vertical-align:middle;
+    text-align:right;
+    height:68px;
+    float:right;
+
+    div{
+      height:100%;
+      @include flexbox;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    p{
+      font-family: $raleway;
+      font-weight:$light;
+      font-size: 12px;
+      color: $dark-gray;
+      line-height: 15px;
+      margin-top:5px;
+
+      &:first-child{
+        margin-top:0px;
+      }
+    }
+  }
+
+}
+
+.report-container__content{
+  margin-top:70px;
+  .title{
+    font-family: $raleway;
+    font-weight:$extrabold;
+    font-size: 35px;
+    color: $darker-gray;
+    letter-spacing: 1.5px;
+    line-height: 42px;
+    margin-bottom:36px;
+  }
+
+  .text{
+    width:616px;
+    margin:0 auto;
+
+    h1, h2, h3, h4, h5, h6{
+      font-family: $times-new-roman;
+      font-weight:bold;
+      font-size: 25px;
+      color: $darker-gray;
+      letter-spacing: 1px;
+      margin-top:36px;
+      margin-bottom:16px;
+    }
+
+    p{
+      font-family: $times-new-roman;
+      font-size: 21px;
+      color: $darker-gray;
+      letter-spacing: 0.5px;
+      line-height: 33px;
+      margin-bottom:20px;
+    }
+
+    img{
+      max-width:100%;
+      margin:40px auto;
+    }
+  }
+
+  .rating{
+    text-align:center;
+    margin-top:88px;
+
+    p{
+      font-family: $raleway;
+      font-weight:$medium;
+      font-size: 12px;
+      color: $darker-gray;
+      line-height: 27px;
+    }
+
+    .rating-stars{
+      margin:0 auto;
+      margin-top:14px;
+      margin-bottom:8px;
+    }
+
+    .rating-numbers{
+      font-weight:$bold;
+    }
+  }
+
+  .comments-container{
+    margin-top:74px;
+  }
+}
 
 /* ------ CONTROLLERS ------ */
 
 #reports_show{
 
-  .report-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:98;
-    background-color:$white;
-    border-bottom: 1px solid #E4E4E4;
-    @include box-shadow(0 1px 6px 0 rgba(0,0,0,0.11));
+  .header-alternative{
 
-    .report-header-container{
-      @extend .grid;
-      position:relative;
-      height:84px;
-      line-height:84px;
-
-      .logo{
-        @extend .main-logo;
-        display:inline-block;
-        vertical-align:middle;
-        width:195px;
-      }
-
-      hr{
-        display:inline-block;
-        vertical-align:middle;
-        height:58px;
-        width:1px;
-        background-color:$light-gray;
-        border:0;
-      }
+    .header-alternative__container{
 
       .title{
         position:absolute;
@@ -72,141 +177,6 @@
       position:fixed;
       margin-top:-34px;
       margin-left:-195px;
-    }
-
-    @include e('header'){
-
-      @include m('left'){
-        display:inline-block;
-        vertical-align:middle;
-
-        .bg-author{
-          display:inline-block;
-          vertical-align:middle;
-          height:68px;
-          width:68px;
-          border-radius:100%;
-          background:$gray no-repeat center;
-          background-size:cover;
-        }
-
-        .text-author{
-          display:inline-block;
-          vertical-align:middle;
-          margin-left:20px;
-          max-width: 400px;
-          font-family: $raleway;
-          font-weight:$light;
-          font-size: 12px;
-          color: $darker-gray;
-          line-height: 15px;
-
-          .name{
-            font-size:15px;
-            font-weight:$semibold;
-            line-height:27px;
-          }
-        }
-
-      }
-
-      @include m('right'){
-        display:inline-block;
-        vertical-align:middle;
-        text-align:right;
-        height:68px;
-        float:right;
-
-        div{
-          height:100%;
-          @include flexbox;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        p{
-          font-family: $raleway;
-          font-weight:$light;
-          font-size: 12px;
-          color: $dark-gray;
-          line-height: 15px;
-          margin-top:5px;
-
-          &:first-child{
-            margin-top:0px;
-          }
-        }
-      }
-
-    }
-
-    @include e('content'){
-      margin-top:70px;
-      .title{
-        font-family: $raleway;
-        font-weight:$extrabold;
-        font-size: 35px;
-        color: $darker-gray;
-        letter-spacing: 1.5px;
-        line-height: 42px;
-        margin-bottom:36px;
-      }
-
-      .text{
-        width:616px;
-        margin:0 auto;
-
-        h1, h2, h3, h4, h5, h6{
-          font-family: $times-new-roman;
-          font-weight:bold;
-          font-size: 25px;
-          color: $darker-gray;
-          letter-spacing: 1px;
-          margin-top:36px;
-          margin-bottom:16px;
-        }
-
-        p{
-          font-family: $times-new-roman;
-          font-size: 21px;
-          color: $darker-gray;
-          letter-spacing: 0.5px;
-          line-height: 33px;
-          margin-bottom:20px;
-        }
-
-        img{
-          max-width:100%;
-          margin:40px auto;
-        }
-      }
-
-      .rating{
-        text-align:center;
-        margin-top:88px;
-
-        p{
-          font-family: $raleway;
-          font-weight:$medium;
-          font-size: 12px;
-          color: $darker-gray;
-          line-height: 27px;
-        }
-
-        .rating-stars{
-          margin:0 auto;
-          margin-top:14px;
-          margin-bottom:8px;
-        }
-
-        .rating-numbers{
-          font-weight:$bold;
-        }
-      }
-
-      .comments-container{
-        margin-top:74px;
-      }
     }
   }
 }

@@ -12,10 +12,23 @@ App.ready(function(){
         method: 'post'
       })
       .done(function(data) {
-        $('.quantity-discount span').html(data['quantity_discount_percent'])
-        $('.total-discount-amount span').html(data['total_discount'])
-        $('.total-amount span').html(data['amount'])
+        $('.quantity-discount .value').html(data['quantity_discount_percent'])
+        $('.total-discount-amount .value').html(data['total_discount'])
+        $('.total-amount .value').html(data['amount'])
       });
+    });
+
+    $('.quantity-input__controls .more').on('click', function(){
+      var parent = $(this).parents('.quantity-input'),
+          input = parent.find('input');
+      console.log('more');
+      console.log($(this));
+    });
+
+    $('.quantity-input__controls .less').on('click', function(){
+      var parent = $(this).parents('.quantity-input');
+      console.log('less');
+      console.log($(this));
     });
   }
 

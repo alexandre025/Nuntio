@@ -1,9 +1,13 @@
-<%= simple_form_for :payment, url: subscription_path do |f| %>
-  <%= Money.new(@subscription.amount, 'EUR') %>
-  <%= f.input :credit_card_owner %>
-  <%= f.input :credit_card %>
-  <%= f.input :expiration_year %>
-  <%= f.input :expiration_month %>
-  <%= f.input :ccv %>
-  <%= f.button :submit %>
-<% end %>
+<%= render partial: 'subscriptions/header', locals: { current: :payment } %>
+
+<div class="subscription-container">
+  <%= simple_form_for :payment, url: subscription_path do |f| %>
+    <%= Money.new(@subscription.amount, 'EUR') %>
+    <%= f.input :credit_card_owner %>
+    <%= f.input :credit_card %>
+    <%= f.input :expiration_year %>
+    <%= f.input :expiration_month %>
+    <%= f.input :ccv %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

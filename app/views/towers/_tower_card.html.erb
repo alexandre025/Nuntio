@@ -1,32 +1,34 @@
-<div class="tower-card">
-  <a href="#">
-    <div class="tower-card__header" style="background-image:url();">
-      <p class="tower-card__tag">Meilleur expert</p>
-    </div>
-
-    <div class="tower-card__content">
-
-      <div class="tower-card__content--main">
-        <p class="theme">Marketing • Mobile</p>
-        <p class="title">L’indispensable de la VR avec Oculus</p>
-        <div class="attributes">
-          <p class="frequency"><%= image_tag 'icons/icon-calendar-black.png' %> <span>Bimensuel</span></p>
-          <p class="level"><%= image_tag 'icons/icon-settings-black.png' %> <span>Expert</span></p>
-        </div>
-        <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem eu ligula finibus efficitur et quis arcu. Nullam iaculis metus orci, id aliquam mauris ornare in. Donec ut arcu a ex varius facilisis sed vitae eros. Ut facilisis rutrum dolor, at porttitor mi tempus quis. Vivamus nec arcu et lacus luctus cursus eget ut ligula. Nam arcu ante, faucibus ac enim et, ultrices viverra nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum vel ex volutpat, dictum risus sit amet, molestie ipsum. Nulla sagittis, massa quis condimentum accumsan, lacus mi tristique urna, vitae consequat orci tortor sit amet sapien. Nam quis felis sit amet justo interdum viverra.
-        </p> <!-- TODO &.truncate(255, separator: ' ') -->
-        <div class="rating">
-          <div class="rating-stars" data-rating="3.2"></div>
-          <p>342 avis</p>
-        </div>
+<%- if defined? tower; cache(tower) do -%>
+  <div class="tower-card">
+    <a href="<%= tower_path(tower) %>">
+      <div class="tower-card__header" style="background-image:url();">
+        <p class="tower-card__tag">Meilleur expert</p>
       </div>
 
-      <div class="tower-card__content--footer">
-        <p class="author">Par Héloise Hauteville</p>
-        <p class="price">99,99€ <span>/mois</span></p>
-      </div>
+      <div class="tower-card__content">
 
-    </div>
-  </a>
-</div>
+        <div class="tower-card__content--main">
+          <p class="theme"><%= tower.theme.name %> • <%= tower.category.name %></p>
+          <p class="title"><%= tower.title %></p>
+          <div class="attributes">
+            <p class="frequency"><%= image_tag 'icons/icon-calendar-black.png' %> <span><%= t("towers.frequency.#{tower.frequency}") %></span></p>
+            <p class="level"><%= image_tag 'icons/icon-settings-black.png' %> <span><%= t("towers.grade.#{tower.grade}") %></span></p>
+          </div>
+          <p class="description">
+            <%== tower.description.truncate(255, separator: ' ') %>
+          </p>
+          <div class="rating">
+            <div class="rating-stars" data-rating="<%= tower.average_notation || 0 %>"></div>
+            <p><%= tower.comments.count %> avis</p>
+          </div>
+        </div>
+
+        <div class="tower-card__content--footer">
+          <p class="author">Par <%= tower.guard.fullname %></p>
+          <p class="price"><%= humanized_money_with_symbol tower.price_per_month %> <span>/<%= t('month') %></span></p>
+        </div>
+
+      </div>
+    </a>
+  </div>
+<%- end; end -%>

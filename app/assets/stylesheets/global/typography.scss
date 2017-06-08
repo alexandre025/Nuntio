@@ -4,6 +4,10 @@ a{
   text-decoration:none;
 }
 
+strong, b {
+  font-weight:$bold;
+}
+
 /* ------ TITLES ------ */
 
 .header-menu-title{
@@ -34,6 +38,7 @@ a{
 /* ------ LINKS ------ */
 
 .main-link{
+  cursor:pointer;
   border: 1px solid $purple;
   border-radius: 100px;
   font-family: $raleway;
@@ -42,6 +47,7 @@ a{
   color: $purple;
   letter-spacing: 1px;
   padding:7px 22px;
+  background-color:$white;
 
   &:hover{
     color:$white;

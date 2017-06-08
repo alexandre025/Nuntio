@@ -28,9 +28,7 @@ Categories : <br>
 <br>
 
 Towers : <br>
-<#%- @towers.each do |tower| -%>
-  <#%= render partial: 'towers/tower', locals: { tower: tower } %>
-<#%- end -%>
+
 
 <#%= paginate @towers %>
 -->
@@ -82,11 +80,9 @@ Towers : <br>
     </div>
 
     <div class="tower-list-full__cards">
-      <% 10.times do |s| %>
-        <div class="tower-card">
-          <%= render partial: 'towers/tower_card', locals: {} %>
-        </div>
-      <% end %>
+      <%- @towers.each do |tower| -%>
+        <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+      <%- end -%>
     </div>
   </div>
 

@@ -10,4 +10,10 @@ class User < ApplicationRecord
 
   # has_many :tower_guards
   # has_many :towers, through: :tower_guards
+
+  # Methods
+
+  def fullname
+    "#{firstname} #{lastname}".strip
+  end
 end

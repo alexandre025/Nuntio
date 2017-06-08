@@ -3,7 +3,7 @@
 <%- end -%>
 
 <%- content_for :header_sub_nav_bar do -%>
-  <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_theme, category: nil } %>
+  <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_search, category: nil } %>
 <%- end -%>
 
 <!--
@@ -24,9 +24,11 @@ Categories : <br>
 <br>
 
 Towers : <br>
+<#%- @towers.each do |tower| -%>
+  <%#= render partial: 'towers/tower', locals: { tower: tower } %>
+<#%- end -%>
 
-
-<%= paginate @towers %>
+<#%= paginate @towers %>
 -->
 
 <div class="tower-container">
@@ -35,7 +37,7 @@ Towers : <br>
 
     <div class="tower-list-full__header">
       <div class="tower-list-full__header--left">
-        <h2 class="list-title">Toutes les offres du thème <%= @theme.name %></h2>
+        <h2 class="list-title">Toutes les offres correspondant à la recherche: </h2>
       </div>
       <div class="tower-list-full__header--right">
 
@@ -76,9 +78,11 @@ Towers : <br>
     </div>
 
     <div class="tower-list-full__cards">
-      <%- @towers.each do |tower| -%>
-        <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
-      <%- end -%>
+      <% 10.times do |s| %>
+        <div class="tower-card">
+          <%= render partial: 'towers/tower_card', locals: {} %>
+        </div>
+      <% end %>
     </div>
   </div>
 

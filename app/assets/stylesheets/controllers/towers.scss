@@ -383,7 +383,8 @@
                     letter-spacing: 0.5px;
                     line-height: 25px;
 
-                    a{
+                    .preview-open{
+                      cursor:pointer;
                       font-weight:$bold;
                       text-decoration:underline;
                       color:$purple;
@@ -502,7 +503,7 @@
               }
             }
 
-            a{
+            .sub-link{
               @extend .main-link;
               display:block;
               height:46px;

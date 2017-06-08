@@ -6,13 +6,6 @@
   <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_theme, category: @tower.category.slug } %>
 <%- end -%>
 
-<!-- <%#= simple_form_for @subscription, url: subscription_path do |f| %>
-  <%#= f.input :tower_id, as: :hidden %>
-  <%#= f.input :owner_id, as: :hidden %>
-  <%#= f.input :state, as: :hidden %>
-  <%#= f.button :submit %>
-<%# end %> -->
-
 <div class="tower-show__header">
   <div class="tower-show__header--content">
     <h2 class="title"><%= @tower.title %></h2>
@@ -64,7 +57,12 @@
             <li class="level"><div class="info-icon"></div> Pour tous niveau</li>
             <li class="frequency"><div class="info-icon"></div> Format hebdomadaire</li>
           </ul>
-          <a href="#">Je m'abonne</a>
+          <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
+            <%= f.input :tower_id, as: :hidden %>
+            <%= f.input :owner_id, as: :hidden %>
+            <%= f.input :state, as: :hidden %>
+            <%= f.button :submit, "Je m'abonne", class: 'sub-link' %>
+          <% end %>
         </div>
       </div>
       <div class="side-rating">
@@ -89,5 +87,51 @@
 
     <div class="customSliderLink-recommended tower-list__slider-arrow arrow-prev" data-target="prev"></div>
     <div class="customSliderLink-recommended tower-list__slider-arrow arrow-next" data-target="next"></div>
+  </div>
+</div>
+
+<div class="tower-show__preview tower-preview">
+  <div class="tower-preview__container">
+
+    <%= image_tag 'icons/icon-close-black.png', class: 'preview-close' %>
+
+    <div class="tower-preview__content">
+      <%= render partial: 'reports/components/header', locals: { } %>
+
+      <div class="report-container__content">
+        <h2 class="title">L’ indispensable de la VR avec Oculus avec plein de trucs</h2>
+        <div class="text">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet, diam at rutrum tincidunt, tortor leo vulputate risus, et tincidunt libero lectus sed nunc. Vivamus imperdiet augue quis diam condimentum molestie. Aliquam tincidunt finibus ligula, vel dictum ante sodales vitae. Morbi viverra et turpis lobortis lobortis. Proin bibendum magna a lorem aliquet sodales. Sed mattis, magna in venenatis porta, massa odio accumsan orci, non varius ante enim sit amet nulla. Nunc at luctus eros.
+            <br />
+            Donec quis odio vel lectus sollicitudin tincidunt sed at dolor. Quisque eget accumsan sapien, et interdum magna. Suspendisse auctor, dolor eget vestibulum fringilla, justo metus bibendum felis, quis tristique metus felis eu felis. Cras luctus mi a felis laoreet, mattis suscipit magna mattis. Integer in malesuada augue, eu maximus magna. Praesent cursus leo non nisi cursus, vel efficitur justo ornare. Duis at lorem vitae leo tempus tincidunt vel vitae ex. Etiam ligula arcu, sagittis non faucibus eu, feugiat sit amet mauris. Vivamus eu posuere leo. Etiam egestas lectus id sapien fringilla, scelerisque tempor ante convallis. Aliquam mollis, mi ac tincidunt tincidunt, erat erat scelerisque libero, eu volutpat augue leo ac nibh. Maecenas in justo sit amet tellus hendrerit maximus vitae quis nulla. Nam cursus maximus felis, eget volutpat ex semper id.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet, diam at rutrum tincidunt, tortor leo vulputate risus, et tincidunt libero lectus sed nunc. Vivamus imperdiet augue quis diam condimentum molestie. Aliquam tincidunt finibus ligula, vel dictum ante sodales vitae. Morbi viverra et turpis lobortis lobortis. Proin bibendum magna a lorem aliquet sodales. Sed mattis, magna in venenatis porta, massa odio accumsan orci, non varius ante enim sit amet nulla. Nunc at luctus eros.
+            <br />
+            Donec quis odio vel lectus sollicitudin tincidunt sed at dolor. Quisque eget accumsan sapien, et interdum magna. Suspendisse auctor, dolor eget vestibulum fringilla, justo metus bibendum felis, quis tristique metus felis eu felis. Cras luctus mi a felis laoreet, mattis suscipit magna mattis. Integer in malesuada augue, eu maximus magna. Praesent cursus leo non nisi cursus, vel efficitur justo ornare. Duis at lorem vitae leo tempus tincidunt vel vitae ex. Etiam ligula arcu, sagittis non faucibus eu, feugiat sit amet mauris. Vivamus eu posuere leo. Etiam egestas lectus id sapien fringilla, scelerisque tempor ante convallis. Aliquam mollis, mi ac tincidunt tincidunt, erat erat scelerisque libero, eu volutpat augue leo ac nibh. Maecenas in justo sit amet tellus hendrerit maximus vitae quis nulla. Nam cursus maximus felis, eget volutpat ex semper id.
+          </p>
+          <h1>Les balises de données</h1>
+          <p>
+            Phasellus nec justo id ligula laoreet convallis. Duis volutpat leo ut lectus rutrum tempus. Sed tincidunt erat lacus, id volutpat dui consectetur vitae. Maecenas elementum dui lorem, sit amet convallis erat molestie sit amet. Maecenas vitae faucibus diam. Quisque scelerisque mi in ligula porta, varius luctus justo iaculis. Phasellus eu iaculis dui, et interdum ligula. Nunc nibh arcu, porta quis arcu eu, tempor lacinia felis. Sed consectetur magna vitae lectus elementum, viverra pellentesque nunc ullamcorper. Pellentesque id suscipit magna. Aliquam volutpat dapibus feugiat. Pellentesque molestie viverra imperdiet. Integer a lectus sit amet orci porttitor iaculis. Duis facilisis dolor ipsum, sed semper leo imperdiet in.
+            <br />
+            Aenean convallis metus felis, non suscipit quam facilisis et. Nam ut maximus dolor. Integer nec tellus tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi et odio at neque bibendum cursus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sed sem at mauris ullamcorper viverra. In lacinia efficitur quam, eget lacinia magna malesuada quis. Nam fermentum venenatis eros, in cursus nulla eleifend eget. Ut mollis erat nec ex pretium, ut condimentum nisl venenatis. Praesent elementum volutpat nisi non sagittis.
+          </p>
+        </div>
+        <div class="tower-preview__hide-text"></div>
+      </div>
+
+    </div>
+
+    <div class="tower-preview__footer">
+      <div class="tower-preview__footer-content">
+        <div class="tower-preview__footer-bg"></div>
+        <p>
+          Ne manquez plus jamais une nouveauté <b>marketing</b> de la part de <b>Ludovic Delabre</b>.
+        </p>
+        <a href="#">S'abonner</a>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -25,6 +25,22 @@ App.ready(function(){
 
   });
 
+  $('.preview-open').on('click', function(){
+    $('.tower-preview').css('display', 'block');
+    setTimeout(function() {
+      $('.tower-preview').addClass('preview-show');
+      $('body').addClass('disable-scroll');
+    }, 300);
+  });
+
+  $('.preview-close').on('click', function(){
+    $('.tower-preview').removeClass('preview-show');
+    $('body').removeClass('disable-scroll');
+    setTimeout(function() {
+      $('.tower-preview').css('display', 'none');
+    }, 300);
+  });
+
 
 });
 

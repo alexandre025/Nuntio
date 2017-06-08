@@ -1,3 +1,304 @@
 // Place all the styles related to the Subscription controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#subscriptions_edit, #subscription_payment{
+
+  header{
+    display:none;
+  }
+
+  .header-alternative{
+    @include e('container'){
+      .timeline{
+        position:absolute;
+        @include center-content('all');
+        display:inline-block;
+        vertical-align:middle;
+
+        ul{
+
+          &.active-1{
+            li:first-child p{
+              color:$purple;
+            }
+            .line-1:before{
+              display:block;
+              width:50%;
+            }
+          }
+
+          &.active-2{
+            li:first-child p, li:nth-of-type(2) p{
+              color:$purple;
+            }
+            .line-1:before{
+              display:block;
+              width:100%;
+            }
+            .line-2:before{
+              display:block;
+              width:50%;
+            }
+          }
+
+          &.active-3{
+            li p{
+              color:$purple;
+            }
+            .line-1:before, .line-2:before{
+              display:block;
+              width:100%;
+            }
+          }
+
+          li{
+            display:inline-block;
+            vertical-align:middle;
+            text-align:center;
+
+            p{
+              font-family:$raleway;
+              color: $light-gray;
+            }
+
+            .number{
+              font-weight:$bold;
+              font-size: 18px;
+              line-height: 21px;
+              margin-bottom:7px;
+            }
+            .title{
+              font-weight:$regular;
+              font-size: 12px;
+              line-height: 14px;
+            }
+          }
+
+          .line{
+            position:relative;
+            display:inline-block;
+            vertical-align:middle;
+            height:3px;
+            width:187px;
+            background-color:$light-gray;
+            border:0;
+          }
+          .line:before{
+            content:'';
+            display:none;
+            position:absolute;
+            top:0;
+            left:0;
+            height:100%;
+            background-color:$purple;
+          }
+        }
+      }
+    }
+  }
+
+  .subscription-container{
+    width:806px;
+    background-color:$white;
+    padding:63px 94px;
+    margin:75px auto;
+    box-sizing:border-box;
+
+    .title{
+      font-family: $raleway;
+      font-weight:$bold;
+      font-size: 20px;
+      color: $darker-gray;
+      letter-spacing: 1px;
+    }
+
+    .subscription-table{
+      width:100%;
+      border-bottom: 1px solid $gray;
+
+      th, td{
+        text-align:left;
+      }
+
+      thead{
+        th{
+          font-family: $raleway;
+          font-weight:$medium;
+          font-size: 20px;
+          color: $darker-gray;
+          letter-spacing: 1px;
+          padding:16px 0;
+        }
+      }
+
+      tbody{
+        tr{
+          border-top: 1px solid $gray;
+
+          td{
+            padding-top:22px;
+            padding-bottom:26px;
+
+            &.info{
+              width:330px;
+
+              .product-name{
+                font-family: $raleway;
+                font-weight:$medium;
+                font-size: 15px;
+                color: $dark-gray;
+              }
+              .product-info{
+                font-family: $raleway;
+                font-weight:$regular;
+                font-size: 10px;
+                color: $dark-gray;
+              }
+            }
+
+            &.quantity{
+              .quantity-input {
+                .input{
+                  display:inline-block;
+                  vertical-align:middle;
+
+                  input{
+                    height:27px;
+                    width:40px;
+                    text-align:center;
+                    font-family: $raleway;
+                    font-weight:$bold;
+                    font-size: 20px;
+                    color: $darker-gray;
+                    letter-spacing: 1px;
+                    border:1px solid $purple;
+                    box-sizing:border-box;
+                  }
+
+                  input::-webkit-outer-spin-button,
+                  input::-webkit-inner-spin-button {
+                      -webkit-appearance: none;
+                  }
+                }
+
+                @include e('controls'){
+                  position:relative;
+                  display:inline-block;
+                  vertical-align:middle;
+                  border:1px solid $purple;
+                  border-left:0;
+                  height:27px;
+                  width:18px;
+                  box-sizing:border-box;
+                  margin-left:-4px;
+
+                  p{
+                    position:relative;
+                    cursor:pointer;
+                    height:50%;
+                    width:100%;
+                    img{
+                      position:absolute;
+                      @include center-content('all');
+                      width:8px;
+                    }
+
+                    &.more{
+                      background-color:$purple;
+                    }
+                    &.less{
+
+                    }
+                  }
+                }
+              }
+
+              .quantity-discount{
+                font-family: $raleway;
+                font-weight:$medium;
+                font-size: 12px;
+                color: $darker-gray;
+                margin-top:7px;
+              }
+
+            }
+
+            &.amount{
+              font-family:$raleway;
+              font-weight:$bold;
+              font-size: 12px;
+              color: $darker-gray;
+
+              span{
+                font-size:20px;
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+    .subscription-total{
+      position:relative;
+      float:right;
+      font-family:$raleway;
+      font-weight:$bold;
+      color: $darker-gray;
+      margin-top:18px;
+
+      .total-amount{
+        margin-top:11px;
+
+        .subscription-total__title{
+          font-size: 20px;
+          letter-spacing: 1px;
+        }
+        .subscription-total__value{
+          .value{
+            font-size: 25px;
+          }
+        }
+      }
+
+      @include e('title'){
+        display:inline-block;
+        vertical-align:middle;
+        width:164px;
+        text-align:right;
+      }
+
+      @include e('value'){
+        display:inline-block;
+        vertical-align:middle;
+        width:192px;
+        text-align:right;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-left:24px;
+      }
+    }
+
+    .subscription-actions{
+      float:right;
+      margin-top:56px;
+
+      input[type="submit"]{
+        height:46px;
+        width:230px;
+      }
+
+      .cancel{
+        font-family: $raleway;
+        font-weight:$extrabold;
+        font-size: 15px;
+        color: $purple;
+        letter-spacing: 1px;
+        text-decoration:underline;
+        margin-right:45px;
+      }
+    }
+  }
+
+}

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'towers', to: 'towers#index'
   get 'towers/:id', to: 'towers#theme', as: :theme_towers
   get 'towers/:theme_id/:id', to: 'towers#category', as: :category_towers
+  get 'search', to: 'towers#search'
 
   get 'apply-tower-guards', to: 'tower_guards#apply'
   get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
