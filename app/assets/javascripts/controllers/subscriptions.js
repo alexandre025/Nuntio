@@ -4,6 +4,8 @@
 App.ready(function(){
 
   if($('#subscriptions_edit').is('*')) {
+    updateFormValues($('form'));
+    
     $('form').on('change', function(e) {
       updateFormValues($(this));
     });

@@ -4,7 +4,7 @@
 
   <h2 class="title">Choix de l'abonnement</h2>
 
-  <%= simple_form_for @subscription, url: subscription_path, class: 'main-form' do |f| %>
+  <%= simple_form_for @subscription, url: subscription_path, html: {class: 'main-form'} do |f| %>
     <%= f.input :owner_id, as: :hidden %>
     <%= f.input :tower_id, as: :hidden %>
 
@@ -56,7 +56,7 @@
 
     <div class="subscription-actions">
       <%= link_to 'Annuler', tower_path(@subscription.tower), class: 'cancel' %>
-      <%= f.button :submit, class: 'main-link', value: 'Continuer' %>
+      <%= f.button :submit, class: 'main-link', value: 'Continuer', data: {'disable-with': 'Chargement' } %>
     </div>
 
     <div class="clear"></div>

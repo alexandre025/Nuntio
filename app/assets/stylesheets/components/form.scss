@@ -139,7 +139,17 @@ select::-ms-expand { display: none; }
     position:relative;
     margin-bottom:25px;
 
-    input, select, textarea, select{
+    &.semi-field{
+      display:inline-block;
+      vertical-align:top;
+      width:237px;
+
+      &:nth-child(2n + 1){
+        margin-left:12px;
+      }
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], select, textarea, select{
       width:100%;
       font-family: $raleway;
       font-weight:$medium;

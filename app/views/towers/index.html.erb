@@ -28,9 +28,9 @@ Towers : <br>
     <h2 class="tower-list__title">Recommandés pour vous</h2>
 
     <div class="tower-list__slider">
-      <% 10.times do |s| %>
-        <%= render partial: 'towers/tower_card', locals: {} %>
-      <% end %>
+      <%- @recommended_towers.each do |tower| -%>
+        <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+      <%- end -%>
     </div>
 
     <div class="customSliderLink-recommended tower-list__slider-arrow arrow-prev" data-target="prev"></div>
@@ -41,9 +41,9 @@ Towers : <br>
     <h2 class="tower-list__title">Les dernières nouveautés</h2>
 
     <div class="tower-list__slider">
-      <% 10.times do |s| %>
-        <%= render partial: 'towers/tower_card', locals: {} %>
-      <% end %>
+      <%- @newest_towers.each do |tower| -%>
+        <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+      <%- end -%>
     </div>
 
     <div class="customSliderLink-new tower-list__slider-arrow arrow-prev" data-target="prev"></div>
@@ -54,9 +54,9 @@ Towers : <br>
     <h2 class="tower-list__title">Les plus populaires du moment</h2>
 
     <div class="tower-list__slider">
-      <% 10.times do |s| %>
-        <%= render partial: 'towers/tower_card', locals: {} %>
-      <% end %>
+      <%- @popular_towers.each do |tower| -%>
+        <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+      <%- end -%>
     </div>
 
     <div class="customSliderLink-popular tower-list__slider-arrow arrow-prev" data-target="prev"></div>
