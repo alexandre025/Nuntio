@@ -32,7 +32,6 @@ class TowersController < ApplicationController
   end
 
   def search
-
   end
 
   private
