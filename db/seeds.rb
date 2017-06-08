@@ -5,7 +5,7 @@ FactoryGirl.create(:user, email: 'admin@trombonne.net', password: 'trombonne')
 
 puts 'Create themes and categories'
 progressbar = ProgressBar.create(total: 7)
-%w(Developpement Design SEO Marketing Business Finances Juridique).each do |theme_name|
+%w(Développement Design Marketing Business Innovation).each do |theme_name|
   FactoryGirl.create(:theme, name: theme_name)
   progressbar.increment
 end

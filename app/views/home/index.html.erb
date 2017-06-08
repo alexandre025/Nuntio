@@ -22,6 +22,51 @@
 
 <div class="home-discover">
 
+  <%= image_tag 'bg/bg-home-discover.png', class: 'discover-bg' %>
 
+  <div class="home-discover__container">
 
+    <div class="home-discover__categories tower-list">
+      <h2 class="tower-list__title">Explorez nos catégories</h2>
+      <ul>
+        <% Theme.all.each do |t| %>
+          <li>
+            <div class="category-bg">
+              <%= link_to '', theme_towers_path(t) %>
+            </div>
+
+            <%= link_to t.name, theme_towers_path(t), class: 'category-title' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="home-discover__experts tower-list">
+      <h2 class="tower-list__title">Les experts du moment</h2>
+
+      <div class="tower-list__slider">
+        <%- @popular_towers.each do |tower| -%>
+          <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+        <%- end -%>
+      </div>
+
+      <div class="customSliderLink-popular tower-list__slider-arrow arrow-prev" data-target="prev"></div>
+      <div class="customSliderLink-popular tower-list__slider-arrow arrow-next" data-target="next"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="home-info">
+
+</div>
+
+<div class="home-registration">
+  <div class="home-registration__container">
+    <div class="home-registration__container--content">
+      <p>Le temps n’est plus un problème pour effectuer une veille régulière et complète.</p>
+      <%= link_to "S'inscrire", new_user_registration_path, data: { modal: :load, remote: true } %>
+    </div>
+  </div>
 </div>
