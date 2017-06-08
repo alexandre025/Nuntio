@@ -16,5 +16,4 @@ class User < ApplicationRecord
   def fullname
     "#{firstname} #{lastname}".strip
   end
-
 end
