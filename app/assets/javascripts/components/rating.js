@@ -76,18 +76,18 @@ App.ready(function(){
 
     // REPORT SHOW
     $('.report-container__content').find('.rating-stars').each(function(){
-          var elem = this;
+        var elem = this;
 
-          $(elem).rateYo({
-              numStars: 5,
-              maxValue: 5,
-              spacing: '2px',
-              normalFill: '#DBDBDB',
-              ratedFill: '#29339E',
-              starWidth: '26px',
-              fullStar: true
-          });
+        $(elem).rateYo({
+            numStars: 5,
+            maxValue: 5,
+            spacing: '2px',
+            normalFill: '#DBDBDB',
+            ratedFill: '#29339E',
+            starWidth: '26px',
+            fullStar: true
+        });
 
-      });
+    });
 
 });
