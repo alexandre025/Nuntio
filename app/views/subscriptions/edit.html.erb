@@ -9,7 +9,7 @@
     <%= f.input :tower_id, as: :hidden %>
 
     <div class="field">
-      <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons %>
+      <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons, label: false %>
     </div>
 
     <table class="subscription-table">
@@ -44,11 +44,11 @@
     <div class="subscription-total">
       <div class="total-discount-amount">
         <p class="subscription-total__title">Réduction totale</p>
-        <p class="subscription-total__value">-<span class="value">0</span>€</p>
+        <p class="subscription-total__value">-<span class="value">0</span>€ /mois</p>
       </div>
       <div class="total-amount">
         <p class="subscription-total__title">Total</p>
-        <p class="subscription-total__value"><span class="value"><%= @subscription.amount %></span>€/mois TTC</p>
+        <p class="subscription-total__value"><span class="value"><%= @subscription.amount %></span>€ /mois TTC</p>
       </div>
     </div>
 

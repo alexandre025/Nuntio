@@ -5,31 +5,48 @@ App.ready(function(){
 
   if($('#subscriptions_edit').is('*')) {
     $('form').on('change', function(e) {
-      data = $(this).serialize();
-
-      $.ajax({
-        url: App.routes.simulate_subscription_path+'?'+data,
-        method: 'post'
-      })
-      .done(function(data) {
-        $('.quantity-discount .value').html(data['quantity_discount_percent'])
-        $('.total-discount-amount .value').html(data['total_discount'])
-        $('.total-amount .value').html(data['amount'])
-      });
+      updateFormValues($(this));
     });
 
     $('.quantity-input__controls .more').on('click', function(){
       var parent = $(this).parents('.quantity-input'),
           input = parent.find('input');
-      console.log('more');
-      console.log($(this));
+
+      input.val(function(i, oldval) {
+          return ++oldval;
+      });
+
+      updateFormValues($('form'));
     });
 
     $('.quantity-input__controls .less').on('click', function(){
-      var parent = $(this).parents('.quantity-input');
-      console.log('less');
-      console.log($(this));
+      var parent = $(this).parents('.quantity-input'),
+          input = parent.find('input');
+
+      input.val(function(i, oldval) {
+          if(oldval > 1){
+            return --oldval;
+          } else{
+            return oldval;
+          }
+      });
+
+      updateFormValues($('form'));
     });
   }
 
 });
+
+function updateFormValues(elem){
+  data = elem.serialize();
+
+  $.ajax({
+    url: App.routes.simulate_subscription_path+'?'+data,
+    method: 'post'
+  })
+  .done(function(data) {
+    $('.quantity-discount .value').html(data['quantity_discount_percent'])
+    $('.total-discount-amount .value').html(data['total_discount'])
+    $('.total-amount .value').html(data['amount'])
+  });
+}
