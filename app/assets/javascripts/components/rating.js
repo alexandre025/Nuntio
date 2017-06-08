@@ -3,7 +3,8 @@ App.ready(function(){
   // TOWER CARD & REPORT CARD
   $('.tower-card, .report-card').find('.rating-stars').each(function(){
         var elem = this;
-        var rating = Math.round(2.3/0.5) * 0.5;
+        var elemRating = $(this).data('rating');
+        var rating = Math.round(elemRating/0.5) * 0.5;
 
         $(elem).rateYo({
             readOnly: true,
@@ -21,7 +22,8 @@ App.ready(function(){
     // TOWER SHOW
     $('.tower-show__header--content').find('.rating-stars').each(function(){
         var elem = this;
-        var rating = Math.round(2.3/0.5) * 0.5;
+        var elemRating = $(this).data('rating');
+        var rating = Math.round(elemRating/0.5) * 0.5;
 
         $(elem).rateYo({
             readOnly: true,
@@ -38,7 +40,8 @@ App.ready(function(){
 
     $('.tower-show__content--side').find('.rating-stars').each(function(){
       var elem = this;
-      var rating = Math.round(2.3/0.5) * 0.5;
+      var elemRating = $(this).data('rating');
+      var rating = Math.round(elemRating/0.5) * 0.5;
 
       $(elem).rateYo({
           readOnly: true,
@@ -54,26 +57,26 @@ App.ready(function(){
     });
 
     $('.tower-show__header--content').find('.rating-stars').each(function(){
-          var elem = this;
-          var rating = Math.round(2.3/0.5) * 0.5;
+      var elem = this;
+      var elemRating = $(this).data('rating');
+      var rating = Math.round(elemRating/0.5) * 0.5;
 
-          $(elem).rateYo({
-              readOnly: true,
-              numStars: 5,
-              rating: rating,
-              maxValue: 5,
-              spacing: '1px',
-              normalFill: '#7C7C7C',
-              ratedFill: '#FFFFFF',
-              starWidth: '13px'
-          });
-
+      $(elem).rateYo({
+          readOnly: true,
+          numStars: 5,
+          rating: rating,
+          maxValue: 5,
+          spacing: '1px',
+          normalFill: '#7C7C7C',
+          ratedFill: '#FFFFFF',
+          starWidth: '13px'
       });
+
+    });
 
     // REPORT SHOW
     $('.report-container__content').find('.rating-stars').each(function(){
           var elem = this;
-          var rating = $(elem).data('rating');
 
           $(elem).rateYo({
               numStars: 5,

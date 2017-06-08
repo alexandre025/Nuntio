@@ -17,6 +17,19 @@ App.ready(function(){
         $('.total-amount .value').html(data['amount'])
       });
     });
+
+    $('.quantity-input__controls .more').on('click', function(){
+      var parent = $(this).parents('.quantity-input'),
+          input = parent.find('input');
+      console.log('more');
+      console.log($(this));
+    });
+
+    $('.quantity-input__controls .less').on('click', function(){
+      var parent = $(this).parents('.quantity-input');
+      console.log('less');
+      console.log($(this));
+    });
   }
 
 });
