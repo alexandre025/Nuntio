@@ -83,3 +83,5 @@ gem 'factory_girl_rails', '~> 4.7.0'
 gem 'faker'
 
 gem 'sentry-raven', '~> 2.4.0'
+
+gem 'activeadmin'

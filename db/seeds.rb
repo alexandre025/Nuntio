@@ -22,3 +22,4 @@ Category.all.each do |category|
   end
   progressbar.increment
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
