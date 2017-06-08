@@ -1,0 +1,8 @@
+fr:
+  towers:
+    frequency:
+      monthly: Mensuel
+    grade:
+      beginner: Débutant
+      intermediate: Intermédiaire
+      advanced: Expert
