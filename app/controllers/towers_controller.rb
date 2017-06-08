@@ -31,6 +31,10 @@ class TowersController < ApplicationController
     @subscription = Subscription.new(tower: @tower, owner: current_user)
   end
 
+  def search
+
+  end
+
   private
 
     def set_themes

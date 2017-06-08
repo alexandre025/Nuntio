@@ -12,9 +12,9 @@ App.ready(function(){
         method: 'post'
       })
       .done(function(data) {
-        $('.quantity-discount span').html(data['quantity_discount_percent'])
-        $('.total-discount-amount span').html(data['total_discount'])
-        $('.total-amount span').html(data['amount'])
+        $('.quantity-discount .value').html(data['quantity_discount_percent'])
+        $('.total-discount-amount .value').html(data['total_discount'])
+        $('.total-amount .value').html(data['amount'])
       });
     });
   }

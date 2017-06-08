@@ -1,10 +1,65 @@
-<%= simple_form_for @subscription, url: subscription_path do |f| %>
-  <%= f.input :owner_id, as: :hidden %>
-  <%= f.input :tower_id, as: :hidden %>
-  <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons %>
-  <%= f.input :quantity %>
-  <div class="quantity-discount">Réduction <span>0</span>%</div>
-  <div class="total-discount-amount">Réduction totale <span>0</span>€</div>
-  <div class="total-amount">Total <span><%= @subscription.amount %></span>€ / mois TTC</div>
-  <%= f.button :submit %>
-<% end %>
+<%= render partial: 'subscriptions/header', locals: { current: :edit } %>
+
+<div class="subscription-container">
+
+  <h2 class="title">Choix de l'abonnement</h2>
+
+  <%= simple_form_for @subscription, url: subscription_path, class: 'main-form' do |f| %>
+    <%= f.input :owner_id, as: :hidden %>
+    <%= f.input :tower_id, as: :hidden %>
+
+    <div class="field">
+      <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons %>
+    </div>
+
+    <table class="subscription-table">
+      <thead>
+        <tr>
+          <th colspan=3>Panier total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="info">
+            <span class="product-name">L’indispensable de votre veille SEO</span>
+            <br /><span class="product-info">Par Ludovic Delabre | Format hebdomadaire</span>
+          </td>
+          <td class="quantity">
+            <div class="quantity-input">
+              <%= f.input :quantity, label: false, input_html: { value: '1', min: '1', step: '1' } %>
+              <div class="quantity-input__controls">
+                <p class="more"><%= image_tag 'icons/icon-input-numeric-plus.png' %></p>
+                <p class="less"> - </p>
+              </div>
+            </div>
+            <div class="quantity-discount">-<span class="value">0</span>% réduction</div>
+          </td>
+          <td class="amount">
+            <span>17€ TTC</span> /mois
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="subscription-total">
+      <div class="total-discount-amount">
+        <p class="subscription-total__title">Réduction totale</p>
+        <p class="subscription-total__value">-<span class="value">0</span>€</p>
+      </div>
+      <div class="total-amount">
+        <p class="subscription-total__title">Total</p>
+        <p class="subscription-total__value"><span class="value"><%= @subscription.amount %></span>€/mois TTC</p>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="subscription-actions">
+      <%= link_to 'Annuler', tower_path(@subscription.tower), class: 'cancel' %>
+      <%= f.button :submit, class: 'main-link', value: 'Continuer' %>
+    </div>
+
+    <div class="clear"></div>
+  <% end %>
+
+</div>

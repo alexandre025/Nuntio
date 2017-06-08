@@ -1,0 +1,24 @@
+<div class="header-alternative">
+  <div class="header-alternative__container">
+    <%= link_to 'Toasted.', root_path, class: 'logo' %>
+    <hr class="global-hr">
+    <div class="timeline">
+      <ul class="<%= 'active-1' if current == :edit %> <%= 'active-2' if current == :payment %> <%= 'active-3' if current == :confirm %>">
+        <li>
+          <p class="number">1</p>
+          <p class="title">Panier</p>
+        </li>
+        <div class="line line-1"></div>
+        <li>
+          <p class="number">2</p>
+          <p class="title">Paiement</p>
+        </li>
+        <div class="line line-2"></div>
+        <li>
+          <p class="number">3</p>
+          <p class="title">Finalisation</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

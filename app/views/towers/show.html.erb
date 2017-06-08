@@ -6,13 +6,6 @@
   <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_theme, category: @tower.category.slug } %>
 <%- end -%>
 
-<!-- <%#= simple_form_for @subscription, url: subscription_path do |f| %>
-  <%#= f.input :tower_id, as: :hidden %>
-  <%#= f.input :owner_id, as: :hidden %>
-  <%#= f.input :state, as: :hidden %>
-  <%#= f.button :submit %>
-<%# end %> -->
-
 <div class="tower-show__header">
   <div class="tower-show__header--content">
     <h2 class="title"><%= @tower.title %></h2>
@@ -64,7 +57,12 @@
             <li class="level"><div class="info-icon"></div> Pour tous niveau</li>
             <li class="frequency"><div class="info-icon"></div> Format hebdomadaire</li>
           </ul>
-          <a href="#">Je m'abonne</a>
+          <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
+            <%= f.input :tower_id, as: :hidden %>
+            <%= f.input :owner_id, as: :hidden %>
+            <%= f.input :state, as: :hidden %>
+            <%= f.button :submit, "Je m'abonne", class: 'sub-link' %>
+          <% end %>
         </div>
       </div>
       <div class="side-rating">

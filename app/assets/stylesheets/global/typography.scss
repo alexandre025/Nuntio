@@ -38,6 +38,7 @@ strong, b {
 /* ------ LINKS ------ */
 
 .main-link{
+  cursor:pointer;
   border: 1px solid $purple;
   border-radius: 100px;
   font-family: $raleway;
@@ -46,6 +47,7 @@ strong, b {
   color: $purple;
   letter-spacing: 1px;
   padding:7px 22px;
+  background-color:$white;
 
   &:hover{
     color:$white;

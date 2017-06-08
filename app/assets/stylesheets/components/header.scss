@@ -242,3 +242,37 @@ header{
     }
   }
 }
+
+.header-alternative{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:98;
+  background-color:$white;
+  border-bottom: 1px solid #E4E4E4;
+  @include box-shadow(0 1px 6px 0 rgba(0,0,0,0.11));
+
+  @include e('container'){
+    @extend .grid;
+    position:relative;
+    height:84px;
+    line-height:84px;
+
+    .logo{
+      @extend .main-logo;
+      display:inline-block;
+      vertical-align:middle;
+      width:195px;
+    }
+
+    .global-hr{
+      display:inline-block;
+      vertical-align:middle;
+      height:58px;
+      width:1px;
+      background-color:$light-gray;
+      border:0;
+    }
+  }
+}
