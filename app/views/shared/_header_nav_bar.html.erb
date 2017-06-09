@@ -1,7 +1,7 @@
 <% current ||= nil %>
 
 <ul class="header-mainbar__menu">
-  <li><%= link_to 'Devenir un expert', apply_tower_guards_path, data: { modal: :load, remote: true } %></li>
+  <li><%= link_to "Les offres d'experts", towers_path, data: { modal: :load, remote: true } %></li>
   <%- if user_signed_in? -%>
     <li class="<%= 'active' if current == :dashboard %>"><%= link_to 'Mon tableau de bord', dashboard_path, class: 'new-reports' %></li>
     <li>

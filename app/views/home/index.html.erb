@@ -4,17 +4,19 @@
 
 <div class="home-header">
 
+  <%= image_tag 'img/macbook-example.png', class: 'template-bg' %>
+
   <div class="home-header__container">
     <div class="home-header__container--content">
       <p>La première marketplace qui permet de recevoir une veille régulière et réalisée par des experts.</p>
-      <form action="#" class="main-form">
+      <%= simple_form_for :search, url: search_towers_path, method: :get, html: {class: 'main-form'} do |f| %>
         <div class="field">
-          <input type="text" placeholder="Quel sujet vous intéresse ?" />
+          <%= f.input :query, label: false, input_html: {placeholder: 'Quel sujet vous intéresse ?'} %>
         </div>
         <div class="actions">
-          <input type="submit" value="Rechercher">
+          <%= f.button :submit, value: 'Rechercher' %>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 
@@ -59,11 +61,34 @@
 </div>
 
 <div class="home-info">
-  <div class="home-info__main"></div>
-  <ul class="home-info__list">
-    <li></li>
-    <li></li>
-  </ul>
+
+  <%= image_tag 'bg/bg-home-info.png', class: 'info-bg' %>
+
+  <div class="home-info__container">
+    <div class="home-info__main">
+      <p class="title">Faire de la veille n’a jamais été aussi simple et rapide !</p>
+      <p class="description">
+        Avec Nuntio, ce sont nos experts qui vous envoient un résumé des informations majeures à retenir dans votre domaine.
+      </p>
+    </div>
+    <ul class="home-info__list">
+      <li>
+        <%= image_tag 'icons/icon-settings-purple.png', class: 'icon-list' %>
+        <p class="title">Parcourez et sélectionnez vos experts</p>
+        <p class="description">
+          - Un large choix parmi plusieurs thèmes<br />
+          - Affinez votre choix en fonction des fréquences d’envoi et de votre niveau
+        </p>
+      </li>
+      <li>
+        <%= image_tag 'icons/icon-settings-purple.png', class: 'icon-list' %>
+        <p class="title">Du contenu exclusif pour une veille de qualité</p>
+        <p class="description">
+          Une fois abonné, vous recevez la veille de votre expert : un contenu exclusif et rédigé qui vous permet de ne rien rater dans votre domaine.
+        </p>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="home-registration">

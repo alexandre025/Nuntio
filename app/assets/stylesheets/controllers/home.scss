@@ -21,6 +21,13 @@
     background-position:bottom center;
     background-repeat:no-repeat;
 
+    .template-bg{
+      position:absolute;
+      bottom:0;
+      right:0;
+      height:409px;
+    }
+
     @include e('container'){
       position:absolute;
       @include center-content('all');
@@ -136,6 +143,84 @@
   .home-info{
     position:relative;
     border-top:1px solid $gray;
+    padding-top:103px;
+    padding-bottom:123px;
+
+    .info-bg{
+      position:absolute;
+      top:183px;
+      left:117px;
+      height:106px;
+    }
+
+    @include e('container'){
+      @extend .grid;
+    }
+
+    @include e('main'){
+      text-align:center;
+
+      .title{
+        font-family: $raleway;
+        font-weight:$extrabold;
+        font-size: 25px;
+        color: $light-black;
+        letter-spacing: 2px;
+        line-height: 43px;
+      }
+
+      .description{
+        font-family: $raleway;
+        font-weight:$medium;
+        font-size: 20px;
+        color: $darker-gray;
+        letter-spacing: 0.67px;
+        line-height: 30px;
+        max-width:655px;
+        margin:0 auto;
+        margin-top:20px;
+      }
+    }
+
+    @include e('list'){
+      text-align:center;
+      margin-top:96px;
+
+      li{
+        display:inline-block;
+        vertical-align:top;
+        width:488px;
+
+        &:first-child{
+          width:422px;
+          margin-right:161px;
+        }
+
+        .icon-list{
+          width:36px;
+          margin-bottom:77px;
+        }
+
+        .title{
+          font-family: $raleway;
+          font-weight:$bold;
+          font-size: 20px;
+          color: $darker-gray;
+          letter-spacing: 1px;
+          margin-bottom:26px;
+          text-align:left;
+        }
+        .description{
+          font-family: $raleway;
+          font-weight:$medium;
+          font-size: 20px;
+          color: $darker-gray;
+          letter-spacing: 0.67px;
+          line-height: 30px;
+          text-align:left;
+        }
+      }
+    }
   }
 
   .home-registration{

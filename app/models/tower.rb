@@ -12,6 +12,7 @@ class Tower < ApplicationRecord
 
   has_one :tower_guard
   has_one :guard, through: :tower_guard
+  accepts_nested_attributes_for :tower_guard
 
   # has_many :tower_guards
   # has_many :guards, through: :tower_guards
