@@ -22,12 +22,12 @@ ActiveAdmin.register Tower do
 
   filter :title
   filter :category
-  filter :guard, collection: proc { TowerGuard.all.map{ |tg| [tg.guard.fullname, tg.guard.id]} }
+  filter :guard, collection: proc { TowerGuard.all.map { |tg| [tg.guard.fullname, tg.guard.id] } }
   filter :excerpt
   filter :created_at
 
   form do |f|
-    f.inputs "Tower Details" do
+    f.inputs 'Tower Details' do
       f.input :title
       f.input :excerpt
       f.input :short_excerpt
@@ -38,7 +38,7 @@ ActiveAdmin.register Tower do
       f.input :category
       f.input :grade, collection: Tower::GRADES
       f.has_many :tower_guard do |ftg|
-        ftg.input :guard, collection: User.all.map{ |u| [u.fullname,u.id]}
+        ftg.input :guard, collection: User.all.map { |u| [u.fullname, u.id] }
         f.input :excerpt
         f.input :short_excerpt
         f.input :description
