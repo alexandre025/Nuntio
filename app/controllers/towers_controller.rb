@@ -32,6 +32,7 @@ class TowersController < ApplicationController
   end
 
   def search
+    @query = params[:search] ? params[:search][:query] : nil
   end
 
   private

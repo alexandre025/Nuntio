@@ -3,10 +3,10 @@
     <div class="header-mainbar">
       <% logo_path = user_signed_in? ? towers_path : root_path %>
       <%= link_to 'Toasted.', logo_path, class: 'logo' %>
-      <form class="search">
+      <%= simple_form_for :search, url: search_towers_path, method: :get, html: {class: 'search'} do |f| %>
         <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-        <input type="text" placeholder="Rechercher une offre ou un auteur..." />
-      </form>
+        <%= f.input :query, label: false, input_html: {placeholder: 'Rechercher une offre ou un expert...'} %>
+      <% end %>
       <%= yield :header_nav_bar %>
     </div>
 
