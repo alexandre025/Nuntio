@@ -35,7 +35,7 @@
             <div class="quantity-discount">-<span class="value">0</span>% réduction</div>
           </td>
           <td class="amount">
-            <span>17€ TTC</span> /mois
+            <span><%= humanized_money_with_symbol(@subscription.tower.price_per_month) %> TTC</span> /mois
           </td>
         </tr>
       </tbody>

@@ -31,7 +31,7 @@
     <div class="clear"></div>
 
     <div class="subscription-actions">
-      <a href="javascript:history.back()" class="cancel">Retour au panier</a>
+      <%= link_to 'Retour au panier', edit_subscription_path, class: 'cancel' %>
       <%= f.button :submit, class: 'main-link', value: 'Confirmer', data: {'disable-with': 'Chargement' } %>
     </div>
 
