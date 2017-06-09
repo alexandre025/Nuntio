@@ -16,6 +16,9 @@ class Tower < ApplicationRecord
   # has_many :tower_guards
   # has_many :guards, through: :tower_guards
 
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
+
   # Delegators
 
   delegate :theme, to: :category

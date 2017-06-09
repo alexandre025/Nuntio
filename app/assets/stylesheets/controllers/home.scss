@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #home_index{
+  background-color:$white;
 
   .container{
     width:100%;
@@ -12,9 +13,13 @@
 
   .home-header{
     position:relative;
-    height:618px;
+    height:510px;
     width:100%;
     border-bottom:1px solid $gray;
+    background-image:image-url('bg/bg-home-header.png');
+    background-size:contain;
+    background-position:bottom center;
+    background-repeat:no-repeat;
 
     @include e('container'){
       position:absolute;
@@ -64,7 +69,117 @@
   }
 
   .home-discover{
-    @extend .grid;
+    position:relative;
+
+    .discover-bg{
+      position:absolute;
+      top:347px;
+      right:0;
+      height:140px;
+    }
+
+    @include e('container'){
+      @extend .grid;
+    }
+
+    @include e('categories'){
+      margin-top:62px;
+
+      ul{
+        li{
+          display:inline-block;
+          vertical-align:top;
+          text-align:center;
+          margin-left: 10px;
+          margin-right: -4px;
+
+          &:first-child{
+            margin-left:0;
+          }
+
+          .category-bg{
+            height:316px;
+            width:226px;
+            background:$gray no-repeat center;
+            background-size:cover;
+
+            a{
+              display:block;
+              height:100%;
+              width:100%;
+            }
+          }
+
+          .category-title{
+            display:inline-block;
+            font-family: $raleway;
+            font-weight:$bold;
+            font-size: 15px;
+            color: $darker-gray;
+            letter-spacing: 2px;
+            margin-top:20px;
+            text-transform:uppercase;
+
+            &:hover{
+              color:$purple;
+            }
+          }
+        }
+      }
+    }
+
+    @include e('experts'){
+      margin-top:107px;
+    }
+  }
+
+  .home-info{
+    position:relative;
+    border-top:1px solid $gray;
+  }
+
+  .home-registration{
+    position:relative;
+    background-color:$purple;
+    height:365px;
+
+    @include e('container'){
+      position:absolute;
+      @include center-content('all');
+      width:944px;
+
+      @include m('content'){
+        width:820px;
+
+        p{
+          font-family: $raleway;
+          font-weight:$bold;
+          font-size: 32px;
+          color: $white;
+          letter-spacing: 2px;
+          line-height: 44px;
+        }
+        a{
+          @extend .main-link;
+          display:inline-block;
+          height:46px;
+          line-height:46px;
+          width:194px;
+          padding:0;
+          background-color:transparent;
+          color:$white;
+          border-color:$white;
+          text-align:center;
+          margin-top:42px;
+
+          &:hover{
+            background-color:$white;
+            color:$purple;
+          }
+        }
+      }
+
+    }
   }
 
 }

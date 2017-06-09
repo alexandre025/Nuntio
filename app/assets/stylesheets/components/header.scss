@@ -73,6 +73,10 @@ header{
           vertical-align:middle;
           margin-left:66px;
 
+          &.active{
+            border-bottom: 1px solid $purple;
+          }
+
           &:first-child{ margin-left:0; }
 
           &.has-submenu:hover{
@@ -84,6 +88,15 @@ header{
           & > p, & > a{
             @extend .header-menu-title;
             position:relative;
+
+            &.main-link{
+              color:$purple;
+              padding:6px 40px;
+
+              &:hover{
+                color:$white;
+              }
+            }
 
             &.new-reports{
               &:after{

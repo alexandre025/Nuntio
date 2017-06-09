@@ -4,12 +4,12 @@
 
   <h2 class="title">Choix de l'abonnement</h2>
 
-  <%= simple_form_for @subscription, url: subscription_path, class: 'main-form' do |f| %>
+  <%= simple_form_for @subscription, url: subscription_path, html: {class: 'main-form'} do |f| %>
     <%= f.input :owner_id, as: :hidden %>
     <%= f.input :tower_id, as: :hidden %>
 
     <div class="field">
-      <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons %>
+      <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons, label: false %>
     </div>
 
     <table class="subscription-table">
@@ -35,7 +35,7 @@
             <div class="quantity-discount">-<span class="value">0</span>% réduction</div>
           </td>
           <td class="amount">
-            <span>17€ TTC</span> /mois
+            <span><%= humanized_money_with_symbol(@subscription.tower.price_per_month) %> TTC</span> /mois
           </td>
         </tr>
       </tbody>
@@ -44,11 +44,11 @@
     <div class="subscription-total">
       <div class="total-discount-amount">
         <p class="subscription-total__title">Réduction totale</p>
-        <p class="subscription-total__value">-<span class="value">0</span>€</p>
+        <p class="subscription-total__value">-<span class="value">0</span>€ /mois</p>
       </div>
       <div class="total-amount">
         <p class="subscription-total__title">Total</p>
-        <p class="subscription-total__value"><span class="value"><%= @subscription.amount %></span>€/mois TTC</p>
+        <p class="subscription-total__value"><span class="value"><%= @subscription.amount %></span>€ /mois TTC</p>
       </div>
     </div>
 
@@ -56,7 +56,7 @@
 
     <div class="subscription-actions">
       <%= link_to 'Annuler', tower_path(@subscription.tower), class: 'cancel' %>
-      <%= f.button :submit, class: 'main-link', value: 'Continuer' %>
+      <%= f.button :submit, class: 'main-link', value: 'Continuer', data: {'disable-with': 'Chargement' } %>
     </div>
 
     <div class="clear"></div>

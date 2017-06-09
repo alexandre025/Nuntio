@@ -9,13 +9,13 @@
 <div class="tower-show__header">
   <div class="tower-show__header--content">
     <h2 class="title"><%= @tower.title %></h2>
-    <p class="description">Pour vous aider à comprendre les leviers SEO les plus pertinents pour votre ecosystème</p>
+    <p class="description"><%= @tower.short_excerpt %></p>
     <div class="rating">
-      <div class="rating-stars" data-rating="3.2"></div>
-      <p>342 avis</p>
-      <p class="followers">52 abonnés</p>
+      <div class="rating-stars" data-rating="<%= @tower.average_notation || 0 %>"></div>
+      <p><%= @tower.comments.count %> avis</p>
+      <p class="followers"><%= @tower.users.count %> abonnés</p>
     </div>
-    <p class="details">Par Ludovic Delabre &nbsp; | &nbsp; Responsable aquisition à Numa Paris</p>
+    <p class="details"><%= t('by')+" "+@tower.guard.fullname %> &nbsp; | &nbsp; <%= @tower.tower_guard.short_excerpt %></p>
   </div>
 </div>
 
@@ -30,15 +30,15 @@
 
       <div class="tab-content">
         <div id="tab-1" class="tab-pane tab-pane__product active">
-          <%= render partial: 'towers/tabs/product', locals: {} %>
+          <%= render partial: 'towers/tabs/product', locals: { tower: @tower } %>
         </div>
 
         <div id="tab-2" class="tab-pane tab-pane__author">
-          <%= render partial: 'towers/tabs/author', locals: {} %>
+          <%= render partial: 'towers/tabs/author', locals: { tower: @tower } %>
         </div>
 
         <div id="tab-3" class="tab-pane tab-pane__comment">
-          <%= render partial: 'towers/tabs/comment', locals: {} %>
+          <%= render partial: 'towers/tabs/comment', locals: { tower: @tower } %>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
 
       <div class="side-body">
         <div class="side-header">
-          <p class="price">8,90€</p>
+          <p class="price"><%= humanized_money_with_symbol @tower.price_per_month %></p>
           <p class="month">par mois</p>
         </div>
         <div class="side-info">

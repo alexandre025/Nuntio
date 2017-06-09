@@ -1,13 +1,41 @@
 <%= render partial: 'subscriptions/header', locals: { current: :payment } %>
 
 <div class="subscription-container">
-  <%= simple_form_for :payment, url: subscription_path do |f| %>
-    <%= Money.new(@subscription.amount, 'EUR') %>
-    <%= f.input :credit_card_owner %>
-    <%= f.input :credit_card %>
-    <%= f.input :expiration_year %>
-    <%= f.input :expiration_month %>
-    <%= f.input :ccv %>
-    <%= f.button :submit %>
+
+  <h2 class="title">Moyen de paiement</h2>
+
+  <div class="subscription-total">
+    <div class="total-discount-amount">
+      <p class="subscription-total__title">Montant</p>
+      <p class="subscription-total__value"><%= Money.new(@subscription.amount, 'EUR') %>€ /mois</p>
+    </div>
+  </div>
+
+  <%= simple_form_for :payment, url: subscription_path, html: {class: 'main-form'} do |f| %>
+    <div class="field">
+      <%= f.input :credit_card_owner, label: false, placeholder: 'Nom du détenteur' %>
+    </div>
+    <div class="field field-card">
+      <%= f.input :credit_card, label: false, placeholder: 'Numéro de carte bancaire' %>
+    </div>
+    <div class="field">
+      <%= f.input :expiration_year, label: false, placeholder: "Année d'expiration" %>
+    </div>
+    <div class="field semi-field">
+      <%= f.input :expiration_month, label: false, placeholder: "Mois d'expiration" %>
+    </div>
+    <div class="field semi-field field-password">
+      <%= f.input :ccv, label: false, placeholder: 'Cryptogramme' %>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="subscription-actions">
+      <%= link_to 'Retour au panier', edit_subscription_path, class: 'cancel' %>
+      <%= f.button :submit, class: 'main-link', value: 'Confirmer', data: {'disable-with': 'Chargement' } %>
+    </div>
+
+    <div class="clear"></div>
   <% end %>
+
 </div>

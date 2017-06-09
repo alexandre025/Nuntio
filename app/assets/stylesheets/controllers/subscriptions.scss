@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#subscriptions_edit, #subscription_payment{
+#subscriptions_edit, #subscriptions_payment, #subscriptions_confirm{
 
   header{
     display:none;
@@ -111,6 +111,7 @@
       font-size: 20px;
       color: $darker-gray;
       letter-spacing: 1px;
+      margin-bottom:36px;
     }
 
     .subscription-table{
@@ -174,6 +175,7 @@
                     letter-spacing: 1px;
                     border:1px solid $purple;
                     box-sizing:border-box;
+                    padding-bottom: 2px;
                   }
 
                   input::-webkit-outer-spin-button,
@@ -272,11 +274,11 @@
       @include e('value'){
         display:inline-block;
         vertical-align:middle;
-        width:192px;
+        width:202px;
         text-align:right;
         font-size: 15px;
         letter-spacing: 1px;
-        margin-left:24px;
+        margin-left:14px;
       }
     }
 
@@ -301,4 +303,43 @@
     }
   }
 
+}
+
+#subscriptions_payment{
+  .subscription-container{
+    padding:93px 158px;
+
+    form{
+      .field-card input{
+        background-image:url(image_path('icons/icon-card-gray.png'));
+        background-size: 28px 18px;
+        background-position: right 18px center;
+        background-repeat: no-repeat;
+        padding-right:58px;
+      }
+      .field-password input{
+        background-image:url(image_path('icons/icon-lock-gray-big.png'));
+        background-size: 21px 26px;
+        background-position: right 22px center;
+        background-repeat: no-repeat;
+        padding-right:58px;
+      }
+    }
+
+    .subscription-total{
+      float:inherit;
+      margin-bottom:22px;
+
+      @include e('title'){
+        text-align:left;
+        width:auto;
+      }
+      @include e('value'){
+        text-align:left;
+        width:auto;
+        margin-left:46px;
+      }
+    }
+
+  }
 }
