@@ -27,7 +27,7 @@ ActiveAdmin.register Tower do
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs "Tower Details" do
       f.input :title
       f.input :excerpt
       f.input :short_excerpt
@@ -37,7 +37,15 @@ ActiveAdmin.register Tower do
       f.input :frequency, collection: Tower::FREQUENCIES
       f.input :category
       f.input :grade, collection: Tower::GRADES
+      f.has_many :tower_guard do |ftg|
+        ftg.input :guard, collection: User.all.map{ |u| [u.fullname,u.id]}
+        f.input :excerpt
+        f.input :short_excerpt
+        f.input :description
+      end
     end
     f.actions
   end
+
+  permit_params :title, :excerpt, :short_excerpt, :description, :locales, :price_per_month, :frequency, :category_id, :grade, tower_guard_attributes: [:guard_id, :excerpt, :short_excerpt, :description]
 end
