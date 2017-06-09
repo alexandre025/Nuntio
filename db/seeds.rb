@@ -1,12 +1,35 @@
 require 'factory_girl_rails'
 require 'ruby-progressbar'
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
 FactoryGirl.create(:user, email: 'admin@trombonne.net', password: 'trombonne')
 
+themes = [
+  { name: 'Développement',
+    categories: ['Développement web', 'Développement mobile', 'DevOps', 'Autres']
+  },
+  { name: 'Marketing',
+    categories: ['Numérique', 'SEO', 'Social media', 'Analytics', 'Publicité', 'Vidéo & mobile', 'Contenu', 'Growth hacking', 'Affiliation', 'Produits', 'Mobile', 'Autres']
+  },
+  { name: 'Business',
+    categories: ['Finance', 'Entrepreunariat', 'Communication', 'Gestion', 'Stratégie', 'Gestion de projets', 'Autres']
+  },
+  { name: 'Design',
+    categories: ['Conception mobile', 'Conception web', 'Design produit', 'Expérience utilisateur', 'Conception de jeux', '3D & animations', 'Motion design', 'Autres']
+  },
+  { name: 'Innovation',
+    categories: ['Fab lab', 'IOT', 'Robotique', 'Réalité virtuelle', 'Nouvelles technologies', 'Autres']
+  }
+]
+
 puts 'Create themes and categories'
-progressbar = ProgressBar.create(total: 7)
-%w(Développement Design Marketing Business Innovation).each do |theme_name|
-  FactoryGirl.create(:theme, name: theme_name)
+progressbar = ProgressBar.create(total: 5)
+themes.each do |row|
+  theme = Theme.create(name: row[:name])
+  row[:categories].each do |category|
+    Category.create(theme: theme, name: category)
+  end
   progressbar.increment
 end
 
@@ -22,4 +45,3 @@ Category.all.each do |category|
   end
   progressbar.increment
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
