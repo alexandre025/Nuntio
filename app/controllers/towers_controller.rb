@@ -36,7 +36,7 @@ class TowersController < ApplicationController
   end
 
   def search
-    @q = Tower.ransack(title_or_short_excerpt_or_guard_fullname_cont: params[:search][:q])
+    @q = Tower.ransack(params[:q])
     @towers = @q.result.page(params[:page]).per(20)
   end
 

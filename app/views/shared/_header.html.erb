@@ -2,9 +2,9 @@
   <div class="header-container">
     <div class="header-mainbar">
       <%= link_to 'Toasted.', user_signed_in? ? towers_path : root_path, class: 'logo' %>
-      <%= simple_form_for :search, url: search_towers_path, method: :post, html: { class: 'search' } do |f| %>
+      <%= simple_form_for :q, url: search_towers_path, method: :post, html: { class: 'search' } do |f| %>
         <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-        <%= f.input :q, label: false, input_html: { placeholder: 'Rechercher une offre...' } %>
+        <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, label: false, input_html: { placeholder: 'Rechercher une offre...' } %>
       <% end %>
       <%= yield :header_nav_bar %>
     </div>

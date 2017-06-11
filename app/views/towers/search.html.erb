@@ -37,7 +37,7 @@ Towers : <br>
 
     <div class="tower-list-full__header">
       <div class="tower-list-full__header--left">
-        <h2 class="list-title">Toutes les offres <%= "correspondant à la recherche: #{params[:search][:q]}" unless params[:search][:q].blank? %></h2>
+        <h2 class="list-title">Toutes les offres <%= "correspondant à la recherche: #{params[:q][:title_or_short_excerpt_or_guard_fullname_cont]}" unless params[:q][:title_or_short_excerpt_or_guard_fullname_cont].blank? %></h2>
       </div>
     </div>
 
@@ -69,8 +69,9 @@ Towers : <br>
           </select>
         </div>
       </form>
-      <%= search_form_for @q, url: search_towers_path(search: {query: @userQuery}), method: :get, data: { remote: true } do |f| %>
+      <%= search_form_for @q, url: search_towers_path, method: :post do |f| %>
         <div class="list-filters__left">
+          <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, as: :hidden %>
           <%= f.select :grade_eq, Tower::GRADES.map { |g| [t("towers.grade.#{g}"), g] }, { include_blank: 'Niveau' }, {onchange: 'this.form.submit();'} %>
         </div>
         <div class="list-filters__right">
