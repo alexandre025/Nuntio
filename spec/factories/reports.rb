@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :report do
     title { Faker::Lorem.words(2, true).join(' ') }
-    content { Faker::Lorem.paragraph(3) }
+    content { Faker::Lorem.paragraph(rand(600..1000)) }
 
     after :build do |report|
       unless report.tower && report.tower_guard

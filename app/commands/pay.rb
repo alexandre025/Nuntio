@@ -5,8 +5,6 @@ class Pay < BaseCommand
   end
 
   def call
-    byebug
-
     if @subscription.payment?
 
       # Here we'll call Stripe then register credit card minimal informations in a callback

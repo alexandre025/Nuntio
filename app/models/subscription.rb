@@ -47,6 +47,7 @@ class Subscription < ApplicationRecord
     end
 
     before_transition payment: :confirmed do |subscription|
+      subscription.user_subscriptions.create(user: subscription.owner)
       subscription.confirmed_at = DateTime.current
       Billing.create_from_subscription(subscription)
     end

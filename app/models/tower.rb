@@ -20,6 +20,8 @@ class Tower < ApplicationRecord
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  has_many :reports
+
   # Delegators
 
   delegate :theme, to: :category
@@ -33,4 +35,10 @@ class Tower < ApplicationRecord
   # Validators
 
   validates :category, :title, :description, presence: true
+
+  # Methods
+
+  def average_time_to_read
+    reports.any? ? (reports.map{ |r| r.content.split.count }.sum / reports.size / 300).to_i : 0
+  end
 end

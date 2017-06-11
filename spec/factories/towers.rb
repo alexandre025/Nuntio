@@ -4,7 +4,7 @@ FactoryGirl.define do
     short_excerpt { Faker::Lorem.sentence }
     excerpt { Faker::Lorem.paragraph(1) }
     description { Faker::Lorem.paragraph(2) }
-    price_per_month { Faker::Number.decimal(2, 2).to_d }
+    price_per_month { rand(4..30) }
     locales [:fr]
     frequency Tower::FREQUENCIES.first
     grade Tower::GRADES.first

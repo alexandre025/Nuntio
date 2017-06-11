@@ -53,9 +53,9 @@
         <div class="side-info">
           <p>Cela comprend :</p>
           <ul>
-            <li class="time"><div class="info-icon"></div> 5 à 8 minutes de lecture</li>
-            <li class="level"><div class="info-icon"></div> Pour tous niveau</li>
-            <li class="frequency"><div class="info-icon"></div> Format hebdomadaire</li>
+            <li class="time"><div class="info-icon"></div> <%= @tower.average_time_to_read %> minutes de lecture</li>
+            <li class="level"><div class="info-icon"></div> <%= t("towers.grade.#{@tower.grade}") %></li>
+            <li class="frequency"><div class="info-icon"></div> <%= t("towers.frequency.#{@tower.frequency}") %></li>
           </ul>
           <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
             <%= f.input :tower_id, as: :hidden %>
