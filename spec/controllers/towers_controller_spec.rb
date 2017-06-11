@@ -38,7 +38,7 @@ RSpec.describe TowersController, type: :controller do
   describe 'GET #show' do
 
     it 'http status success' do
-      get :show, params: { id: tower.id }
+      get :show, params: { id: tower.slug }
       expect(response).to have_http_status(:success)
     end
 
