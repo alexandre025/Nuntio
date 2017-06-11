@@ -84,6 +84,8 @@ gem 'faker'
 
 gem 'sentry-raven', '~> 2.4.0'
 
-gem 'activeadmin'
+gem 'activeadmin', '~> 1.0.0'
+
+gem 'wisper', '~> 1.6.1'
 
 gem 'sidekiq', '~> 5.0.2'
