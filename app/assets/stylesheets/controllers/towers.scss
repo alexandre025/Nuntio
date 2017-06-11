@@ -29,6 +29,13 @@
       flex-wrap:wrap;
       align-content: flex-start;
 
+      .no-results{
+        font-family: $raleway;
+        font-weight:$regular;
+        font-size: 17px;
+        color:$darker-gray;
+      }
+
       .tower-card{
         margin:15px 0;
         margin-left:29px;

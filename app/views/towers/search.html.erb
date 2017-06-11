@@ -37,14 +37,11 @@ Towers : <br>
 
     <div class="tower-list-full__header">
       <div class="tower-list-full__header--left">
-        <h2 class="list-title">Toutes les offres <%= "correspondant à la recherche: #{@query}" if @query %></h2>
+        <h2 class="list-title">Toutes les offres <%= "correspondant à la recherche: #{@userQuery}" if @userQuery %></h2>
       </div>
     </div>
 
     <div class="tower-list-full__filters list-filters">
-      <%#= search_form_for @q, url: theme_towers_path(all: true), data: { remote: true } do |f| %>
-        <%#= f.select :activity_schedule_season_id_eq, Lump::Season.order('date_begin ASC').map { |s| [s.label, s.id] }, { include_blank: 'Fourchette de prix' }, {onchange: 'this.form.submit();'} %>
-      <%# end %>
       <form action="">
         <div class="list-filters__left">
           <select name="" id="">
@@ -72,13 +69,23 @@ Towers : <br>
           </select>
         </div>
       </form>
+      <%= search_form_for @q, url: search_towers_path(search: {query: @userQuery}), method: :get, data: { remote: true } do |f| %>
+        <div class="list-filters__left">
+          <%= f.select :grade_eq, Tower::GRADES.map { |g| [t("towers.grade.#{g}"), g] }, { include_blank: 'Niveau' }, {onchange: 'this.form.submit();'} %>
+        </div>
+        <div class="list-filters__right">
+          <p>Trier par :</p>
+        </div>
+      <% end %>
     </div>
 
     <div class="tower-list-full__cards">
-      <% 10.times do |s| %>
-        <div class="tower-card">
-          <%= render partial: 'towers/tower_card', locals: {} %>
-        </div>
+      <% if @towers.count > 0 %>
+        <%- @towers.each do |tower| -%>
+          <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+        <%- end -%>
+      <% else %>
+        <p class="no-results">Aucun résultat</p>
       <% end %>
     </div>
   </div>

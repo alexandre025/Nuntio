@@ -32,7 +32,11 @@ class TowersController < ApplicationController
   end
 
   def search
-    @query = params[:search] ? params[:search][:query] : nil
+    @userQuery = params[:search] ? params[:search][:query] : nil
+    params[:q] = {} if params[:q].nil?
+    query = @userQuery.blank? ? params[:q] : params[:q].merge({title_cont: @titleQuery})
+    @q = Tower.friendly.ransack(query)
+    @towers = @q.result.page(params[:page]).per(20)
   end
 
   private
