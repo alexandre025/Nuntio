@@ -3,9 +3,20 @@
 
 App.ready(function(){
 
+  if($('#subscriptions_payment').is('*')) {
+    new Cleave('#payment_credit_card', {
+      creditCard: true
+    });
+
+    new Cleave('#payment_expiration', {
+      date: true,
+      datePattern: ['m', 'y']
+    });
+  }
+
   if($('#subscriptions_edit').is('*')) {
     updateFormValues($('form'));
-    
+
     $('form').on('change', function(e) {
       updateFormValues($(this));
     });

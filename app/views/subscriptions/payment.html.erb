@@ -13,19 +13,16 @@
 
   <%= simple_form_for :payment, url: subscription_path, method: :patch, html: {class: 'main-form'} do |f| %>
     <div class="field">
-      <%= f.input :credit_card_owner, label: false, placeholder: 'Nom du détenteur' %>
+      <%= f.input :credit_card_owner, label: false, placeholder: 'Titulaire de la carte' %>
     </div>
     <div class="field field-card">
-      <%= f.input :credit_card, label: false, placeholder: 'Numéro de carte bancaire' %>
-    </div>
-    <div class="field">
-      <%= f.input :expiration_year, label: false, placeholder: "Année d'expiration" %>
+      <%= f.input :credit_card, label: false, placeholder: 'Numéro de la carte' %>
     </div>
     <div class="field semi-field">
-      <%= f.input :expiration_month, label: false, placeholder: "Mois d'expiration" %>
+      <%= f.input :expiration, label: false, placeholder: '01/22' %>
     </div>
     <div class="field semi-field field-password">
-      <%= f.input :ccv, label: false, placeholder: 'Cryptogramme' %>
+      <%= f.input :ccv, label: false, placeholder: '123' %>
     </div>
 
     <div class="clear"></div>
