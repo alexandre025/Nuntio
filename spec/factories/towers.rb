@@ -9,6 +9,18 @@ FactoryGirl.define do
     frequency Tower::FREQUENCIES.first
     grade Tower::GRADES.first
 
+    trait :with_users do
+      after :build do |tower|
+        rand(10..20).times do
+          subscription = FactoryGirl.create(:subscription, tower: tower)
+          subscription.to_payment!
+          subscription.confirm!
+
+          FactoryGirl.create(:comment, commentable: tower, user: subscription.owner)
+        end
+      end
+    end
+
     trait :with_category do
       association :category, factory: [:category, :with_theme]
     end

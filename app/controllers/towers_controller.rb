@@ -1,6 +1,4 @@
 class TowersController < ApplicationController
-  #before_action :authenticate_user!
-
   before_action :set_themes, only: [:index, :theme, :category]
 
   def index
@@ -30,6 +28,7 @@ class TowersController < ApplicationController
     @tower = Tower.find_by(slug: params[:id])
     if @tower
       @subscription = Subscription.new(tower: @tower, owner: current_user)
+      @similars = Tower.where(category: @tower.category).order(created_at: :asc).limit(10)
     else
       redirect_to root_path
     end
