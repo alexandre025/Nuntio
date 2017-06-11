@@ -1,5 +1,4 @@
 class Pay < BaseCommand
-
   def initialize(subscription, params)
     @subscription = subscription
     @params = params
@@ -29,5 +28,4 @@ class Pay < BaseCommand
 
     broadcast :invalid, @subscription
   end
-
 end
