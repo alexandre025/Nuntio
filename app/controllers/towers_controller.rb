@@ -1,6 +1,4 @@
 class TowersController < ApplicationController
-  #before_action :authenticate_user!
-
   before_action :set_themes, only: [:index, :theme, :category]
 
   def index
@@ -27,12 +25,18 @@ class TowersController < ApplicationController
   end
 
   def show
-    @tower = Tower.friendly.find(params[:id])
-    @subscription = Subscription.new(tower: @tower, owner: current_user)
+    @tower = Tower.find_by(slug: params[:id])
+    if @tower
+      @subscription = Subscription.new(tower: @tower, owner: current_user)
+      @similars = Tower.where(category: @tower.category).order(created_at: :asc).limit(10)
+    else
+      redirect_to root_path
+    end
   end
 
   def search
-    @query = params[:search] ? params[:search][:query] : nil
+    @q = Tower.ransack(params[:q])
+    @towers = @q.result.page(params[:page]).per(20)
   end
 
   private

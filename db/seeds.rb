@@ -37,7 +37,7 @@ puts 'Create towers, guards and reports for each categories'
 progressbar = ProgressBar.create(total: Category.all.count)
 Category.all.each do |category|
   10.times do
-    tower = FactoryGirl.create(:tower, category: category)
+    tower = FactoryGirl.create(:tower, :with_users, category: category)
     FactoryGirl.create(:tower_guard, tower: tower)
     10.times do
       FactoryGirl.create(:report, tower: tower, tower_guard: tower.tower_guard)

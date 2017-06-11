@@ -76,9 +76,13 @@ Towers : <br>
     </div>
 
     <div class="tower-list-full__cards">
-      <%- @towers.each do |tower| -%>
-        <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
-      <%- end -%>
+      <% if @towers.count > 0 %>
+        <%- @towers.each do |tower| -%>
+          <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+        <%- end -%>
+      <% else %>
+        <p class="no-results">Aucun résultat</p>
+      <% end %>
     </div>
   </div>
 

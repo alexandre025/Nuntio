@@ -53,9 +53,9 @@
         <div class="side-info">
           <p>Cela comprend :</p>
           <ul>
-            <li class="time"><div class="info-icon"></div> 5 à 8 minutes de lecture</li>
-            <li class="level"><div class="info-icon"></div> Pour tous niveau</li>
-            <li class="frequency"><div class="info-icon"></div> Format hebdomadaire</li>
+            <li class="time"><div class="info-icon"></div> <%= @tower.average_time_to_read %> minutes de lecture</li>
+            <li class="level"><div class="info-icon"></div> <%= t("towers.grade.#{@tower.grade}") %></li>
+            <li class="frequency"><div class="info-icon"></div> <%= t("towers.frequency.#{@tower.frequency}") %></li>
           </ul>
           <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
             <%= f.input :tower_id, as: :hidden %>
@@ -66,8 +66,8 @@
         </div>
       </div>
       <div class="side-rating">
-        <div class="rating-stars" data-rating="3.2"></div>
-        <p>85% d'avis positifs</p>
+        <div class="rating-stars" data-rating="<%= @tower.average_notation || 0 %>"></div>
+        <p><%= @tower.good_notation_percent %>% d'avis positifs</p>
       </div>
 
     </div>
@@ -80,8 +80,8 @@
     <h2 class="tower-list__title">Recommandés pour vous</h2>
 
     <div class="tower-list__slider">
-      <% 10.times do |s| %>
-        <%= render partial: 'towers/tower_card', locals: {} %>
+      <% @similars.each do |tower| %>
+        <%= render partial: 'towers/tower_card', locals: {tower: tower} %>
       <% end %>
     </div>
 

@@ -4,10 +4,22 @@ FactoryGirl.define do
     short_excerpt { Faker::Lorem.sentence }
     excerpt { Faker::Lorem.paragraph(1) }
     description { Faker::Lorem.paragraph(2) }
-    price_per_month { Faker::Number.decimal(2, 2).to_d }
+    price_per_month { rand(4..30) }
     locales [:fr]
     frequency Tower::FREQUENCIES.first
     grade Tower::GRADES.first
+
+    trait :with_users do
+      after :build do |tower|
+        rand(10..20).times do
+          subscription = FactoryGirl.create(:subscription, tower: tower)
+          subscription.to_payment!
+          subscription.confirm!
+
+          FactoryGirl.create(:comment, commentable: tower, user: subscription.owner)
+        end
+      end
+    end
 
     trait :with_category do
       association :category, factory: [:category, :with_theme]
