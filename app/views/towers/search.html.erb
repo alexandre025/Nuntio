@@ -37,7 +37,7 @@ Towers : <br>
 
     <div class="tower-list-full__header">
       <div class="tower-list-full__header--left">
-        <h2 class="list-title">Toutes les offres <%= "correspondant à la recherche: #{@userQuery}" if @userQuery %></h2>
+        <h2 class="list-title">Toutes les offres <%= "correspondant à la recherche: #{@userQuery}" unless @userQuery.blank? %></h2>
       </div>
     </div>
 
