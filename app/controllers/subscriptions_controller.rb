@@ -53,9 +53,9 @@ class SubscriptionsController < ApplicationController
       end
 
       # begin
-        pay.call
+      pay.call
       # rescue StandardError => e
-        # redirect_to payment_subscription_path, alert: e.to_s
+      # redirect_to payment_subscription_path, alert: e.to_s
       # end
     end
   end
