@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <%= simple_form_for :payment, url: subscription_path, html: {class: 'main-form'} do |f| %>
+  <%= simple_form_for :payment, url: subscription_path, method: :patch, html: {class: 'main-form'} do |f| %>
     <div class="field">
       <%= f.input :credit_card_owner, label: false, placeholder: 'Nom du détenteur' %>
     </div>
