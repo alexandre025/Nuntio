@@ -28,7 +28,7 @@ class Tower < ApplicationRecord
 
   # Constants
 
-  FREQUENCIES = %w(monthly).freeze
+  FREQUENCIES = %w(daily weekly bimonthly monthly).freeze
 
   GRADES = %w(beginner intermediate advanced).freeze
 

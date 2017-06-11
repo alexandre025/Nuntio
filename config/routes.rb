@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resource :subscription, only: [:create, :edit, :update] do
     post 'simulate'
     get 'payment'
+    get 'confirmation'
   end
 
   get ':id', to: 'towers#show', as: :tower

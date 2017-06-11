@@ -31,6 +31,10 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def confirmation
+    @subscription = Subscription.find_by(id: session[:current_subscription_id])
+  end
+
   def update
     subscription = Subscription.find_by(id: session[:current_subscription_id])
 

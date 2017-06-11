@@ -1,9 +1,11 @@
 <div class="header-alternative">
   <div class="header-alternative__container">
-    <%= link_to 'Toasted.', towers_path, class: 'logo' %>
+    <%= link_to user_signed_in? ? towers_path : root_path, class: 'logo' do %>
+      <%= image_tag 'img/logo-nuntio-black.png' %>
+    <% end %>
     <hr class="global-hr">
     <div class="timeline">
-      <ul class="<%= 'active-1' if current == :edit %> <%= 'active-2' if current == :payment %> <%= 'active-3' if current == :confirm %>">
+      <ul class="<%= 'active-1' if current == :edit %> <%= 'active-2' if current == :payment %> <%= 'active-3' if current == :confirmation %>">
         <li>
           <p class="number">1</p>
           <p class="title">Panier</p>
@@ -16,7 +18,7 @@
         <div class="line line-2"></div>
         <li>
           <p class="number">3</p>
-          <p class="title">Finalisation</p>
+          <p class="title">Confirmation</p>
         </li>
       </ul>
     </div>

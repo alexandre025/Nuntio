@@ -9,9 +9,9 @@
   <div class="home-header__container">
     <div class="home-header__container--content">
       <p>La première marketplace qui permet de recevoir une veille régulière et réalisée par des experts.</p>
-      <%= simple_form_for :search, url: search_towers_path, method: :get, html: {class: 'main-form'} do |f| %>
+      <%= simple_form_for :q, url: search_towers_path, method: :post, html: {class: 'main-form'} do |f| %>
         <div class="field">
-          <%= f.input :query, label: false, input_html: {placeholder: 'Quel sujet vous intéresse ?'} %>
+          <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, label: false, input_html: { placeholder: 'Quel sujet vous intéresse ?' } %>
         </div>
         <div class="actions">
           <%= f.button :submit, value: 'Rechercher' %>
@@ -33,7 +33,7 @@
       <ul>
         <% Theme.all.each do |t| %>
           <li>
-            <div class="category-bg">
+            <div class="category-bg" style="background-image:url(<%= image_path("bg/bg-theme-#{t.slug}.jpg") %>);">
               <%= link_to '', theme_towers_path(t) %>
             </div>
 
@@ -68,7 +68,7 @@
     <div class="home-info__main">
       <p class="title">Faire de la veille n’a jamais été aussi simple et rapide !</p>
       <p class="description">
-        Avec Nuntio, ce sont nos experts qui vous envoient un résumé des informations majeures à retenir dans votre domaine.
+        Avec <b>Nuntio</b>, ce sont nos experts qui vous envoient un résumé des informations majeures à retenir dans votre domaine.
       </p>
     </div>
     <ul class="home-info__list">
@@ -76,12 +76,11 @@
         <%= image_tag 'icons/icon-settings-purple.png', class: 'icon-list' %>
         <p class="title">Parcourez et sélectionnez vos experts</p>
         <p class="description">
-          - Un large choix parmi plusieurs thèmes<br />
-          - Affinez votre choix en fonction des fréquences d’envoi et de votre niveau
+          Vous avez un large choix parmi plusieurs thèmes et pouvez affiner votre choix en fonction des fréquences d’envoi et de votre niveau.
         </p>
       </li>
       <li>
-        <%= image_tag 'icons/icon-settings-purple.png', class: 'icon-list' %>
+        <%= image_tag 'icons/icon-mail-purple.png', class: 'icon-list' %>
         <p class="title">Du contenu exclusif pour une veille de qualité</p>
         <p class="description">
           Une fois abonné, vous recevez la veille de votre expert : un contenu exclusif et rédigé qui vous permet de ne rien rater dans votre domaine.

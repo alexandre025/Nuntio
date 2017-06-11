@@ -42,40 +42,24 @@ Towers : <br>
     </div>
 
     <div class="tower-list-full__filters list-filters">
-      <form action="">
+      <%= search_form_for @q, url: search_towers_path, method: :post do |f| %>
         <div class="list-filters__left">
           <select name="" id="">
             <option value="" disabled selected>Fourchette de prix</option>
             <option value="">Lorem</option>
             <option value="">Ipsum</option>
           </select>
-          <select name="" id="">
-            <option value="" disabled selected>Niveau</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-          <select name="" id="">
-            <option value="" disabled selected>Fréquence</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-        </div>
-        <div class="list-filters__right">
-          <p>Trier par :</p>
-          <select name="" id="">
-            <option value="" disabled selected>Popularité</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-        </div>
-      </form>
-      <%= search_form_for @q, url: search_towers_path, method: :post do |f| %>
-        <div class="list-filters__left">
           <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, as: :hidden %>
           <%= f.select :grade_eq, Tower::GRADES.map { |g| [t("towers.grade.#{g}"), g] }, { include_blank: 'Niveau' }, {onchange: 'this.form.submit();'} %>
+          <%= f.select :frequency_eq, Tower::FREQUENCIES.map { |f| [t("towers.frequency.#{f}"), f] }, { include_blank: 'Fréquence' }, {onchange: 'this.form.submit();'} %>
         </div>
         <div class="list-filters__right">
           <p>Trier par :</p>
+          <select name="" id="">
+            <option value="">Popularité</option>
+            <option value="">Date de publication</option>
+            <option value="">Prix croissant</option>
+          </select>
         </div>
       <% end %>
     </div>

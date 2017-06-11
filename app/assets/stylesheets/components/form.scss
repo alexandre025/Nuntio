@@ -125,9 +125,17 @@ select{
 }
 select::-ms-expand { display: none; }
 
+// -------- FORM --------
+
+form{
+  .hidden{
+    display:none;
+  }
+}
 
 
 /* --------- FORMS --------- */
+
 .main-form{
   text-align:left;
 

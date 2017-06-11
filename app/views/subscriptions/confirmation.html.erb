@@ -1,0 +1,20 @@
+<%= render partial: 'subscriptions/header', locals: { current: :confirmation } %>
+
+<div class="subscription-container">
+
+  <h2 class="confirm">Votre abonnement a bien été pris en compte !</h2>
+
+  <p class="abonnement">Vous êtes maintenant abonné à</p>
+
+  <p class="author">
+    <%#= link_to @subscription.tower.title, tower_path(@subscription.tower), class: 'tower-link' %><br />
+    Par <%#= @subscription.tower.guard.fullname %>
+  </p>
+
+  <div class="subscription-actions">
+    <%= link_to 'Continuer mes achats', towers_path, class: 'cancel' %>
+    <%= link_to 'Mon tableau de bord', dashboard_path, class: 'main-link' %>
+  </div>
+  <div class="clear"></div>
+
+</div>
