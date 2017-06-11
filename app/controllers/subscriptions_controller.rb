@@ -1,6 +1,8 @@
 class SubscriptionsController < ApplicationController
   before_action :authenticate_user!
 
+  before_action :prevent_already_confirmed, except: :simulate
+
   def create
     subscription = Subscription.find_or_initialize_by(subscription_params)
 
@@ -22,20 +24,39 @@ class SubscriptionsController < ApplicationController
   end
 
   def payment
-    @subscription = Subscription.find_by(id: session[:current_subscription_id])
-    redirect_to edit_subscription_path if @subscription.draft?
+    if @subscription = Subscription.find_by(id: session[:current_subscription_id])
+      redirect_to edit_subscription_path if @subscription.draft?
+    else
+      redirect_to dashboard_path
+    end
   end
 
   def update
     subscription = Subscription.find_by(id: session[:current_subscription_id])
+
+    return redirect_to dashboard_path if !subscription || subscription.confirmed?
 
     if subscription.draft?
       subscription.update(subscription_params)
       subscription.to_payment!
       return redirect_to payment_subscription_path
     elsif subscription.payment?
-      # Proceed payment
-      # redirect to dashboard
+      pay = Pay.new(subscription, params)
+
+      pay.on(:ok) do |subscription|
+        session[:current_subscription_id] = nil
+        redirect_to dashboard_path
+      end
+
+      pay.on(:invalid) do |subscription|
+        redirect_to payment_subscription_path
+      end
+
+      # begin
+        pay.call
+      # rescue StandardError => e
+        # redirect_to payment_subscription_path, alert: e.to_s
+      # end
     end
   end
 
@@ -45,6 +66,11 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+    def prevent_already_confirmed
+      if subscription = Subscription.find_by(id: session[:current_subscription_id], state: :confirmed)
+        session[:current_subscription_id] = nil
+      end
+    end
 
     def subscription_params
       params.require(:subscription).permit(:tower_id, :owner_id, :state, :commitment, :quantity)

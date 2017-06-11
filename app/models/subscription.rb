@@ -38,8 +38,17 @@ class Subscription < ApplicationRecord
       transition draft: :payment
     end
 
+    event :confirm do
+      transition payment: :confirmed
+    end
+
     before_transition draft: :payment do |subscription|
       subscription.amount = subscription.calculate_amount
+    end
+
+    before_transition payment: :confirmed do |subscription|
+      subscription.confirmed_at = DateTime.current
+      Billing.create_from_subscription(subscription)
     end
 
   end
