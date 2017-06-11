@@ -27,15 +27,16 @@ class TowersController < ApplicationController
   end
 
   def show
-    @tower = Tower.friendly.find(params[:id])
-    @subscription = Subscription.new(tower: @tower, owner: current_user)
+    @tower = Tower.find_by(slug: params[:id])
+    if @tower
+      @subscription = Subscription.new(tower: @tower, owner: current_user)
+    else
+      redirect_to root_path
+    end
   end
 
   def search
-    @userQuery = params[:search] ? params[:search][:query] : nil
-    params[:q] = {} if params[:q].nil?
-    query = @userQuery.blank? ? params[:q] : params[:q].merge({title_cont: @titleQuery})
-    @q = Tower.friendly.ransack(query)
+    @q = Tower.ransack(title_or_short_excerpt_or_guard_fullname_cont: params[:search][:q])
     @towers = @q.result.page(params[:page]).per(20)
   end
 

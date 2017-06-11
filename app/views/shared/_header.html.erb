@@ -1,11 +1,10 @@
 <header class="cd-auto-hide-header">
   <div class="header-container">
     <div class="header-mainbar">
-      <% logo_path = user_signed_in? ? towers_path : root_path %>
-      <%= link_to 'Toasted.', logo_path, class: 'logo' %>
-      <%= simple_form_for :search, url: search_towers_path, method: :get, html: {class: 'search'} do |f| %>
+      <%= link_to 'Toasted.', user_signed_in? ? towers_path : root_path, class: 'logo' %>
+      <%= simple_form_for :search, url: search_towers_path, method: :post, html: { class: 'search' } do |f| %>
         <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-        <%= f.input :query, label: false, input_html: {placeholder: 'Rechercher une offre ou un expert...'} %>
+        <%= f.input :q, label: false, input_html: { placeholder: 'Rechercher une offre...' } %>
       <% end %>
       <%= yield :header_nav_bar %>
     </div>

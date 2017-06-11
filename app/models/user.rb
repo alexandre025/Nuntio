@@ -16,4 +16,10 @@ class User < ApplicationRecord
   def fullname
     "#{firstname} #{lastname}".strip
   end
+
+  # Ransack
+
+  ransacker :fullname do |parent|
+    Arel::Nodes::InfixOperation.new('||', Arel::Nodes::InfixOperation.new('||', parent.table[:firstname], Arel::Nodes.build_quoted(' ')), parent.table[:lastname])
+  end
 end
