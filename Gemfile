@@ -86,4 +86,6 @@ gem 'sentry-raven', '~> 2.4.0'
 
 gem 'activeadmin'
 
+gem 'wisper'
+
 gem 'sidekiq', '~> 5.0.2'
