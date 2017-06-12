@@ -39,6 +39,6 @@ class Tower < ApplicationRecord
   # Methods
 
   def average_time_to_read
-    reports.any? ? (reports.map { |r| r.content.split.count }.sum / reports.size / 300).to_i : 0
+    reports.any? ? (reports.map { |r| r.average_time_to_read }.sum / reports.count.to_d).to_i : 0
   end
 end

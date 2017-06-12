@@ -1,8 +1,8 @@
 <div class="author-header">
   <div class="author-header__profile" style="background-image:url();"></div>
   <div class="author-header__right">
-    <p class="name">Alexandre Ferraille</p>
-    <p class="role">Responsable Acquisition à Numa Paris</p>
+    <p class="name"><%= tower.guard.fullname %></p>
+    <p class="role"><%= tower.tower_guard.short_excerpt %></p>
     <ul class="social">
       <li class="twitter"><a href="#"><%= image_tag('icons/icon-social-twitter.png') %></a></li>
       <li class="google"><a href="#"><%= image_tag('icons/icon-social-google.png') %></a></li>
@@ -13,19 +13,19 @@
 </div>
 
 <p class="author-description">
-  Responsable acquisition au Numa depuis 4 ans. je travaille en freelance depuis 3 ans sur des missions webmarketing : stratégie digitale, acquisition de trafic (SEO, SEA, SMO…), analytics et marketing mobile. Je suis également intervenant en marketing mobile en école et en formation professionnelle.
+  <%== tower.tower_guard.description %>
 </p>
 
 <hr class="separator">
 
 <div class="author-reports">
-  <p class="num-reports">18 publications rédigées</p>
+  <p class="num-reports"><%= tower.reports.count %> publications rédigées</p>
   <div class="last-report">
-    <p class="title">SEO : Référencement Local, tout ce que vous devez savoir</p>
-    <p class="time">Il y a 1 jour • 8 minutes</p>
+    <p class="title"><%= report.title %></p>
+    <p class="time">Il y a <%= time_ago_in_words report.created_at.to_date %></p>
     <p class="description">
-      Le SEO est l'un des principaux leviers de l'e-marketing, et pourtant il peut-être parfois particulièrement flou à comprendre. Google à notamment déclaré utiliser près de 200 signaux différents pour classer...
-      <span class="preview-open">Voir un aperçu</span> <!-- TODO &.truncate(255, separator: ' ') -->
+      <%== report.content.truncate(255) %>
+      <span class="preview-open">Voir un aperçu</span>
     </p>
   </div>
 </div>

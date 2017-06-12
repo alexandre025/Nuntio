@@ -3,15 +3,15 @@
   <div class="report-container__header--left">
     <div class="bg-author"></div>
     <div class="text-author">
-      <p class="name">Martin Charpentier</p>
-      <p>Co-fondateur chez Source et intervenant à HETIC | Paris Innovation</p>
+      <p class="name"><%= report.guard.fullname %></p>
+      <p><%= report.tower_guard.short_excerpt %></p>
     </div>
   </div>
 
   <div class="report-container__header--right">
     <div>
-      <p>25 Mai 2017</p>
-      <p>6 mn à lire</p>
+      <p><%= l report.created_at.to_date %></p>
+      <p><%= report.average_time_to_read %> mn à lire</p>
     </div>
   </div>
 
