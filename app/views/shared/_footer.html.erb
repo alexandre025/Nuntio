@@ -1,22 +1,26 @@
 <footer>
   <div class="footer-container">
-    <p class="logo">Toasted.</p>
+    <p class="div-logo">
+      <%= link_to user_signed_in? ? towers_path : root_path, class: 'logo' do %>
+        <%= image_tag 'img/logo-nuntio-black.png' %>
+      <% end %>
+    </p>
 
     <div class="footer-menu">
       <div class="footer-menu__row">
-        <a class="footer-menu__link" href="#">Website</a>
-        <a class="footer-menu__link" href="#">Terms of service</a>
+        <%= link_to 'Accueil', root_path, class: 'footer-menu__link' %>
+        <a class="footer-menu__link" href="#">Conditions générales d'utilisation</a>
       </div>
       <div class="footer-menu__row">
-        <%= link_to 'Marketplace', towers_path, data: { modal: :load, remote: true }, class: 'footer-menu__link' %>
+        <%= link_to 'Les offres', towers_path, class: 'footer-menu__link' %>
         <%= link_to 'Devenir un expert', apply_tower_guards_path, data: { modal: :load, remote: true }, class: 'footer-menu__link' %>
       </div>
       <div class="footer-menu__row">
         <a class="footer-menu__link" href="#">Mon compte</a>
-        <%= link_to 'Mon tableau de bord', dashboard_path, data: { modal: :load, remote: true }, class: 'footer-menu__link' %>
+        <%= link_to 'Mon tableau de bord', dashboard_path, class: 'footer-menu__link' %>
       </div>
     </div>
 
-    <p class="footer-credits">© Toasted 2017 - Tous droits réservés</p>
+    <p class="footer-credits">© Nuntio 2017 - Tous droits réservés</p>
   </div>
 </footer>

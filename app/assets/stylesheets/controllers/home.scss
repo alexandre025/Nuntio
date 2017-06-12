@@ -192,12 +192,15 @@
         width:488px;
 
         &:first-child{
-          width:422px;
-          margin-right:161px;
+          margin-right:134px;
+
+          .icon-list{
+            width:36px;
+          }
         }
 
         .icon-list{
-          width:36px;
+          width:44px;
           margin-bottom:77px;
         }
 
@@ -217,7 +220,7 @@
           color: $darker-gray;
           letter-spacing: 0.67px;
           line-height: 30px;
-          text-align:left;
+          text-align:justify;
         }
       }
     }

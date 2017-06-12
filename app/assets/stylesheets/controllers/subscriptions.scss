@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#subscriptions_edit, #subscriptions_payment, #subscriptions_confirm{
+#subscriptions_edit, #subscriptions_payment, #subscriptions_confirmation{
 
   header{
     display:none;
@@ -342,4 +342,50 @@
     }
 
   }
+}
+
+#subscriptions_confirmation{
+
+  .subscription-container{
+    text-align:center;
+    font-family: $raleway;
+
+    .confirm{
+      font-family: $raleway;
+      font-weight:$bold;
+      font-size: 20px;
+      color: $darker-gray;
+      letter-spacing: 1px;
+    }
+
+    p, .tower-link{
+      font-family: $raleway;
+      font-weight:$medium;
+      font-size: 20px;
+      color: $darker-gray;
+      letter-spacing: 1px;
+    }
+
+    .tower-link{
+      text-decoration:underline;
+    }
+
+    .abonnement{
+      margin-top:70px;
+    }
+
+    .author{
+      margin-top:20px;
+      line-height: 24px;
+    }
+
+    .subscription-actions{
+      float:inherit;
+
+      .main-link{
+        padding:15px 28px;
+      }
+    }
+  }
+
 }

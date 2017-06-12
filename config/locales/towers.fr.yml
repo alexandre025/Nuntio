@@ -1,6 +1,9 @@
 fr:
   towers:
     frequency:
+      daily: Journalier
+      weekly: Hebdomadaire
+      bimonthly: Bimensuel
       monthly: Mensuel
     grade:
       beginner: Débutant

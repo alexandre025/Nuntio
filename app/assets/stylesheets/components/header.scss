@@ -34,7 +34,7 @@ header{
         position:relative;
         display:inline-block;
         vertical-align:middle;
-        margin-left:60px;
+        margin-left:54px;
 
         .icon-search{
           position:absolute;
@@ -52,12 +52,16 @@ header{
           letter-spacing: 1px;
           border:0;
           border-bottom: 2px solid $light-gray;
-          width:408px;
+          width:392px;
           padding:9px 0;
           padding-left:34px;
           padding-right:16px;
           box-sizing:border-box;
           outline:none;
+
+          &:focus{
+            border-color:$purple;
+          }
         }
       }
 
