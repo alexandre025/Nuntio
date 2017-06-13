@@ -57,11 +57,15 @@
             <li class="level"><div class="info-icon"></div> <%= t("towers.grade.#{@tower.grade}") %></li>
             <li class="frequency"><div class="info-icon"></div> <%= t("towers.frequency.#{@tower.frequency}") %></li>
           </ul>
-          <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
-            <%= f.input :tower_id, as: :hidden %>
-            <%= f.input :owner_id, as: :hidden %>
-            <%= f.input :state, as: :hidden %>
-            <%= f.button :submit, "Je m'abonne", class: 'sub-link' %>
+          <% if current_user.is_subscriber?(@tower) %>
+            <p class="already-sub">Déjà abonné</p>
+          <% else %>
+            <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
+              <%= f.input :tower_id, as: :hidden %>
+              <%= f.input :owner_id, as: :hidden %>
+              <%= f.input :state, as: :hidden %>
+              <%= f.button :submit, "Je m'abonne", class: 'sub-link' %>
+            <% end %>
           <% end %>
         </div>
       </div>

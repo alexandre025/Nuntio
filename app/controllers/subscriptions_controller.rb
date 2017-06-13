@@ -32,7 +32,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirmation
-    @subscription = Subscription.find_by(id: session[:current_subscription_id])
+    @subscription = Subscription.friendly.find(params[:id])
   end
 
   def update
@@ -49,7 +49,7 @@ class SubscriptionsController < ApplicationController
 
       pay.on(:ok) do |subscription|
         session[:current_subscription_id] = nil
-        redirect_to dashboard_path
+        redirect_to confirmation_subscription_path(id: subscription.id)
       end
 
       pay.on(:invalid) do |subscription|

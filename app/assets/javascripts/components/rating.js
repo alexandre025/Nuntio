@@ -1,5 +1,10 @@
 App.ready(function(){
 
+  setRatings();
+
+});
+
+function setRatings(){
   // TOWER CARD & REPORT CARD
   $('.tower-card, .report-card').find('.rating-stars').each(function(){
         var elem = this;
@@ -89,5 +94,4 @@ App.ready(function(){
         });
 
     });
-
-});
+}

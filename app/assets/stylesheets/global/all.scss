@@ -72,3 +72,14 @@ body{
   padding:1px 5px;
   border-radius: 4px;
 }
+
+.infinite-scroll-link{
+  display:none;
+}
+
+.jscroll-inner, .jscroll-added {
+  @include flexbox;
+  flex-wrap:wrap;
+  align-content: flex-start;
+  width:100%;
+}

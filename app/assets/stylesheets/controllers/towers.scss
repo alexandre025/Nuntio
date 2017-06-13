@@ -40,12 +40,18 @@
         margin:15px 0;
         margin-left:29px;
 
-        &:nth-child(4n+1){
+        &:nth-of-type(4n+1){
           margin-left:0;
         }
 
         &:nth-of-type(-n+4) {
           margin-top:0;
+        }
+      }
+
+      .jscroll-added{
+        .tower-card:nth-of-type(-n+4) {
+          margin-top:15px;
         }
       }
     }
@@ -507,6 +513,23 @@
                     background-size: 16px 20px;
                   }
                 }
+              }
+            }
+
+            .already-sub{
+              @extend .main-link;
+              cursor:default;
+              display:block;
+              height:46px;
+              line-height:46px;
+              width:100%;
+              padding:0;
+              text-align:center;
+              margin-top:16px;
+
+              &:hover{
+                color:$purple;
+                background-color:$white;
               }
             }
 

@@ -79,10 +79,13 @@ Towers : <br>
       </form>
     </div>
 
-    <div class="tower-list-full__cards">
+    <div class="tower-list-full__cards infinite-scroll-list">
       <% if @towers.count > 0 %>
         <%- @towers.each do |tower| -%>
           <%= render partial: 'towers/tower_card', locals: { tower: tower } %>
+          <% unless @towers.last_page? %>
+            <%= link_to_next_page @towers, 'Next Page', class: 'infinite-scroll infinite-scroll-link' %>
+          <% end %>
         <%- end -%>
       <% else %>
         <p class="no-results">Aucun résultat</p>
