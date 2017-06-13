@@ -10,10 +10,10 @@ themes = [
     categories: ['Développement web', 'Développement mobile', 'DevOps', 'Autres']
   },
   { name: 'Marketing',
-    categories: ['Numérique', 'SEO', 'Social media', 'Analytics', 'Publicité', 'Vidéo & mobile', 'Contenu', 'Growth hacking', 'Affiliation', 'Produits', 'Mobile', 'Autres']
+    categories: ['Numérique', 'SEO', 'Social media', 'Analytics', 'Publicité', 'Vidéo & mobile', 'Contenu', 'Growth hacking', 'Affiliation', 'Produits', 'Autres']
   },
   { name: 'Business',
-    categories: ['Finance', 'Entrepreunariat', 'Communication', 'Gestion', 'Stratégie', 'Gestion de projets', 'Autres']
+    categories: ['Finance', 'Entrepreunariat', 'Communication', 'Gestion', 'Stratégie', 'Gestion de projet', 'Autres']
   },
   { name: 'Design',
     categories: ['Conception mobile', 'Conception web', 'Design produit', 'Expérience utilisateur', 'Conception de jeux', '3D & animations', 'Motion design', 'Autres']
