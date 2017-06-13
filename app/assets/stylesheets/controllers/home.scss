@@ -16,16 +16,26 @@
     height:510px;
     width:100%;
     border-bottom:1px solid $gray;
-    background-image:image-url('bg/bg-home-header.png');
-    background-size:contain;
-    background-position:bottom center;
-    background-repeat:no-repeat;
 
     .template-bg{
       position:absolute;
       bottom:0;
       right:0;
       height:409px;
+    }
+
+    .template-bg-left{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:195px;
+    }
+
+    .template-bg-right{
+      position:absolute;
+      top:31px;
+      right:0;
+      width:389px;
     }
 
     @include e('container'){
