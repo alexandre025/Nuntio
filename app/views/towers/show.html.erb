@@ -11,7 +11,7 @@
     <h2 class="title"><%= @tower.title %></h2>
     <p class="description"><%= @tower.short_excerpt %></p>
     <div class="rating">
-      <div class="rating-stars" data-rating="<%= @tower.average_notation || 0 %>"></div>
+      <div class="rating-stars" data-rating="<%= @tower.average_notation %>"></div>
       <p><%= @tower.comments.count %> avis</p>
       <p class="followers"><%= @tower.users.count %> abonnés</p>
     </div>
