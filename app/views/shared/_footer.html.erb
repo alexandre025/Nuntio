@@ -16,7 +16,7 @@
         <%= link_to 'Devenir un expert', apply_tower_guards_path, data: { modal: :load, remote: true }, class: 'footer-menu__link' %>
       </div>
       <div class="footer-menu__row">
-        <a class="footer-menu__link" href="#">Mon compte</a>
+        <%= link_to 'Mon compte', settings_path, class: 'footer-menu__link' %>
         <%= link_to 'Mon tableau de bord', dashboard_path, class: 'footer-menu__link' %>
       </div>
     </div>

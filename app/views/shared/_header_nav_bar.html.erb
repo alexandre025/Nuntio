@@ -4,14 +4,7 @@
   <li><%= link_to "Les offres des experts", towers_path %></li>
   <%- if user_signed_in? -%>
     <li class="<%= 'active' if current == :dashboard %>"><%= link_to 'Mon tableau de bord', dashboard_path, class: 'new-reports' %></li>
-    <li>
-      <a href="#">Mon compte</a>
-      <!-- <ul class="header-mainbar__submenu">
-        <li><a href="#">Réglages</a></li>
-        <li><%#= link_to 'Deconnexion', destroy_user_session_path, data: { method: :delete }%></li>
-      </ul> -->
-      <%#= link_to 'Deconnexion', destroy_user_session_path, data: { method: :delete }%>
-    </li>
+    <li class="<%= 'active' if current == :settings %>"><%= link_to 'Mon compte', settings_path %></li>
   <%- else -%>
     <li><%= link_to 'Connexion', new_user_session_path, data: { modal: :load, remote: true } %></li>
     <li><%= link_to 'Inscription', new_user_registration_path, data: { modal: :load, remote: true }, class: 'main-link' %></li>
