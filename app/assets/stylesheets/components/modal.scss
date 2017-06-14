@@ -28,6 +28,14 @@
   position:relative;
   margin:80px auto;
   width:360px;
+
+  form{
+    margin-top:80px;
+
+    &:first-of-type{
+      margin-top:0;
+    }
+  }
 }
 
 .modal-container, .modal-alternative{

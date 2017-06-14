@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'reports/:id', to: 'reports#show'
 
   get 'settings', to: 'settings#index'
+  post 'update-user-infos', to: 'settings#update_user_infos'
+  post 'update-user-password', to: 'settings#update_user_password'
 
   resource :subscription, only: [:create, :edit, :update] do
     post 'simulate'

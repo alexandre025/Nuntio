@@ -1,4 +1,21 @@
 /* --------- INPUTS ---------- */
+.input{
+  &.field_with_errors{
+    input[type="text"], input[type="email"], input[type="password"], select, textarea, select{
+      border-color:$error-red-border !important;
+      background-color:$error-red-bg !important;
+    }
+
+    .error{
+      display: block;
+      font-family: $raleway;
+      font-weight:$medium;
+      font-size: 12px;
+      color: $error-red-text !important;
+      margin-top:6px;
+    }
+  }
+}
 
 // -------- CHECKBOX --------
 input[type="checkbox"]:not(:checked),
