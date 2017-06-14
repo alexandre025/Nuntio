@@ -26,8 +26,8 @@ class User < ApplicationRecord
     "#{firstname} #{lastname}".strip
   end
 
-  def is_subscriber?(tower = nil)
-    return true if UserSubscription.joins(:subscription).where(user_id: id, subscriptions: { tower_id: tower.id }).count > 0
+  def is_subscriber?(tower)
+    subscribed_towers.where(id: tower.id).any?
   end
 
   # Ransack
