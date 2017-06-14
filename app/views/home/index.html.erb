@@ -35,11 +35,10 @@
       <ul>
         <% Theme.all.each do |t| %>
           <li>
-            <div class="category-bg" style="background-image:url(<%= image_path("bg/bg-theme-#{t.slug}.jpg") %>);">
-              <%= link_to '', theme_towers_path(t) %>
-            </div>
-
-            <%= link_to t.name, theme_towers_path(t), class: 'category-title' %>
+            <%= link_to theme_towers_path(t) do %>
+              <div class="category-bg" style="background-image:url(<%= image_path("bg/bg-theme-#{t.slug}.jpg") %>);"></div>
+              <p class="category-title"><%= t.name %></p>
+            <% end %>
           </li>
         <% end %>
       </ul>

@@ -49,6 +49,8 @@ strong, b {
   padding:7px 22px;
   background-color:$white;
 
+  @include transition(color 0.4s, background-color 0.4s);
+
   &:hover{
     color:$white;
     background-color:$purple;
