@@ -11,6 +11,12 @@ class User < ApplicationRecord
   # has_many :tower_guards
   # has_many :towers, through: :tower_guards
 
+  has_many :user_subscriptions
+  has_many :subscriptions, through: :user_subscriptions
+  has_many :subscribed_towers, through: :subscriptions, source: :tower
+
+  has_many :owned_subscriptions, class_name: 'Subscription', foreign_key: :owner_id
+
   # Methods
 
   def fullname
