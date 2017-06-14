@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get 'reports/:id', to: 'reports#show'
 
+  get 'settings', to: 'settings#index'
+
   resource :subscription, only: [:create, :edit, :update] do
     post 'simulate'
     get 'payment'
