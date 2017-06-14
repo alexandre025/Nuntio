@@ -7,9 +7,9 @@
   <h2 class="dashboard-container__title">Tableau de bord</h2>
 
   <div class="dashboard-container__filters list-filters">
-    <form class="search">
+    <%= search_form_for @d, url: dashboard_path, class: 'search' do |f| %>
       <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-      <input type="text" placeholder="Rechercher parmi vos abonnements" />
+      <%= f.text_field :title_or_excerpt_cont %>
     </form>
     <form action="">
       <div class="list-filters__left">
@@ -36,13 +36,13 @@
       </div>
       <div class="list-filters__right">
         <p>Trier par :</p>
-        <select name="" id="">
+        <select name="order" id="">
           <option value="" disabled selected>Plus récent</option>
           <option value="">Lorem</option>
           <option value="">Ipsum</option>
         </select>
       </div>
-    </form>
+    <% end %>
   </div>
 
   <div class="dashboard-container__list">
