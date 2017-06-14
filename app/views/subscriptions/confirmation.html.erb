@@ -7,8 +7,8 @@
   <p class="abonnement">Vous êtes maintenant abonné à</p>
 
   <p class="author">
-    <%#= link_to @subscription.tower.title, tower_path(@subscription.tower), class: 'tower-link' %><br />
-    Par <%#= @subscription.tower.guard.fullname %>
+    <%= link_to @subscription.tower.title, tower_path(@subscription.tower), class: 'tower-link' %><br />
+    Par <%= @subscription.tower.guard.fullname %>
   </p>
 
   <div class="subscription-actions">
