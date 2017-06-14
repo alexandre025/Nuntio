@@ -7,7 +7,7 @@
   <h2 class="modal-title">Mes informations</h2>
 
 
-  <%= simple_form_for current_user, url: update_user_infos_path, method: :post, html: { class: 'main-form main-form-modal' } do |f| %>
+  <%= simple_form_for current_user, url: settings_general_path, html: { class: 'main-form main-form-modal' } do |f| %>
 
     <div class="field">
       <%= f.input :firstname, autofocus: true, placeholder: 'Prénom', label: false %>
@@ -31,7 +31,7 @@
 
   <% end %>
 
-  <%= simple_form_for current_user, url: update_user_password_path, method: :post, html: { class: 'main-form main-form-modal' } do |f| %>
+  <%= simple_form_for current_user, url: settings_password_path, html: { class: 'main-form main-form-modal' } do |f| %>
 
     <div class="field">
       <%= f.input :password, autocomplete: "off", placeholder: 'Nouveau mot de passe', label: false %>
@@ -48,7 +48,7 @@
     <div class="actions">
       <%= f.submit "Mettre à jour" %>
     </div>
-    
+
   <% end %>
 
   <div class="modal-footer">

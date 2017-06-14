@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   post 'apply-tower-guards', to: 'tower_guards#apply_create'
 
   get 'settings', to: 'settings#index'
-  post 'update-user-infos', to: 'settings#update_user_infos'
-  post 'update-user-password', to: 'settings#update_user_password'
+  patch 'settings/general', to: 'settings#general_update'
+  patch 'settings/password', to: 'settings#password_update'
 
   resource :subscription, only: [:create, :edit, :update] do
     post 'simulate'

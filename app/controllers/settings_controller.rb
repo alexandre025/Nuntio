@@ -4,8 +4,8 @@ class SettingsController < ApplicationController
   def index
   end
 
-  def update_user_infos
-    if current_user.update(user_infos_params)
+  def general
+    if current_user.update(user_params)
       flash[:infos_notice] = 'Mise à jour effectuée avec succès'
     else
       flash[:infos_notice] = nil
@@ -13,8 +13,18 @@ class SettingsController < ApplicationController
     render :index
   end
 
-  def update_user_password
-    if current_user.update(user_password_params)
+  def general_update
+    if current_user.update(user_params)
+      flash[:password_notice] = 'Mise à jour effectuée avec succès'
+    else
+      flash[:password_notice] = nil
+    end
+    render :index
+  end
+
+  def password_update
+    if current_user.update(user_params)
+      bypass_sign_in(current_user)
       flash[:password_notice] = 'Mise à jour effectuée avec succès'
     else
       flash[:password_notice] = nil
@@ -23,10 +33,9 @@ class SettingsController < ApplicationController
   end
 
   private
-    def user_infos_params
-      params.require(:user).permit(:firstname, :lastname, :email)
+
+    def user_params
+      params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
     end
-    def user_password_params
-      params.require(:user).permit(:password, :password_confirmation)
-    end
+
 end
