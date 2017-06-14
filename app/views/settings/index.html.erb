@@ -10,15 +10,15 @@
   <%= simple_form_for current_user, url: settings_general_path, html: { class: 'main-form main-form-modal' } do |f| %>
 
     <div class="field">
-      <%= f.input :firstname, autofocus: true, placeholder: 'Prénom', label: false %>
+      <%= f.input :firstname, placeholder: 'Prénom', label: false %>
     </div>
 
     <div class="field">
-      <%= f.input :lastname, autofocus: true, placeholder: 'Nom', label: false %>
+      <%= f.input :lastname, placeholder: 'Nom', label: false %>
     </div>
 
     <div class="field">
-      <%= f.input :email, autofocus: true, placeholder: 'Adresse e-mail', label: false %>
+      <%= f.input :email, placeholder: 'Adresse e-mail', label: false %>
     </div>
 
     <% if flash[:infos_notice].present? %>

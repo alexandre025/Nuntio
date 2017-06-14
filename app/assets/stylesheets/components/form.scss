@@ -220,6 +220,8 @@ form{
       border-radius:0 !important;
       background-color:$white;
 
+      @include transition(border-color 0.2s);
+
       &:focus{
         border-color:$purple;
       }
