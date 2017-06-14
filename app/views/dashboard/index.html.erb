@@ -58,7 +58,7 @@
           <hr>
         </div>
         <% r.each do |report| %>
-          <li><%= render partial: 'reports/report_card', locals: { report: report } %></li>
+          <%= render partial: 'reports/report_card', locals: { report: report } %>
         <% end %>
       <% end %>
     </ul>

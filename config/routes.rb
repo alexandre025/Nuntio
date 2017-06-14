@@ -9,18 +9,22 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
 
-  get 'towers', to: 'towers#index'
-  get 'towers/:id', to: 'towers#theme', as: :theme_towers
-  get 'towers/:theme_id/:id', to: 'towers#category', as: :category_towers
+  resources :towers, only: :index do
+    get '/:id', to: 'towers#theme', as: :theme, on: :collection
+    get '/:theme_id/:id', to: 'towers#category', as: :category, on: :collection
+
+    get '/:id', to: 'reports#show', as: :report, on: :member
+  end
+
   post 'search', to: 'towers#search', as: :search_towers
 
   get 'apply-tower-guards', to: 'tower_guards#apply'
   get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
   post 'apply-tower-guards', to: 'tower_guards#apply_create'
 
-  get 'reports/:id', to: 'reports#show'
-
   get 'settings', to: 'settings#index'
+  patch 'settings/general', to: 'settings#general_update'
+  patch 'settings/password', to: 'settings#password_update'
 
   resource :subscription, only: [:create, :edit, :update] do
     post 'simulate'
@@ -28,7 +32,6 @@ Rails.application.routes.draw do
     get 'confirmation'
   end
 
-  get ':tower_id/:id', to: 'reports#show', as: :report
   get ':id', to: 'towers#show', as: :tower
 
 end
