@@ -57,7 +57,7 @@
             <li class="level"><div class="info-icon"></div> <%= t("towers.grade.#{@tower.grade}") %></li>
             <li class="frequency"><div class="info-icon"></div> <%= t("towers.frequency.#{@tower.frequency}") %></li>
           </ul>
-          <% if current_user.is_subscriber?(@tower) %>
+          <% if current_user&.is_subscriber?(@tower) %>
             <p class="already-sub">Déjà abonné</p>
           <% else %>
             <%= simple_form_for @subscription, url: subscription_path, class: 'form-sub' do |f| %>
