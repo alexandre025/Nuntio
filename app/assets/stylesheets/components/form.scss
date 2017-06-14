@@ -17,6 +17,32 @@
   }
 }
 
+input::-webkit-input-placeholder {
+  @include transition(color 0.2s);
+}
+input::-moz-placeholder {
+  @include transition(color 0.2s);
+}
+input:-ms-input-placeholder {
+  @include transition(color 0.2s);
+}
+input:-moz-placeholder {
+  @include transition(color 0.2s);
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+
 // -------- CHECKBOX --------
 input[type="checkbox"]:not(:checked),
 input[type="checkbox"]:checked {
