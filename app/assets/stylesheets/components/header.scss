@@ -59,6 +59,8 @@ header{
           box-sizing:border-box;
           outline:none;
 
+          @include transition(border-color 0.2s);
+
           &:focus{
             border-color:$purple;
           }
