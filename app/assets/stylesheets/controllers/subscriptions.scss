@@ -114,7 +114,20 @@
       margin-bottom:36px;
     }
 
+    .field-commitment{
+      margin-bottom:35px;
+
+      .radio{
+        margin-top:27px;
+
+        &:first-child{
+          margin-top:0;
+        }
+      }
+    }
+
     .subscription-table{
+      margin-top:10px;
       width:100%;
       border-bottom: 1px solid $gray;
 

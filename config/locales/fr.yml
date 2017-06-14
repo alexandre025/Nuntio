@@ -2,3 +2,9 @@ fr:
   month: mois
   by: Par
   by_month: par mois
+
+  subscriptions:
+    commitment:
+      monthly: Sans engagement
+      biannual: Abonnement 6 mois (-5%)
+      yearly: Abonnement 12 mois (-10%)
