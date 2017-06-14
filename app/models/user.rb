@@ -13,7 +13,10 @@ class User < ApplicationRecord
 
   has_many :user_subscriptions
   has_many :subscriptions, through: :user_subscriptions
-  has_many :subscribed_towers, through: :subscriptions, source: :tower
+
+  has_many :confirmed_subscriptions, -> { where(state: :confirmed) }, through: :user_subscriptions, source: :subscription
+  has_many :subscribed_towers, through: :confirmed_subscriptions, source: :tower
+  has_many :subscribed_reports, through: :subscribed_towers, source: :reports
 
   has_many :owned_subscriptions, class_name: 'Subscription', foreign_key: :owner_id
 

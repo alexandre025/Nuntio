@@ -1,0 +1,9 @@
+<% if defined? comments %>
+  <div class="comments-container__list">
+    <ul>
+      <% comments.each do |comment| %>
+        <%= render partial: 'reports/comment', locals: { comment: comment }%>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

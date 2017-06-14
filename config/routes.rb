@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     get 'confirmation'
   end
 
+  get ':tower_id/:id', to: 'reports#show', as: :report
   get ':id', to: 'towers#show', as: :tower
+
 
 end

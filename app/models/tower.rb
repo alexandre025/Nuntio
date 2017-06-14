@@ -17,7 +17,7 @@ class Tower < ApplicationRecord
   # has_many :tower_guards
   # has_many :guards, through: :tower_guards
 
-  has_many :subscriptions
+  has_many :subscriptions, -> { where(state: :confirmed) }
   has_many :users, through: :subscriptions
 
   has_many :reports

@@ -48,28 +48,18 @@
   <div class="dashboard-container__list">
 
     <ul>
-      <div class="list-title">
+      <!-- <div class="list-title">
         <p>2 <span class="light">non lue(s)</span></p>
         <hr>
-      </div>
-      <% 2.times do |r| %>
-        <li><%= render partial: 'reports/report_card', locals: { new: true } %></li>
-      <% end %>
-
-      <div class="list-title">
-        <p>Mai 2017</p>
-        <hr>
-      </div>
-      <% 2.times do |r| %>
-        <li><%= render partial: 'reports/report_card', locals: { new: false } %></li>
-      <% end %>
-
-      <div class="list-title">
-        <p>Avril 2017</p>
-        <hr>
-      </div>
-      <% 2.times do |r| %>
-        <li><%= render partial: 'reports/report_card', locals: { new: false } %></li>
+      </div> -->
+      <% @reports.each do |k, r| %>
+        <div class="list-title">
+          <p><%= k %></p>
+          <hr>
+        </div>
+        <% r.each do |report| %>
+          <li><%= render partial: 'reports/report_card', locals: { report: report } %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

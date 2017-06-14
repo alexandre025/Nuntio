@@ -32,7 +32,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirmation
-    @subscription = Subscription.friendly.find(params[:id])
+    @subscription = Subscription.find(params[:id])
   end
 
   def update
