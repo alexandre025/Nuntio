@@ -5,6 +5,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     subscription = Subscription.find_or_initialize_by(subscription_params)
+    subscription.commitment = Subscription::COMMITMENTS.first
 
     if subscription.save!
       session[:current_subscription_id] = subscription.id

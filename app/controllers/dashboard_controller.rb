@@ -3,8 +3,11 @@ class DashboardController < ApplicationController
 
   def index
     @reports = {}
+    order = params[:order] || :asc
 
-    current_user.subscribed_reports.order(created_at: :asc).each do |report|
+    @d = current_user.subscribed_reports.ransack(params[:q])
+
+    @d.result.order(created_at: order).each do |report|
       key = report.created_at.strftime('%m/%Y')
       @reports[key] ||= []
       @reports[key] << report

@@ -8,8 +8,8 @@
     <%= f.input :owner_id, as: :hidden %>
     <%= f.input :tower_id, as: :hidden %>
 
-    <div class="field">
-      <%= f.input :commitment, collection: Subscription::COMMITMENTS, as: :radio_buttons, label: false %>
+    <div class="field field-commitment">
+      <%= f.input :commitment, collection: Subscription::COMMITMENTS.map { |c| [t("subscriptions.commitment.#{c}"), c] }, as: :radio_buttons, label: false %>
     </div>
 
     <table class="subscription-table">
