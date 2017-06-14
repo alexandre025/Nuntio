@@ -6,6 +6,11 @@ html, body {
   overflow-x:hidden;
 }
 
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: $purple;
+}
+
 body{
   &.disable-scroll{
     position: fixed;
