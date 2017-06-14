@@ -30,7 +30,9 @@ class Tower < ApplicationRecord
 
   FREQUENCIES = %w(daily weekly bimonthly monthly).freeze
 
-  GRADES = %w(beginner intermediate advanced).freeze
+  GRADES = %w(all beginner intermediate advanced).freeze
+
+  SORTS = %w(popularity_desc publish_date_desc price_asc).freeze
 
   # Validators
 

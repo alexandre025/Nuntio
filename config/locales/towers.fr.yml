@@ -1,11 +1,16 @@
 fr:
   towers:
     frequency:
-      daily: Journalier
+      daily: Quotidien
       weekly: Hebdomadaire
       bimonthly: Bimensuel
       monthly: Mensuel
     grade:
+      all: Tous niveaux
       beginner: Débutant
       intermediate: Intermédiaire
       advanced: Expert
+    sort:
+      popularity_desc: Popularité
+      publish_date_desc: Date de publication
+      price_asc: Prix croissant

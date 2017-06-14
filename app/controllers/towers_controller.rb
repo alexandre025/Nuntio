@@ -13,7 +13,8 @@ class TowersController < ApplicationController
     @theme = Theme.friendly.find(params[:id])
 
     @q = @theme.towers.ransack(params[:q])
-    @towers = @q.result.page(params[:page]).per(20)
+    @towers = @q.result
+    @towers = Kaminari.paginate_array(@towers).page(params[:page]).per(16)
   end
 
   def category
@@ -21,7 +22,8 @@ class TowersController < ApplicationController
     @category = @theme.categories.friendly.find(params[:id])
 
     @q = @category.towers.ransack(params[:q])
-    @towers = @q.result.page(params[:page]).per(20)
+    @towers = @q.result
+    @towers = Kaminari.paginate_array(@towers).page(params[:page]).per(16)
   end
 
   def show
@@ -38,7 +40,9 @@ class TowersController < ApplicationController
 
   def search
     @q = Tower.ransack(params[:q])
-    @towers = @q.result.page(params[:page]).per(20)
+    @q.build_sort if @q.sorts.empty?
+    @towers = @q.result
+    @towers = Kaminari.paginate_array(@towers).page(params[:page]).per(16)
   end
 
   private

@@ -21,7 +21,7 @@ function moveExtraMenuItems(elem){
           itemMoreCategories = parent.find('.more-categories');
 
       if((item.offset().left + item.width()) > (parentRight - itemMoreCategories.width() - 12)) {
-          item.prependTo(parent.find('.more-categories ul'));
+          item.appendTo(parent.find('.more-categories ul'));
           itemMoreCategories.css('display', 'inline-block');
       }
   });
