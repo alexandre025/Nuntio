@@ -14,7 +14,8 @@ App.ready(function(){
 
 function moveExtraMenuItems(elem){
   var parent      = $(elem),
-      parentRight = parent.offset().left + parent.width();
+      parentRight = parent.offset().left + parent.width(),
+      activeItem;
 
   $(elem).find('.tower-main-link').each(function(){
       var item = $(this),
@@ -24,6 +25,23 @@ function moveExtraMenuItems(elem){
           item.appendTo(parent.find('.more-categories ul'));
           itemMoreCategories.css('display', 'inline-block');
       }
+
+      if(item.hasClass('active')){
+        activeItem = item;
+      }
   });
 
+  if(activeItem !== undefined && activeItem.parent('.header-bottombar__submenu').length){
+      checkActiveItemInSubmenu(parent, activeItem);
+  }
+
+}
+
+function checkActiveItemInSubmenu(parent, item){
+  item.appendTo(parent);
+  item.insertAfter('.current-theme');
+
+  var lastItem = $('.header-bottombar__towers--category > .tower-main-link:last');
+  var submenu = parent.find('.more-categories .header-bottombar__submenu');
+  lastItem.prependTo(submenu);
 }
