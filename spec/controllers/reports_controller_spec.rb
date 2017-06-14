@@ -24,7 +24,7 @@ RSpec.describe ReportsController, type: :controller do
         subscription = create(:subscription, tower: tower, owner: controller.view_context.current_user)
         subscription.to_payment
         subscription.confirm
-        
+
         expect(response).to have_http_status(:success)
       end
 
