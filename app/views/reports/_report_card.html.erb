@@ -1,25 +1,26 @@
-<div class="report-card <%= 'new-card' if new %> ">
-  <div class="icon-new"></div>
-  <a href="#">
+<% if defined?(report); new ||= true %>
+  <div class="report-card <%= 'new-card' if new %> ">
+    <div class="icon-new"></div>
+    <a href="<%= report_path(report.tower, report) %>">
 
-    <div class="report-card__left" style="background-image:url();"></div>
+      <div class="report-card__left" style="background-image:url();"></div>
 
-    <div class="report-card__right">
-      <p class="title">Les tendances de la typographie</p>
-      <p class="details"><span class="author">Martin Charpentier</span> &nbsp; | &nbsp; Design</p>
-      <p class="time">8 minutes à lire</p>
-      <p class="description">
-        Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-        <span class="more">Lire la suite</span>
-      </p> <!-- TODO &.truncate(255, separator: ' ') -->
-      <div class="bottom">
-        <p class="date">Il y a 1 jour</p>
-        <div class="rating">
-          <div class="rating-stars" data-rating="3.2"></div>
-          <p>342 avis</p>
+      <div class="report-card__right">
+        <p class="title"><%= report.title %></p>
+        <p class="details"><span class="author"><%= report.guard.fullname %></span> &nbsp; | &nbsp; <%= report.tower.theme.name %> • <%= report.tower.category.name %></p>
+        <p class="time"><%= report.average_time_to_read %> minutes à lire</p>
+        <p class="description">
+          <%= report.excerpt&.truncate(255, separator: ' ') %>
+          <span class="more">Lire la suite</span>
+        <div class="bottom">
+          <p class="date">Il y a <%= time_ago_in_words(report.created_at)%></p>
+          <div class="rating">
+            <div class="rating-stars" data-rating="<%= report.average_notation %>"></div>
+            <p><%= report.comments.where.not(notation: nil).count %> avis</p>
+          </div>
         </div>
       </div>
-    </div>
 
-  </a>
-</div>
+    </a>
+  </div>
+<% end %>
