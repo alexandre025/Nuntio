@@ -20,6 +20,12 @@ class User < ApplicationRecord
 
   has_many :owned_subscriptions, class_name: 'Subscription', foreign_key: :owner_id
 
+
+  # Validators
+  validates :firstname, :lastname, presence: true
+  validates_acceptance_of :terms, allow_nil: false, accept: true, on: :create, message: 'doivent être acceptées'
+
+
   # Methods
 
   def fullname

@@ -11,6 +11,11 @@
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { remote: request.xhr? }, html: { class: 'main-form main-form-modal' }) do |f| %>
 
+    <ul class="errors">
+      <% resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
 
     <div class="field">
       <%= f.email_field :email, placeholder: 'Adresse e-mail' %>

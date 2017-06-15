@@ -35,4 +35,6 @@ Rails.application.routes.draw do
 
   get ':id', to: 'towers#show', as: :tower
 
+  get '*path' => redirect('/')
+
 end
