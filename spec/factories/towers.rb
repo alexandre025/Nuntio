@@ -8,6 +8,7 @@ FactoryGirl.define do
     locales [:fr]
     frequency Tower::FREQUENCIES.first
     grade Tower::GRADES.first
+    is_featured { rand(0..1) }
 
     trait :with_users do
       after :build do |tower|

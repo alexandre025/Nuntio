@@ -1,7 +1,8 @@
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'home#index'
 
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
     get '/:id', to: 'towers#theme', as: :theme, on: :collection
     get '/:theme_id/:id', to: 'towers#category', as: :category, on: :collection
 
-    get '/:id', to: 'reports#show', as: :report, on: :member
+    resources :reports, only: :show
   end
 
   post 'search', to: 'towers#search', as: :search_towers

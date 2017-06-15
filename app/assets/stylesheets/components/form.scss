@@ -220,6 +220,8 @@ form{
       border-radius:0 !important;
       background-color:$white;
 
+      @include transition(border-color 0.2s);
+
       &:focus{
         border-color:$purple;
       }
@@ -261,6 +263,8 @@ form{
       height:46px;
       width:335px;
       outline:none;
+
+      @include transition(color 0.1s, border-color 0.1s);
 
       &:hover{
         background-color: $purple;
