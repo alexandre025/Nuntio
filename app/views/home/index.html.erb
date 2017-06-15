@@ -36,7 +36,9 @@
         <% Theme.all.each do |t| %>
           <li>
             <%= link_to theme_towers_path(t) do %>
-              <div class="category-bg" style="background-image:url(<%= image_path("bg/bg-theme-#{t.slug}.jpg") %>);"></div>
+              <div class="category-bg">
+                <div class="image" style="background-image:url(<%= image_path("bg/bg-theme-#{t.slug}.jpg") %>);"></div>
+              </div>
               <p class="category-title"><%= t.name %></p>
             <% end %>
           </li>

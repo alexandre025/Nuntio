@@ -104,14 +104,6 @@
 
       ul{
 
-        &:hover > li {
-          opacity: 0.5;
-        }
-
-        &:hover > li:hover {
-          opacity: 1;
-        }
-
         li{
           display:inline-block;
           vertical-align:top;
@@ -119,13 +111,14 @@
           margin-left: 10px;
           margin-right: -4px;
 
-          @include transition(opacity 0.4s);
-
           &:first-child{
             margin-left:0;
           }
 
           &:hover{
+            .category-bg .image{
+              @include transform(scale(1.08));
+            }
             .category-title{
               color:$purple;
             }
@@ -140,8 +133,15 @@
           .category-bg{
             height:316px;
             width:226px;
-            background:$gray no-repeat center;
-            background-size:cover;
+            overflow:hidden;
+
+            .image{
+              height:100%;
+              width:100%;
+              background:$gray no-repeat center;
+              background-size:cover;
+              @include transition(all 0.4s ease);
+            }
           }
 
           .category-title{
