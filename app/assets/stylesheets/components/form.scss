@@ -264,6 +264,8 @@ form{
       width:335px;
       outline:none;
 
+      @include transition(color 0.1s, border-color 0.1s);
+
       &:hover{
         background-color: $purple;
         color:$white;
