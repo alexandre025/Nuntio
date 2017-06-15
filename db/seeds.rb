@@ -8,19 +8,19 @@ FactoryGirl.create(:user, email: 'admin@nuntio.me', password: 'nuntio', password
 
 themes = [
   { name: 'Développement',
-    categories: ['Développement web', 'Développement mobile', 'DevOps', 'Autres']
+    categories: ['Développement front-end', 'Développement back-end', 'Applications mobiles']
   },
   { name: 'Marketing',
-    categories: ['Numérique', 'SEO', 'Social media', 'Analytics', 'Publicité', 'Vidéo & mobile', 'Contenu', 'Growth hacking', 'Affiliation', 'Produits', 'Autres']
+    categories: ['Marketing numérique', 'Publicité', 'Marketing vidéo et mobile', 'Marketing de contenu', 'Growth Hacking', 'Mobile marketing', 'Social Media', 'Autres']
   },
   { name: 'Business',
-    categories: ['Finance', 'Entrepreunariat', 'Communication', 'Gestion', 'Stratégie', 'Gestion de projet', 'Autres']
+    categories: ['Entrepreneuriat', 'Communication', 'Gestion de projet', 'Transformation digitale']
   },
   { name: 'Design',
-    categories: ['Conception mobile', 'Conception web', 'Design produit', 'Expérience utilisateur', 'Conception de jeux', '3D & animations', 'Motion design', 'Autres']
+    categories: ['Design d’interface', 'Direction artistique', 'Expérience utilisateur']
   },
   { name: 'Innovation',
-    categories: ['Fab lab', 'IOT', 'Robotique', 'Réalité virtuelle', 'Nouvelles technologies', 'Autres']
+    categories: ['IOT', 'Réalité virtuelle']
   }
 ]
 

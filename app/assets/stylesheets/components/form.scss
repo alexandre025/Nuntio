@@ -43,7 +43,7 @@ input:focus:-moz-placeholder {
 }
 
 // -------- CHECKBOX --------
-.field-checkbox{
+.checkbox{
   input[type="checkbox"]:not(:checked),
   input[type="checkbox"]:checked {
     position: absolute;
@@ -53,7 +53,7 @@ input:focus:-moz-placeholder {
     height:auto;
     width:auto;
   }
-  label {
+  .checkbox-label {
     display: inline-block;
     position: relative;
     vertical-align:middle;
@@ -71,7 +71,7 @@ input:focus:-moz-placeholder {
     }
   }
   /* checkbox aspect */
-  label:before {
+  .checkbox-label:before {
     content: '';
     position: absolute;
     top: 0; left:0;
@@ -79,12 +79,12 @@ input:focus:-moz-placeholder {
     border: 1px solid $dark-gray;
   }
 
-  input[type="checkbox"]:checked + label:before{
+  input[type="checkbox"]:checked + .checkbox-label:before{
     border-color:$purple;
   }
 
   /* checked mark aspect */
-  label:after {
+  .checkbox-label:after {
     content: '';
     position: absolute;
     top: 0; left: 0;
@@ -92,7 +92,7 @@ input:focus:-moz-placeholder {
     width:22px;
   }
 
-  input[type="checkbox"]:checked + label:after{
+  input[type="checkbox"]:checked + .checkbox-label:after{
     background-image:image-url('icons/icon-check-purple.png');
     background-position:left center;
     background-repeat:no-repeat;
@@ -101,20 +101,6 @@ input:focus:-moz-placeholder {
     width:26px;
   }
 
-}
-
-.field-checkbox.active-checkbox{
-  label:before{
-    border-color:$purple;
-  }
-  label:after{
-    background-image:image-url('icons/icon-check-purple.png');
-    background-position:left center;
-    background-repeat:no-repeat;
-    background-size:27px 19px;
-    left:2px;
-    width:26px;
-  }
 }
 
 // -------- RADIO --------
