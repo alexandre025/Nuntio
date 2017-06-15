@@ -9,6 +9,9 @@ App.ready(function(){
         $receiver.find('.modal').show();
 
         $('body').addClass('disable-scroll');
+        $('.field-checkbox').each(function(){
+          getCheckboxes(this);
+        });
 
         $form = $receiver.find('form');
 
@@ -23,7 +26,6 @@ App.ready(function(){
     });
 
     $(document).on('click', '.modal-close', function(e){
-      console.log('close');
       $('#modal-receiver').find('.modal').hide();
       $('#modal-receiver').html('');
       $('body').removeClass('disable-scroll');

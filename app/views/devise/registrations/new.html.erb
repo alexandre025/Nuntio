@@ -9,36 +9,54 @@
 
     <h2 class="modal-title">Inscription</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'main-form main-form-modal' }) do |f| %>
-      <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { remote: request.xhr? }, html: { class: 'main-form main-form-modal' }) do |f| %>
 
-      <div class="field">
-        <%= f.text_field :firstname, placeholder: 'Prénom' %>
-      </div>
+      <!-- <ul class="errors">
+        <%# resource.errors.full_messages.each do |msg| %>
+          <li><%#= msg %></li>
+        <%# end %>
+      </ul> -->
 
-      <div class="field">
-        <%= f.text_field :lastname, placeholder: 'Nom' %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, placeholder: 'Adresse e-mail' %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password, autocomplete: "off", placeholder: 'Mot de passe' %>
-        <% if @minimum_password_length %>
-          <!--<br /><em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+      <div class="field <%= 'field_with_errors' if resource.errors[:firstname].any? %>">
+        <%= f.text_field :firstname, placeholder: 'Prénom', value: params.include?(:user)? params[:user][:firstname] : "" %>
+        <% resource.errors[:firstname].each do |msg| %>
+          <li class="error"><%= msg %></li>
         <% end %>
       </div>
 
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirmation du mot de passe' %>
+      <div class="field <%= 'field_with_errors' if resource.errors[:lastname].any? %>">
+        <%= f.text_field :lastname, placeholder: 'Nom' %>
+        <% resource.errors[:lastname].each do |msg| %>
+          <li class="error"><%= msg %></li>
+        <% end %>
       </div>
 
-      <div class="field">
-        <%= f.fields_for :user do |u| %>
-          <%= u.check_box :terms %>
-          <%= u.label :terms, "J'accepte les #{ link_to("conditions générales", "#") }".html_safe %>
+      <div class="field <%= 'field_with_errors' if resource.errors[:email].any? %>">
+        <%= f.email_field :email, placeholder: 'Adresse e-mail' %>
+        <% resource.errors[:email].each do |msg| %>
+          <li class="error"><%= msg %></li>
+        <% end %>
+      </div>
+
+      <div class="field <%= 'field_with_errors' if resource.errors[:password].any? %>">
+        <%= f.password_field :password, autocomplete: "off", placeholder: 'Mot de passe' %>
+        <% resource.errors[:password].each do |msg| %>
+          <li class="error"><%= msg %></li>
+        <% end %>
+      </div>
+
+      <div class="field <%= 'field_with_errors' if resource.errors[:password_confirmation].any? %>">
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirmation du mot de passe' %>
+        <% resource.errors[:password_confirmation].each do |msg| %>
+          <li class="error"><%= msg %></li>
+        <% end %>
+      </div>
+
+      <div class="field field-checkbox <%= 'field_with_errors' if resource.errors[:terms].any? %>">
+        <%= f.check_box :terms %>
+        <%= f.label :terms, "J'accepte les #{ link_to("conditions générales", "#") }".html_safe %>
+        <% resource.errors[:terms].each do |msg| %>
+          <li class="error"><%= msg %></li>
         <% end %>
       </div>
 

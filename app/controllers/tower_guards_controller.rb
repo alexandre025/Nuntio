@@ -6,7 +6,9 @@ class TowerGuardsController < ApplicationController
   end
 
   def apply_create
-    if current_user.save
+    @tower_guard = TowerGuard.new
+
+    if @tower_guard.save
       redirect_to apply_tower_guards_confirm_path
     end
   end

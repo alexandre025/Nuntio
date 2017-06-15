@@ -5,6 +5,7 @@ class SettingsController < ApplicationController
   end
 
   def general
+    flash[:password_notice] = nil
     if current_user.update(user_params)
       flash[:infos_notice] = 'Mise à jour effectuée avec succès'
     else
@@ -14,15 +15,17 @@ class SettingsController < ApplicationController
   end
 
   def general_update
+    flash[:password_notice] = nil
     if current_user.update(user_params)
-      flash[:password_notice] = 'Mise à jour effectuée avec succès'
+      flash[:infos_notice] = 'Mise à jour effectuée avec succès'
     else
-      flash[:password_notice] = nil
+      flash[:infos_notice] = nil
     end
     render :index
   end
 
   def password_update
+    flash[:infos_notice] = nil
     if current_user.update(user_params)
       bypass_sign_in(current_user)
       flash[:password_notice] = 'Mise à jour effectuée avec succès'

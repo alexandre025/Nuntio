@@ -24,7 +24,7 @@ class User < ApplicationRecord
   # Validators
   validates :firstname, :lastname, presence: true
   validates_acceptance_of :terms, allow_nil: false, accept: true, on: :create, message: 'doivent être acceptées'
-
+  validates_confirmation_of :password
 
   # Methods
 
