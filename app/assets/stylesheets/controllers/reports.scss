@@ -82,6 +82,12 @@
     width:616px;
     margin:0 auto;
 
+    font-family: $times-new-roman;
+    font-size: 21px;
+    color: $darker-gray;
+    letter-spacing: 0.5px;
+    line-height: 33px;
+
     h1, h2, h3, h4, h5, h6{
       font-family: $times-new-roman;
       font-weight:bold;

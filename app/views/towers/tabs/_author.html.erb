@@ -1,7 +1,7 @@
 <div class="author-header">
   <div class="author-header__profile" style="background-image:url();"></div>
   <div class="author-header__right">
-    <p class="name"><%= tower.guard.fullname %> <span class="tower-card__tag">Meilleur expert</span></p>
+    <p class="name"><%= tower.guard.fullname %> <% if tower.is_featured %><span class="tower-card__tag">Top expert</span><% end %></p>
     <p class="role"><%= tower.tower_guard.short_excerpt %></p>
     <ul class="social">
       <li class="twitter"><a href="#"><%= image_tag('icons/icon-social-twitter.png') %></a></li>

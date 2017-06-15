@@ -7,7 +7,7 @@ App.ready(function(){
         $receiver.html(data);
         setModalPosition($receiver.find('.modal'));
         $receiver.find('.modal').show();
-        
+
         $('body').addClass('disable-scroll');
 
         $form = $receiver.find('form');
@@ -34,6 +34,7 @@ App.ready(function(){
 
       $('#modal-receiver').find('.modal').hide();
       $('#modal-receiver').html('');
+      $('body').removeClass('disable-scroll');
     });
 
 });

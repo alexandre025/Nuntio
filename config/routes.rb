@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   post 'search', to: 'towers#search', as: :search_towers
 
   get 'apply-tower-guards', to: 'tower_guards#apply'
-  get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
   post 'apply-tower-guards', to: 'tower_guards#apply_create'
+  get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
 
   get 'settings', to: 'settings#index'
   patch 'settings/general', to: 'settings#general_update'
