@@ -1,5 +1,6 @@
 require 'factory_girl_rails'
 require 'ruby-progressbar'
+require 'csv'
 
 AdminUser.create!(email: 'admin@nuntio.me', password: 'nuntio', password_confirmation: 'nuntio')
 
@@ -32,6 +33,13 @@ themes.each do |row|
   end
   progressbar.increment
 end
+
+# csv = File.read(Lump::Engine.root.join('lib', 'seeds', 'seed_towers.csv'))
+# csv = CSV.parse(csv, headers: true, encoding: 'ISO-8859-1') # col_sep: ';'
+#
+# csv.each_with_index do |row, idx|
+#   row['title'] ...
+# end
 
 puts 'Create towers, guards and reports for each categories'
 progressbar = ProgressBar.create(total: Category.all.count)
