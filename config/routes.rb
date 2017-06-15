@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get '/:id', to: 'towers#theme', as: :theme, on: :collection
     get '/:theme_id/:id', to: 'towers#category', as: :category, on: :collection
 
-    get '/:id', to: 'reports#show', as: :report, on: :member
+    resources :reports, only: :show
   end
 
   post 'search', to: 'towers#search', as: :search_towers
