@@ -1,6 +1,6 @@
 # README
 
-[![Build Status](https://travis-ci.com/alexandre025/Nuntio.svg?token=in8sSsy4MxZn4XxNavha&branch=master)](https://travis-ci.com/alexandre025/trombonne)
+[![Build Status](https://travis-ci.com/alexandre025/Nuntio.svg?token=in8sSsy4MxZn4XxNavha&branch=master)](https://travis-ci.com/alexandre025/Nuntio)
 
 Prototype built quickly for our last school project at Hetic
 
