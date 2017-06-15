@@ -1,26 +1,17 @@
 # README
 
-[![Build Status](https://travis-ci.com/alexandre025/trombonne.svg?token=in8sSsy4MxZn4XxNavha&branch=master)](https://travis-ci.com/alexandre025/trombonne)
+[![Build Status](https://travis-ci.com/alexandre025/Nuntio.svg?token=in8sSsy4MxZn4XxNavha&branch=master)](https://travis-ci.com/alexandre025/trombonne)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prototype built quickly for our last school project at Hetic
 
-Things you may want to cover:
+# Build
 
-* Ruby version
+Be sure to have ruby >= 2.3, redis, yarn, and postgresql >= 9.4
 
-* System dependencies
+`rails db:setup`
+`bin/yarn install`
+`rails s`
 
-* Configuration
+# Test
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`bundle exec rspec`
