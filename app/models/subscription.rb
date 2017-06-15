@@ -11,8 +11,7 @@ class Subscription < ApplicationRecord
   has_many :user_subscriptions
   has_many :users, through: :user_subscriptions
 
-  has_many :subscription_billings
-  has_many :billings, through: :subscription_billings
+  has_many :billings
 
   COMMITMENTS = %w(monthly biannual yearly).freeze
 
