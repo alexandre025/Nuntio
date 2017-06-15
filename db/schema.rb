@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608112110) do
+ActiveRecord::Schema.define(version: 20170615074305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 20170608112110) do
     t.string "grade", limit: 45, null: false
     t.text "excerpt", null: false
     t.string "short_excerpt", limit: 255, null: false
+    t.boolean "is_featured", default: false
     t.index ["category_id"], name: "index_towers_on_category_id"
   end
 
