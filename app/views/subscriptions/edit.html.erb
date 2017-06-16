@@ -21,8 +21,8 @@
       <tbody>
         <tr>
           <td class="info">
-            <span class="product-name">L’indispensable de votre veille SEO</span>
-            <br /><span class="product-info">Par Ludovic Delabre | Format hebdomadaire</span>
+            <span class="product-name"><%= @subscription.tower.title %></span>
+            <br /><span class="product-info">Par <%= @subscription.tower.guard.fullname %> | Format <%= t("towers.frequency.#{@subscription.tower.frequency}").downcase %></span>
           </td>
           <td class="quantity">
             <div class="quantity-input">
