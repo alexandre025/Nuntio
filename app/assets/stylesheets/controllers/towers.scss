@@ -350,13 +350,16 @@
                     .twitter{
                       img{ height:16px; }
                     }
+                    .facebook{
+                      img{ height:18px; }
+                    }
                     .google{
                       img{ height:13px; }
                     }
                     .linkedin{
                       img{ height:17px; }
                     }
-                    .unknown{
+                    .angellist{
                       img{ height:23px; }
                     }
                   }
@@ -447,7 +450,7 @@
         .side-body{
           width:100%;
           background-color: $white;
-          box-shadow: 0 0 3px 2px rgba(0,0,0,0.05);
+          box-shadow: 0 0 3px 2px rgba(0,0,0,0.1);
 
           .side-header{
             height:61px;

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout' }
+  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: 'users/registrations' }
 
   get 'dashboard', to: 'dashboard#index'
 
@@ -14,14 +14,16 @@ Rails.application.routes.draw do
     get '/:id', to: 'towers#theme', as: :theme, on: :collection
     get '/:theme_id/:id', to: 'towers#category', as: :category, on: :collection
 
-    resources :reports, only: :show
+    resources :reports, only: :show do
+      post 'comment', to: 'reports#comment', on: :member
+    end
   end
 
   post 'search', to: 'towers#search', as: :search_towers
 
   get 'apply-tower-guards', to: 'tower_guards#apply'
-  get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
   post 'apply-tower-guards', to: 'tower_guards#apply_create'
+  get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
 
   get 'settings', to: 'settings#index'
   patch 'settings/general', to: 'settings#general_update'
@@ -34,5 +36,7 @@ Rails.application.routes.draw do
   end
 
   get ':id', to: 'towers#show', as: :tower
+
+  get '*path', to: redirect('/')
 
 end

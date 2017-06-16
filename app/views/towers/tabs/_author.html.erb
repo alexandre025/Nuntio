@@ -1,13 +1,24 @@
 <div class="author-header">
   <div class="author-header__profile" style="background-image:url();"></div>
   <div class="author-header__right">
-    <p class="name"><%= tower.guard.fullname %> <span class="tower-card__tag">Meilleur expert</span></p>
+    <p class="name"><%= tower.guard.fullname %> <% if tower.is_featured %><span class="tower-card__tag">Top expert</span><% end %></p>
     <p class="role"><%= tower.tower_guard.short_excerpt %></p>
     <ul class="social">
-      <li class="twitter"><a href="#"><%= image_tag('icons/icon-social-twitter.png') %></a></li>
-      <li class="google"><a href="#"><%= image_tag('icons/icon-social-google.png') %></a></li>
-      <li class="linkedin"><a href="#"><%= image_tag('icons/icon-social-linkedin.png') %></a></li>
-      <li class="unknown"><a href="#"><%= image_tag('icons/icon-social-unknown.png') %></a></li>
+      <% if tower.tower_guard.link_to_twitter %>
+        <li class="twitter"><a href="<%= tower.tower_guard.link_to_twitter %>" target="_blank"><%= image_tag('icons/icon-social-twitter.png') %></a></li>
+      <% end %>
+      <% if tower.tower_guard.link_to_facebook %>
+        <li class="facebook"><a href="<%= tower.tower_guard.link_to_facebook %>" target="_blank"><%= image_tag('icons/icon-social-facebook.png') %></a></li>
+      <% end %>
+      <% if tower.tower_guard.link_to_google %>
+        <li class="google"><a href="<%= tower.tower_guard.link_to_google %>" target="_blank"><%= image_tag('icons/icon-social-google.png') %></a></li>
+      <% end %>
+      <% if tower.tower_guard.link_to_linkedin %>
+        <li class="linkedin"><a href="<%= tower.tower_guard.link_to_linkedin %>" target="_blank"><%= image_tag('icons/icon-social-linkedin.png') %></a></li>
+      <% end %>
+      <% if tower.tower_guard.link_to_angellist %>
+        <li class="angellist"><a href="<%= tower.tower_guard.link_to_angellist %>" target="_blank"><%= image_tag('icons/icon-social-angellist.png') %></a></li>
+      <% end %>
     </ul>
   </div>
 </div>

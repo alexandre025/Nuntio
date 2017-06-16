@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615074305) do
+ActiveRecord::Schema.define(version: 20170616092818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,10 @@ ActiveRecord::Schema.define(version: 20170615074305) do
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["tower_guard_id"], name: "index_reports_on_tower_guard_id"
     t.index ["tower_id"], name: "index_reports_on_tower_id"
   end
@@ -150,6 +154,11 @@ ActiveRecord::Schema.define(version: 20170615074305) do
     t.bigint "guard_id"
     t.text "excerpt", null: false
     t.string "short_excerpt", limit: 255, null: false
+    t.string "link_to_facebook"
+    t.string "link_to_twitter"
+    t.string "link_to_angellist"
+    t.string "link_to_google"
+    t.string "link_to_linkedin"
     t.index ["guard_id"], name: "index_tower_guards_on_guard_id"
     t.index ["tower_id"], name: "index_tower_guards_on_tower_id"
   end
@@ -169,6 +178,10 @@ ActiveRecord::Schema.define(version: 20170615074305) do
     t.text "excerpt", null: false
     t.string "short_excerpt", limit: 255, null: false
     t.boolean "is_featured", default: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["category_id"], name: "index_towers_on_category_id"
   end
 
@@ -196,6 +209,10 @@ ActiveRecord::Schema.define(version: 20170615074305) do
     t.datetime "updated_at", null: false
     t.string "firstname", limit: 45
     t.string "lastname", limit: 45
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

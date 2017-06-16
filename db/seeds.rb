@@ -1,5 +1,6 @@
 require 'factory_girl_rails'
 require 'ruby-progressbar'
+require 'csv'
 
 AdminUser.create!(email: 'admin@nuntio.me', password: 'nuntio', password_confirmation: 'nuntio')
 
@@ -7,19 +8,19 @@ FactoryGirl.create(:user, email: 'admin@nuntio.me', password: 'nuntio', password
 
 themes = [
   { name: 'Développement',
-    categories: ['Développement web', 'Développement mobile', 'DevOps', 'Autres']
+    categories: ['Développement front-end', 'Développement back-end', 'Applications mobiles']
   },
   { name: 'Marketing',
-    categories: ['Numérique', 'SEO', 'Social media', 'Analytics', 'Publicité', 'Vidéo & mobile', 'Contenu', 'Growth hacking', 'Affiliation', 'Produits', 'Autres']
+    categories: ['Marketing numérique', 'Publicité', 'Marketing vidéo et mobile', 'Marketing de contenu', 'Growth Hacking', 'Mobile marketing', 'Social Media', 'Autres']
   },
   { name: 'Business',
-    categories: ['Finance', 'Entrepreunariat', 'Communication', 'Gestion', 'Stratégie', 'Gestion de projet', 'Autres']
+    categories: ['Entrepreneuriat', 'Communication', 'Gestion de projet', 'Transformation digitale']
   },
   { name: 'Design',
-    categories: ['Conception mobile', 'Conception web', 'Design produit', 'Expérience utilisateur', 'Conception de jeux', '3D & animations', 'Motion design', 'Autres']
+    categories: ['Design d’interface', 'Direction artistique', 'Expérience utilisateur']
   },
   { name: 'Innovation',
-    categories: ['Fab lab', 'IOT', 'Robotique', 'Réalité virtuelle', 'Nouvelles technologies', 'Autres']
+    categories: ['IOT', 'Réalité virtuelle']
   }
 ]
 
@@ -32,6 +33,13 @@ themes.each do |row|
   end
   progressbar.increment
 end
+
+# csv = File.read(Lump::Engine.root.join('lib', 'seeds', 'seed_towers.csv'))
+# csv = CSV.parse(csv, headers: true, encoding: 'ISO-8859-1') # col_sep: ';'
+#
+# csv.each_with_index do |row, idx|
+#   row['title'] ...
+# end
 
 puts 'Create towers, guards and reports for each categories'
 progressbar = ProgressBar.create(total: Category.all.count)

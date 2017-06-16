@@ -47,7 +47,8 @@
 
     .report-container__content{
       position:relative;
-      max-height:1000px;
+      min-height:500px;
+      max-height:800px;
       overflow:hidden;
     }
   }
@@ -77,7 +78,7 @@
       padding: 18px 0;
       box-sizing: border-box;
 
-      .tower-preview__footer-bg, p, a{
+      .tower-preview__footer-bg, p, .form-sub, .already-sub{
         display:inline-block;
         vertical-align:middle;
       }
@@ -100,7 +101,26 @@
         margin-left:28px;
       }
 
-      a{
+      .form-sub{
+        margin-left:32px;
+        width:153px;
+      }
+
+      .already-sub{
+        display:inline-block !important;
+        cursor:default !important;
+        margin-left:32px;
+        line-height:31px;
+
+        &:hover{
+          background-color: transparent !important;
+          color:$white !important;
+        }
+      }
+
+      .sub-link, .already-sub{
+        cursor:pointer;
+        display:block;
         border: 1px solid $white;
         border-radius: 100px;
         font-family: $raleway;
@@ -109,10 +129,13 @@
         color: $white;
         letter-spacing: 1px;
         height:31px;
-        line-height:31px;
         width:153px;
         text-align:center;
-        margin-left:32px;
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+        background-color:transparent;
+        outline:none;
 
         &:hover{
           background-color: $white;

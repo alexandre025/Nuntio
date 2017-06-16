@@ -5,9 +5,14 @@ class TowerGuardsController < ApplicationController
     @tower_guard = TowerGuard.new
   end
 
-  def apply_confirm
+  def apply_create
+    @tower_guard = TowerGuard.new
+
+    if @tower_guard.save
+      redirect_to apply_tower_guards_confirm_path
+    end
   end
 
-  def apply_create
+  def apply_confirm
   end
 end

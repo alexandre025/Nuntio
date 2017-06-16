@@ -9,37 +9,30 @@
 
     <h2 class="modal-title">Inscription</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'main-form main-form-modal' }) do |f| %>
-      <%= devise_error_messages! %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { remote: request.xhr? }, html: { class: 'main-form main-form-modal' }) do |f| %>
 
       <div class="field">
-        <%= f.text_field :firstname, placeholder: 'Prénom' %>
+        <%= f.input :firstname, label: false, placeholder: 'Prénom' %>
       </div>
 
       <div class="field">
-        <%= f.text_field :lastname, placeholder: 'Nom' %>
+        <%= f.input :lastname, label: false, placeholder: 'Nom' %>
       </div>
 
       <div class="field">
-        <%= f.email_field :email, placeholder: 'Adresse e-mail' %>
+        <%= f.input :email, label: false, placeholder: 'Adresse e-mail' %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password, autocomplete: "off", placeholder: 'Mot de passe' %>
-        <% if @minimum_password_length %>
-          <!--<br /><em>(<%#= @minimum_password_length %> characters minimum)</em>-->
-        <% end %>
+        <%= f.input :password, label: false, autocomplete: "off", placeholder: 'Mot de passe' %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirmation du mot de passe' %>
+        <%= f.input :password_confirmation, label: false, autocomplete: "off", placeholder: 'Confirmation du mot de passe' %>
       </div>
 
       <div class="field">
-        <%= f.fields_for :user do |u| %>
-          <%= u.check_box :terms %>
-          <%= u.label :terms, "J'accepte les #{ link_to("conditions générales", "#") }".html_safe %>
-        <% end %>
+        <%= f.input :terms, label: "<span class=\"checkbox-label\">J'accepte les #{ link_to("conditions générales", "#") }</span>".html_safe, as: :boolean %>
       </div>
 
       <div class="actions">

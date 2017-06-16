@@ -43,4 +43,14 @@ class Tower < ApplicationRecord
   def average_time_to_read
     reports.any? ? (reports.map { |r| r.average_time_to_read }.sum / reports.count.to_d).to_i : 0
   end
+
+  # Paperclip
+
+  has_attached_file :image,
+                  styles: { thumb: '260x140>', banner: '620x200>' },
+                  url: '/nuntio/towers/:id/:style/:basename.:extension',
+                  path: ':rails_root/public/nuntio/towers/:id/:style/:basename.:extension',
+                  convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
+
+  validates_attachment :image, content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }
 end

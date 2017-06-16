@@ -12,37 +12,27 @@
 <p class="modal-description">Rejoignez notre plateforme et faites profiter la communauté de votre expertise</p>
 
 <%= form_for(@tower_guard, url: apply_tower_guards_path, method: :post, data: { remote: true }, html: { class: 'main-form main-form-modal' }) do |f| %>
-  <!-- TODO -->
+
+  <%= f.fields_for :guard do |u| %>
+    <div class="field">
+      <%= u.text_field :firstname, label: false, placeholder: 'Prénom' %>
+    </div>
+
+    <div class="field">
+      <%= u.text_field :lastname, label: false, placeholder: 'Nom' %>
+    </div>
+
+    <div class="field">
+      <%= u.email_field :name, label: false, placeholder: 'Adresse e-mail' %>
+    </div>
+  <% end %>
+
   <div class="field">
-    <%#= f.input_field :name, placeholder: 'Prénom' %>
-    <input type="text" placeholder="Prénom" />
+    <%= f.text_field :linkedin, label: false, placeholder: 'Lien LinkedIn' %>
   </div>
 
-  <!-- TODO -->
   <div class="field">
-    <%#= f.input_field :name, placeholder: 'Nom' %>
-    <input type="text" placeholder="Nom" />
-  </div>
-
-  <!-- TODO -->
-  <div class="field">
-    <%#= f.input_field :name, placeholder: 'Nom' %>
-    <input type="email" placeholder="Adresse e-mail" />
-  </div>
-
-  <!-- TODO -->
-  <div class="field">
-    <%#= f.input_field :name, placeholder: 'Nom' %>
-    <input type="text" placeholder="Lien Linkedin" />
-  </div>
-
-  <!-- TODO -->
-  <div class="field">
-    <select>
-      <option value="" disabled selected>Dans quel domaine ?</option>
-      <option value="valeur1">Valeur 1</option>
-      <option value="valeur2">Valeur 2</option>
-    </select>
+    <%= f.select :apply_theme, Theme.all.map { |t| [t.name, t] }, { include_blank: 'Dans quel domaine ?' } %>
   </div>
 
   <div class="actions">
