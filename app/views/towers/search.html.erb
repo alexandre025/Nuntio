@@ -6,31 +6,6 @@
   <%= render partial: 'shared/header_sub_nav_bar', locals: { current_sub: :towers_search, category: nil } %>
 <%- end -%>
 
-<!--
-Themes : <br>
-<#% @themes.each do |theme| %>
-  <%#= link_to theme.name, theme_towers_path(theme)%>
-<#% end %>
-
-<br>
-
-<h1>Current theme : <#%= @theme.name %></h1>
-
-Categories : <br>
-<#% @theme.categories.each do |category| %>
-  <%#= link_to category.name, category_towers_path(@theme, category)%>
-<#% end %>
-
-<br>
-
-Towers : <br>
-<#%- @towers.each do |tower| -%>
-  <%#= render partial: 'towers/tower', locals: { tower: tower } %>
-<#%- end -%>
-
-<#%= paginate @towers %>
--->
-
 <div class="tower-container">
 
   <div class="tower-list-full">
@@ -53,18 +28,18 @@ Towers : <br>
           <%= f.select :grade_eq, Tower::GRADES.map { |g| [t("towers.grade.#{g}"), g] }, { include_blank: 'Niveau' }, {onchange: 'this.form.submit();'} %>
           <%= f.select :frequency_eq, Tower::FREQUENCIES.map { |f| [t("towers.frequency.#{f}"), f] }, { include_blank: 'Fréquence' }, {onchange: 'this.form.submit();'} %>
         </div>
-        <div class="list-filters__right">
+        <!-- <div class="list-filters__right">
           <p>Trier par :</p>
           <select name="" id="">
             <option value="">Popularité</option>
             <option value="">Date de publication</option>
             <option value="">Prix croissant</option>
           </select>
-          <%= f.select :sorts, Tower::SORTS.map { |s| [t("towers.sort.#{s}"), s] }, { include_blank: false }, {onchange: 'this.form.submit();'} %>
+          <%#= f.select :sorts, Tower::SORTS.map { |s| [t("towers.sort.#{s}"), s] }, { include_blank: false }, {onchange: 'this.form.submit();'} %>
           <%#= f.sort_fields do |s| %>
             <%#= s.sort_select associations: [:popularity, :created_date, :price_per_month] %>
           <%# end %>
-        </div>
+        </div> -->
       <% end %>
     </div>
 
