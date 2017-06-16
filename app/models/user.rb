@@ -41,4 +41,14 @@ class User < ApplicationRecord
   ransacker :fullname do |parent|
     Arel::Nodes::InfixOperation.new('||', Arel::Nodes::InfixOperation.new('||', parent.table[:firstname], Arel::Nodes.build_quoted(' ')), parent.table[:lastname])
   end
+
+  # Paperclip
+
+  has_attached_file :image,
+                  styles: { thumb: '120x120>' },
+                  url: '/nuntio/users/:id/:style/:basename.:extension',
+                  path: ':rails_root/public/nuntio/users/:id/:style/:basename.:extension',
+                  convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
+
+  validates_attachment :image, content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }
 end
