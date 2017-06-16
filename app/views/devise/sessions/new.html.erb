@@ -10,7 +10,6 @@
   <h2 class="modal-title">Connexion</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { remote: request.xhr? }, html: { class: 'main-form main-form-modal' }) do |f| %>
-
     <div class="field">
       <%= f.input :email, label: false, placeholder: 'Adresse e-mail' %>
     </div>

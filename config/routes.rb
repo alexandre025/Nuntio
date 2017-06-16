@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     get '/:id', to: 'towers#theme', as: :theme, on: :collection
     get '/:theme_id/:id', to: 'towers#category', as: :category, on: :collection
 
-    resources :reports, only: :show
+    resources :reports, only: :show do
+      post 'comment', to: 'reports#comment', on: :member
+    end
   end
 
   post 'search', to: 'towers#search', as: :search_towers
@@ -35,6 +37,6 @@ Rails.application.routes.draw do
 
   get ':id', to: 'towers#show', as: :tower
 
-  get '*path' => redirect('/')
+  get '*path', to: redirect('/')
 
 end
