@@ -1,6 +1,5 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
-
     def new
       @user = User.new
       #@user.terms = params[:terms] == '1' ? true : false
@@ -22,6 +21,5 @@ module Users
       def user_params
         params.require(:user).permit(:firstname, :lastname, :email, :password, :terms)
       end
-
   end
 end
