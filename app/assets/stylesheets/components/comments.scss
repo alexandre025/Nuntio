@@ -34,12 +34,16 @@
       height:auto;
     }
 
+    .comment_content{
+      line-height:13px !important;
+    }
+
     textarea{
-      width:100%;
+      width:100% !important;
       box-sizing:border-box;
-      font-family:$raleway;
-      font-size: 15px;
-      line-height: 27px;
+      font-family:$raleway !important;
+      font-size: 15px !important;
+      line-height: 27px !important;
       height:39px;
       border:0;
       padding:6px 0;

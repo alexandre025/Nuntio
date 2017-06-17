@@ -8,21 +8,13 @@
 
   <div class="dashboard-container__filters list-filters">
     <%= search_form_for @d, url: dashboard_path, class: 'search' do |f| %>
-      <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-      <%= f.text_field :title_or_excerpt_cont, label: false, placeholder: 'Recherchez parmis vos abonnements' %>
-    </form>
-    <form action="">
+      <div class="search-bar">
+        <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
+        <%= f.text_field :title_or_excerpt_cont, label: false, placeholder: 'Recherchez parmis vos abonnements' %>
+      </div>
       <div class="list-filters__left">
-        <select name="" id="">
-          <option value="" disabled selected>Thèmes</option>
-          <option value="">Lorem</option>
-          <option value="">Ipsum</option>
-        </select>
-        <select name="" id="">
-          <option value="" disabled selected>Catégories</option>
-          <option value="">Lorem</option>
-          <option value="">Ipsum</option>
-        </select>
+        <%= f.select :tower_category_theme_id_eq, current_user.subscribed_towers.uniq.map { |t| [t.category.theme.name, t.category.theme] }, { include_blank: 'Thèmes' }, {onchange: 'this.form.submit();'} %>
+        <%= f.select :tower_category_id_eq, current_user.subscribed_towers.uniq.map { |t| [t.category.name, t.category] }, { include_blank: 'Catégories' }, {onchange: 'this.form.submit();'} %>
         <select name="" id="">
           <option value="" disabled selected>Abonnement</option>
           <option value="">Lorem</option>

@@ -19,7 +19,11 @@
       .search{
         position:relative;
         display:block;
-        margin-bottom:16px;
+
+        .search-bar{
+          position:relative;
+          margin-bottom:16px;
+        }
 
         .icon-search{
           position:absolute;

@@ -38,10 +38,10 @@
       <p class="comments-container__count"><%= @report.comments.where.not(content: nil).count %> commentaires</p>
 
       <div class="comments-container__form">
-        <form action="#">
-          <textarea name="" id="" placeholder="Ecrire un commentaire"></textarea>
-          <input type="submit" value="Commenter">
-        </form>
+        <%= simple_form_for @comment, url: comment_tower_report_path(@report.tower, @report) do |f| %>
+          <%= f.input :content, label: false, placeholder: 'Ecrire un commentaire' %>
+          <%= f.submit 'Commenter' %>
+        <% end %>
       </div>
 
       <%= render partial: 'reports/comments', locals: { comments: @report.comments.where.not(content: nil) }%>
