@@ -48,6 +48,7 @@
           box-sizing:border-box;
           outline:none;
           background-color:transparent;
+          border-radius:0 !important;
 
           @include transition(border-color 0.2s);
 

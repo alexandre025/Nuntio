@@ -1,7 +1,7 @@
 .list-filters{
   margin-bottom:35px;
 
-  select, input{
+  select, .ransack-number input{
     position:relative;
     background-color: $white;
     border: 1px solid $light-gray;
@@ -27,19 +27,6 @@
     }
   }
 
-  input::-webkit-input-placeholder {
-    color:$light-black;
-  }
-  input::-moz-placeholder {
-    color:$light-black;
-  }
-  input:-ms-input-placeholder {
-    color:$light-black;
-  }
-  input:-moz-placeholder {
-    color:$light-black;
-  }
-
   .ransack-number{
     position:relative;
     display:inline-block;
@@ -48,6 +35,19 @@
 
     input{
       width:170px;
+    }
+
+    input::-webkit-input-placeholder {
+      color:$light-black;
+    }
+    input::-moz-placeholder {
+      color:$light-black;
+    }
+    input:-ms-input-placeholder {
+      color:$light-black;
+    }
+    input:-moz-placeholder {
+      color:$light-black;
     }
 
     &:after{
