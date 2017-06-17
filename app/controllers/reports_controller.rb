@@ -13,7 +13,8 @@ class ReportsController < ApplicationController
   end
 
   def comment
-    tower = Tower.friendly.find(params[:tower_id])
+    @tower = Tower.friendly.find(params[:tower_id])
+
     @report = tower.reports.find(params[:id])
     @comment = tower.comments.new(comment_params)
     if @comment.save

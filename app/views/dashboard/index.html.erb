@@ -10,21 +10,11 @@
     <%= search_form_for @d, url: dashboard_path, class: 'search' do |f| %>
       <div class="search-bar">
         <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-        <%= f.text_field :title_or_excerpt_cont, label: false, placeholder: 'Recherchez parmis vos abonnements' %>
+        <%= f.text_field :title_or_excerpt_cont, label: false, placeholder: 'Recherchez dans vos abonnements' %>
       </div>
       <div class="list-filters__left">
-        <%= f.select :tower_category_theme_id_eq, current_user.subscribed_towers.uniq.map { |t| [t.category.theme.name, t.category.theme] }, { include_blank: 'Thèmes' }, {onchange: 'this.form.submit();'} %>
-        <%= f.select :tower_category_id_eq, current_user.subscribed_towers.uniq.map { |t| [t.category.name, t.category] }, { include_blank: 'Catégories' }, {onchange: 'this.form.submit();'} %>
-        <select name="" id="">
-          <option value="" disabled selected>Abonnement</option>
-          <option value="">Lorem</option>
-          <option value="">Ipsum</option>
-        </select>
-        <select name="" id="">
-          <option value="" disabled selected>Temps de lecture</option>
-          <option value="">Lorem</option>
-          <option value="">Ipsum</option>
-        </select>
+        <%= f.select :tower_category_id_eq, current_user.subscribed_towers.map { |t| [t.category.name, t.category.id] }.uniq, { include_blank: 'Catégories' }, {onchange: 'this.form.submit();'} %>
+        <%= f.select :tower_guard_guard_id_eq, current_user.subscribed_reports.map { |t| [t.guard.fullname, t.guard.id] }.uniq, { include_blank: 'Abonnements' }, {onchange: 'this.form.submit();'} %>
       </div>
       <!-- <div class="list-filters__right">
         <p>Trier par :</p>

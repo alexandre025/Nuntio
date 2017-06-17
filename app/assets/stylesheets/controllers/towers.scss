@@ -373,6 +373,13 @@
                 color: $darker-gray;
                 letter-spacing: 0.5px;
                 line-height: 25px;
+
+                li{
+                  margin-left:30px;
+                  &:before {
+                     content: '-\2003';
+                  }
+                }
               }
 
               .separator{

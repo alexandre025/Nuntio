@@ -19,38 +19,7 @@
       </div>
     </div>
 
-    <div class="tower-list-full__filters list-filters">
-      <%#= search_form_for @q, url: theme_towers_path(all: true), data: { remote: true } do |f| %>
-        <%#= f.select :activity_schedule_season_id_eq, Lump::Season.order('date_begin ASC').map { |s| [s.label, s.id] }, { include_blank: 'Fourchette de prix' }, {onchange: 'this.form.submit();'} %>
-      <%# end %>
-      <form action="">
-        <div class="list-filters__left">
-          <select name="" id="">
-            <option value="" disabled selected>Fourchette de prix</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-          <select name="" id="">
-            <option value="" disabled selected>Niveau</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-          <select name="" id="">
-            <option value="" disabled selected>Fréquence</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-        </div>
-        <!-- <div class="list-filters__right">
-          <p>Trier par :</p>
-          <select name="" id="">
-            <option value="" disabled selected>Popularité</option>
-            <option value="">Lorem</option>
-            <option value="">Ipsum</option>
-          </select>
-        </div> -->
-      </form>
-    </div>
+    <%= render partial: 'towers/filters', locals: { path: theme_towers_path, q: @q } %>
 
     <div class="tower-list-full__cards infinite-scroll-list">
       <% if @towers.count > 0 %>

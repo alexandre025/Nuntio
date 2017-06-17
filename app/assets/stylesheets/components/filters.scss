@@ -1,7 +1,8 @@
 .list-filters{
   margin-bottom:35px;
 
-  select{
+  select, input{
+    position:relative;
     background-color: $white;
     border: 1px solid $light-gray;
     font-family: $raleway;
@@ -17,14 +18,47 @@
     border-radius:4px !important;
     box-sizing:border-box;
     padding:0 10px;
+    margin-left:16px;
     background-position: right 12px center;
     padding-right:34px !important;
-    margin-left:16px;
 
     &:first-child{
       margin-left:0;
     }
   }
+
+  input::-webkit-input-placeholder {
+    color:$light-black;
+  }
+  input::-moz-placeholder {
+    color:$light-black;
+  }
+  input:-ms-input-placeholder {
+    color:$light-black;
+  }
+  input:-moz-placeholder {
+    color:$light-black;
+  }
+
+  .ransack-number{
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    margin-left:16px;
+
+    input{
+      width:170px;
+    }
+
+    &:after{
+      content: '€';
+      position:absolute;
+      @include center-content('y');
+      right:14px;
+      color:$dark-gray;
+    }
+  }
+
 
   @include e('left'){
     display:inline-block;

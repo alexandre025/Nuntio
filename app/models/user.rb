@@ -44,10 +44,10 @@ class User < ApplicationRecord
   # Paperclip
 
   has_attached_file :image,
-                  styles: { thumb: '120x120>' },
+                  styles: { thumb: '120x120^' },
                   url: '/nuntio/users/:id/:style/:basename.:extension',
                   path: ':rails_root/public/nuntio/users/:id/:style/:basename.:extension',
-                  convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
+                  convert_options: { all: '-strip -auto-orient -gravity center -colorspace sRGB' }
 
   validates_attachment :image, content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }
 end

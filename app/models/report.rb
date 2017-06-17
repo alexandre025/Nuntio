@@ -17,10 +17,10 @@ class Report < ApplicationRecord
   # Paperclip
 
   has_attached_file :image,
-                  styles: { thumb: '240x165>', banner: '620x240>' },
+                  styles: { thumb: '240x165^', banner: '620x240^' },
                   url: '/nuntio/reports/:id/:style/:basename.:extension',
                   path: ':rails_root/public/nuntio/reports/:id/:style/:basename.:extension',
-                  convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
+                  convert_options: { all: '-strip -auto-orient -gravity center -colorspace sRGB' }
 
   validates_attachment :image, content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }
 end

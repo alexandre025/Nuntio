@@ -19,9 +19,9 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'search', to: 'towers#search', as: :search_towers
+  get 'search', to: 'towers#search', as: :search_towers
 
-  get 'apply-tower-guards', to: 'tower_guards#apply'
+  get 'apply-tower-guards', to: 'tower_guards#apply', as: :apply
   post 'apply-tower-guards', to: 'tower_guards#apply_create'
   get 'apply-tower-guards-confirm', to: 'tower_guards#apply_confirm'
 
