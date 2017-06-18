@@ -36,7 +36,7 @@ class Tower < ApplicationRecord
 
   # Validators
 
-  validates :category, :title, :description, presence: true
+  validates :category, :title, :description, :excerpt, :tower_guard, presence: true
 
   # Methods
 

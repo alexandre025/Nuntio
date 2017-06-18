@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616092818) do
+ActiveRecord::Schema.define(version: 20170618150942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,7 +176,7 @@ ActiveRecord::Schema.define(version: 20170616092818) do
     t.string "slug"
     t.string "grade", limit: 45, null: false
     t.text "excerpt", null: false
-    t.string "short_excerpt", limit: 255, null: false
+    t.string "short_excerpt", limit: 255
     t.boolean "is_featured", default: false
     t.string "image_file_name"
     t.string "image_content_type"
