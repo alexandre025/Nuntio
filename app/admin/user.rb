@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :firstname, :lastname, :terms
 
   index do
     selectable_column
@@ -28,6 +28,7 @@ ActiveAdmin.register User do
       f.input :lastname
       f.input :password
       f.input :password_confirmation
+      f.input :terms, as: :hidden, input_html: { value: true }
     end
     f.actions
   end
