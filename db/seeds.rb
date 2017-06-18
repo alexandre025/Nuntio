@@ -8,7 +8,7 @@ require 'csv'
 
 themes = [
   { name: 'Développement',
-    categories: ['Développement front-end', 'Développement back-end', 'Applications mobiles']
+    categories: ['Front-end', 'Back-end', 'Applications mobiles']
   },
   { name: 'Marketing',
     categories: ['Marketing numérique', 'Publicité', 'Marketing vidéo et mobile', 'Marketing de contenu', 'Growth Hacking', 'Mobile marketing', 'Social Media', 'Autres']
