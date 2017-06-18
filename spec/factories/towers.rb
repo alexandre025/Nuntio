@@ -10,6 +10,10 @@ FactoryGirl.define do
     grade Tower::GRADES.first
     is_featured { rand(0..1) }
 
+    after :build do |tower|
+      FactoryGirl.build(:tower_guard, tower: tower)
+    end
+
     trait :with_users do
       after :build do |tower|
         rand(10..20).times do
