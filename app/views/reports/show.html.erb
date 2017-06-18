@@ -30,7 +30,10 @@
     </div>
     <div class="rating">
       <p>Vous avez aimé ? Vous aussi donnez votre avis !</p>
-      <div class="rating-stars"></div>
+      <%= simple_form_for @rating, url: rate_tower_report_path(@report.tower, @report), method: :put, html: { class: 'rating-form' } do |f| %>
+        <%= f.hidden_field :notation, class: 'form-control notation' %>
+        <div class="rating-stars"></div>
+      <% end %>
       <p class="rating-number"><%= @report.comments.where.not(notation: nil).count %> avis</p>
     </div>
 
@@ -38,7 +41,7 @@
       <p class="comments-container__count"><%= @report.comments.where.not(content: nil).count %> commentaires</p>
 
       <div class="comments-container__form">
-        <%= simple_form_for @comment, url: comment_tower_report_path(@report.tower, @report) do |f| %>
+        <%= simple_form_for @comment, url: comment_tower_report_path(@report.tower, @report), method: :put do |f| %>
           <%= f.input :content, label: false, placeholder: 'Ecrire un commentaire' %>
           <%= f.submit 'Commenter' %>
         <% end %>

@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     get '/:theme_id/:id', to: 'towers#category', as: :category, on: :collection
 
     resources :reports, only: :show do
-      post 'comment', to: 'reports#comment', on: :member
+      match 'comment', to: 'reports#comment', via: [:patch, :put], on: :member
+      match 'rate', to: 'reports#rate', via: [:patch, :put], on: :member
     end
   end
 

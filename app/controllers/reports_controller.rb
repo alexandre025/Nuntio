@@ -6,7 +6,8 @@ class ReportsController < ApplicationController
 
     if current_user.subscribed_towers.include? @tower
       @report = @tower.reports.find(params[:id])
-      @comment = @report.comments.new
+      @comment = Comment.new
+      @rating = Comment.where(user: current_user, commentable: @report).where.not(notation: nil).first_or_initialize
     else
       redirect_to dashboard_path
     end
@@ -15,10 +16,26 @@ class ReportsController < ApplicationController
   def comment
     @tower = Tower.friendly.find(params[:tower_id])
 
-    @report = tower.reports.find(params[:id])
-    @comment = tower.comments.new(comment_params)
+    @report = @tower.reports.find(params[:id])
+    @comment = Comment.new(user: current_user, commentable: @report)
+    @comment.assign_attributes(comment_params)
+
     if @comment.save
-      redirect_to tower_report(tower, @report), notice: 'Comment created'
+      redirect_to tower_report_path(@tower, @report), notice: 'Comment created'
+    else
+      render :show
+    end
+  end
+
+  def rate
+    @tower = Tower.friendly.find(params[:tower_id])
+
+    @report = @tower.reports.find(params[:id])
+    @rating = Comment.where(user: current_user, commentable: @report).where.not(notation: nil).first_or_initialize
+    @rating.assign_attributes(comment_params)
+
+    if @rating.save
+      redirect_to tower_report_path(@tower, @report), notice: 'Comment created'
     else
       render :show
     end
@@ -27,7 +44,7 @@ class ReportsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:user, :commentable, :content, :notation)
     end
 
 end

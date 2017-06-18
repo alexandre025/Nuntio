@@ -66,13 +66,13 @@
 
       .no-results{
         font-family: $raleway;
-        font-weight:$regular;
-        font-size: 17px;
-        color:$darker-gray;
-        line-height:28px;
+        font-weight:$bold;
+        font-size: 20px;
+        color: $darker-gray;
+        line-height: 27px;
 
         span{
-          font-weight:$light;
+          font-weight:$medium;
           font-size:14px;
         }
 

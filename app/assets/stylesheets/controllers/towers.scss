@@ -31,9 +31,10 @@
 
       .no-results{
         font-family: $raleway;
-        font-weight:$regular;
-        font-size: 17px;
-        color:$darker-gray;
+        font-weight:$bold;
+        font-size: 20px;
+        color: $darker-gray;
+        line-height: 27px;
       }
 
       .tower-card{

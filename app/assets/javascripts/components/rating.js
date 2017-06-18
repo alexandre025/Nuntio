@@ -82,6 +82,9 @@ function setRatings(){
     // REPORT SHOW
     $('.report-container__content').find('.rating-stars').each(function(){
         var elem = this;
+        var form = $(this).parents('.rating-form');
+        var input = $(elem).parent().find('input.notation');
+        var value = parseFloat(input.val());
 
         $(elem).rateYo({
             numStars: 5,
@@ -90,7 +93,14 @@ function setRatings(){
             normalFill: '#DBDBDB',
             ratedFill: '#29339E',
             starWidth: '26px',
-            fullStar: true
+            fullStar: true,
+            onInit: function(rating, rateYoInstance){
+                input.val(rating);
+            },
+            onSet: function(rating, rateYoInstance){
+                input.val(rating);
+                $(form).submit();
+            }
         });
 
     });
