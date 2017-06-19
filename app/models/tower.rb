@@ -36,21 +36,26 @@ class Tower < ApplicationRecord
 
   # Validators
 
-  validates :category, :title, :description, presence: true
+  validates :category, :title, :description, :excerpt, :tower_guard, presence: true
 
   # Methods
 
   def average_time_to_read
-    reports.any? ? (reports.map { |r| r.average_time_to_read }.sum / reports.count.to_d).to_i : 0
+    reports.any? ? (reports.map { |r| r.read_time }.sum / reports.count.to_d).to_i : 0
+  end
+
+  # Ransack
+  ransacker :price_per_month, type: :integer, formatter: proc { |p| p * 100 } do |t|
+    t.table[:price_per_month_cents]
   end
 
   # Paperclip
 
   has_attached_file :image,
-                  styles: { thumb: '260x140>', banner: '620x200>' },
+                  styles: { thumb: '260x140^', banner: '620x200^' },
                   url: '/nuntio/towers/:id/:style/:basename.:extension',
                   path: ':rails_root/public/nuntio/towers/:id/:style/:basename.:extension',
-                  convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
+                  convert_options: { all: '-strip -auto-orient -gravity center -colorspace sRGB' }
 
   validates_attachment :image, content_type: { content_type: %w(image/jpeg image/jpg image/png image/gif) }
 end

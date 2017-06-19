@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
     @d = current_user.subscribed_reports.ransack(params[:q])
 
     @d.result.order(created_at: order).each do |report|
-      key = report.created_at.strftime('%m/%Y')
+      key = l(report.created_at, format: '%B %Y').capitalize
       @reports[key] ||= []
       @reports[key] << report
     end

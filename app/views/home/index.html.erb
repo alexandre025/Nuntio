@@ -11,12 +11,12 @@
   <div class="home-header__container">
     <div class="home-header__container--content">
       <p>La première marketplace qui permet de recevoir une veille régulière et réalisée par des experts.</p>
-      <%= simple_form_for :q, url: search_towers_path, method: :post, html: {class: 'main-form'} do |f| %>
+      <%= simple_form_for :q, url: search_towers_path, method: :get, html: {class: 'main-form'} do |f| %>
         <div class="field">
           <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, label: false, input_html: { placeholder: 'Quel sujet vous intéresse ?' } %>
         </div>
         <div class="actions">
-          <%= f.button :submit, value: 'Rechercher' %>
+          <%= f.button :submit, value: 'Rechercher', data: {'disable-with': 'Chargement' } %>
         </div>
       <% end %>
     </div>

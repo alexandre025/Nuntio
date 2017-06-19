@@ -2,4 +2,12 @@
 // All this logic will automatically be available in application.js.
 
 App.ready(function(){
+
+
+  $('.dashboard-search').keypress(function(event){
+    if(event.keyCode == 13){
+      $(this).parents('.search').submit();
+    }
+  });
+
 });

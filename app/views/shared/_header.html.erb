@@ -4,7 +4,7 @@
       <%= link_to user_signed_in? ? towers_path : root_path, class: 'logo' do %>
         <%= image_tag 'img/logo-nuntio-black.png' %>
       <% end %>
-      <%= simple_form_for :q, url: search_towers_path, method: :post, html: { class: 'search' } do |f| %>
+      <%= simple_form_for :q, url: search_towers_path, method: :get, html: { class: 'search' } do |f| %>
         <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
         <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, label: false, input_html: { placeholder: 'Rechercher une offre...' } %>
       <% end %>

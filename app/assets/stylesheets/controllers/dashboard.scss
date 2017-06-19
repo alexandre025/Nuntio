@@ -19,7 +19,11 @@
       .search{
         position:relative;
         display:block;
-        margin-bottom:16px;
+
+        .search-bar{
+          position:relative;
+          margin-bottom:16px;
+        }
 
         .icon-search{
           position:absolute;
@@ -29,7 +33,7 @@
           width:14px;
         }
 
-        input{
+        input[type="text"]{
           font-family: $raleway;
           font-weight:$semibold;
           font-size: 15px;
@@ -44,12 +48,17 @@
           box-sizing:border-box;
           outline:none;
           background-color:transparent;
+          border-radius:0 !important;
 
           @include transition(border-color 0.2s);
 
           &:focus{
             border-color:$purple;
           }
+        }
+
+        input[type="number"]{
+          width: 236px;
         }
       }
     }
@@ -61,13 +70,13 @@
 
       .no-results{
         font-family: $raleway;
-        font-weight:$regular;
-        font-size: 17px;
-        color:$darker-gray;
-        line-height:28px;
+        font-weight:$bold;
+        font-size: 20px;
+        color: $darker-gray;
+        line-height: 27px;
 
         span{
-          font-weight:$light;
+          font-weight:$medium;
           font-size:14px;
         }
 

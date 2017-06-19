@@ -26,17 +26,18 @@
 <p class="author-description">
   <%== tower.tower_guard.description %>
 </p>
+<% if report %>
+  <hr class="separator">
 
-<hr class="separator">
-
-<div class="author-reports">
-  <p class="num-reports"><%= tower.reports.count %> publications rédigées</p>
-  <div class="last-report">
-    <p class="title"><%= report.title %></p>
-    <p class="time">Il y a <%= time_ago_in_words report.created_at.to_date %></p>
-    <p class="description">
-      <%== report.content.truncate(255) %>
-      <span class="preview-open">Voir un aperçu</span>
-    </p>
+  <div class="author-reports">
+    <p class="num-reports"><%= tower.reports.count %> publications rédigées</p>
+    <div class="last-report">
+      <p class="title"><%= report.title %></p>
+      <p class="time">Il y a <%= time_ago_in_words report.created_at.to_date %></p>
+      <p class="description">
+        <%== report.content.truncate(255) %>
+        <span class="preview-open">Voir un aperçu</span>
+      </p>
+    </div>
   </div>
-</div>
+<% end %>

@@ -78,6 +78,12 @@
     margin-bottom:36px;
   }
 
+  .main-image{
+    display:block;
+    width:100%;
+    margin-bottom:40px;
+  }
+
   .text{
     width:616px;
     margin:0 auto;
@@ -87,6 +93,19 @@
     color: $darker-gray;
     letter-spacing: 0.5px;
     line-height: 33px;
+
+    li{
+      margin-left:30px;
+      &:before {
+         content: '-\2003';
+      }
+    }
+
+    img{
+      width:100%;
+      max-height:300px;
+      margin:20px auto;
+    }
 
     h1, h2, h3, h4, h5, h6{
       font-family: $times-new-roman;
@@ -143,7 +162,7 @@
 
 /* ------ CONTROLLERS ------ */
 
-#reports_show{
+#reports_show, #reports_comment, #reports_rate{
 
   .header-alternative{
 

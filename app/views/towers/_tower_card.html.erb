@@ -8,14 +8,14 @@
       <div class="tower-card__content">
 
         <div class="tower-card__content--main">
-          <p class="theme"><%= tower.theme.name %> • <%= tower.category.name %></p>
-          <p class="title"><%= tower.title %></p>
+          <p class="theme"><%= tower.theme.name %> • <%= tower.category.name.truncate(25) %></p>
+          <p class="title"><%= tower.title.truncate(58) %></p>
           <div class="attributes">
             <p class="frequency"><%= image_tag 'icons/icon-calendar-black.png' %> <span><%= t("towers.frequency.#{tower.frequency}") %></span></p>
             <p class="level"><%= image_tag 'icons/icon-settings-black.png' %> <span><%= t("towers.grade.#{tower.grade}") %></span></p>
           </div>
           <p class="description">
-            <%== tower.description.truncate(255, separator: ' ') %>
+            <%== strip_tags tower.description.truncate(255) %>
           </p>
           <div class="rating">
             <div class="rating-stars" data-rating="<%= tower.average_notation || 0 %>"></div>

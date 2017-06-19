@@ -94,42 +94,44 @@
   </div>
 </div>
 
-<div class="tower-show__preview tower-preview">
-  <div class="tower-preview__container">
+<% if @report %>
+  <div class="tower-show__preview tower-preview">
+    <div class="tower-preview__container">
 
-    <%= image_tag 'icons/icon-close-black.png', class: 'preview-close' %>
+      <%= image_tag 'icons/icon-close-black.png', class: 'preview-close' %>
 
-    <div class="tower-preview__content">
-      <%= render partial: 'reports/components/header', locals: { report: @report } %>
+      <div class="tower-preview__content">
+        <%= render partial: 'reports/components/header', locals: { report: @report } %>
 
-      <div class="report-container__content">
-        <h2 class="title"><%= @report.title %></h2>
-        <div class="text">
-          <%== strip_tags(@report.content).truncate(1500) %>
+        <div class="report-container__content">
+          <h2 class="title"><%= @report.title %></h2>
+          <div class="text">
+            <%== strip_tags(@report.content).truncate(1500) %>
+          </div>
+          <div class="tower-preview__hide-text"></div>
         </div>
-        <div class="tower-preview__hide-text"></div>
+
       </div>
 
-    </div>
-
-    <div class="tower-preview__footer">
-      <div class="tower-preview__footer-content">
-        <div class="tower-preview__footer-bg"></div>
-        <p>
-          Ne manquez plus jamais une nouveauté <b><%= @tower.theme.name.downcase %></b> de la part de <b><%= @tower.guard.fullname %></b>.
-        </p>
-        <% if current_user&.is_subscriber?(@tower) %>
-          <p class="already-sub">Déjà abonné</p>
-        <% else %>
-          <%= simple_form_for @subscription, url: subscription_path, html: {class: 'form-sub'} do |f| %>
-            <%= f.input :tower_id, as: :hidden %>
-            <%= f.input :owner_id, as: :hidden %>
-            <%= f.input :state, as: :hidden %>
-            <%= f.button :submit, "S'abonner", class: 'sub-link' %>
+      <div class="tower-preview__footer">
+        <div class="tower-preview__footer-content">
+          <div class="tower-preview__footer-bg"></div>
+          <p>
+            Ne manquez plus jamais une nouveauté <b><%= @tower.theme.name.downcase %></b> de la part de <b><%= @tower.guard.fullname %></b>.
+          </p>
+          <% if current_user&.is_subscriber?(@tower) %>
+            <p class="already-sub">Déjà abonné</p>
+          <% else %>
+            <%= simple_form_for @subscription, url: subscription_path, html: {class: 'form-sub'} do |f| %>
+              <%= f.input :tower_id, as: :hidden %>
+              <%= f.input :owner_id, as: :hidden %>
+              <%= f.input :state, as: :hidden %>
+              <%= f.button :submit, "S'abonner", class: 'sub-link' %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</div>
+<% end %>
