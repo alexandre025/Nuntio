@@ -39,10 +39,14 @@
     position:relative;
     box-sizing:border-box;
     height:100%;
+    padding:0 30px;
     padding-top:82px;
     overflow:scroll;
+
     &::-webkit-scrollbar {
         display: none;
+        width: 0px;
+        height: 10px;
     }
 
     .report-container__content{
