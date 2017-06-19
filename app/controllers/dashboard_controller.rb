@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
 
   def index
     @reports = {}
-    order = params[:order] || :asc
+    order = params[:order] || :desc
 
     @d = current_user.subscribed_reports.ransack(params[:q])
 
