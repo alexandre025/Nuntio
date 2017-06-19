@@ -142,6 +142,10 @@
           color: $white;
           line-height: 15px;
           margin-bottom:8px;
+          text-overflow: ellipsis;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
         }
 
         .rating{
@@ -173,6 +177,10 @@
           font-size: 12px;
           color: $white;
           line-height: 27px;
+          text-overflow: ellipsis;
+          width: 650px;
+          overflow: hidden;
+          white-space: nowrap;
         }
       }
     }
@@ -187,6 +195,7 @@
       }
 
       @include m('main'){
+        min-height: 456px;
         width:751px;
         background-color:$white;
         padding:43px;
@@ -286,6 +295,8 @@
                 letter-spacing: 0.5px;
                 line-height: 30px;
 
+                p{ margin: 24px 0; }
+
                 strong,b{
                   font-weight:$bold;
                 }
@@ -375,6 +386,8 @@
                 letter-spacing: 0.5px;
                 line-height: 25px;
 
+                p{ margin: 24px 0; }
+
                 li{
                   margin-left:30px;
                   &:before {
@@ -426,6 +439,10 @@
                     color: $darker-gray;
                     letter-spacing: 0.5px;
                     line-height: 25px;
+
+                    img{
+                      max-width:100%;
+                    }
 
                     .preview-open{
                       cursor:pointer;
