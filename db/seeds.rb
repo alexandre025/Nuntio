@@ -34,9 +34,12 @@ themes.each do |row|
   progressbar.increment
 end
 
+puts 'Import db/seeds/data.csv'
 csv = File.read(Rails.root.join('db', 'seeds', 'data.csv'))
 csv = CSV.parse(csv, headers: true, header_converters: :symbol, encoding: 'ISO-8859-1', col_sep: ';')
 csv.to_a.map {|row| Hash[row[0], row[1]] }
+
+progressbar = ProgressBar.create(total: csv.size)
 
 csv.each_with_index do |row, idx|
   if row[:price_per_month_cents]
@@ -70,19 +73,34 @@ csv.each_with_index do |row, idx|
           roles: ['author']
         }
       })
-      tower.save
+    if tower.save
+      3.times do |i|
+        if row["report_#{i}_title".to_sym]
+          report = Report.new({
+              title: row["report_#{i}_title".to_sym],
+              content: row["report_#{i}_content".to_sym],
+              excerpt: row["report_#{i}_excerpt".to_sym],
+              created_at: row["report_#{i}_created_at".to_sym]&.to_datetime,
+              tower: tower,
+              tower_guard: tower.tower_guard
+            })
+          report.save
+        end
+      end
+    end
   end
+  progressbar.increment
 end
 
-# puts 'Create towers, guards and reports for each categories'
-# progressbar = ProgressBar.create(total: Category.all.count)
-# Category.all.each do |category|
-#   10.times do
-#     tower = FactoryGirl.create(:tower, :with_users, category: category)
-#     FactoryGirl.create(:tower_guard, tower: tower)
-#     10.times do
-#       FactoryGirl.create(:report, tower: tower, tower_guard: tower.tower_guard)
-#     end
-#   end
-#   progressbar.increment
-# end
+puts 'Fake comments and notations'
+progressbar = ProgressBar.create(total: Tower.all.count)
+Tower.all.each do |tower|
+  rand(10..20).times do
+    subscription = FactoryGirl.create(:subscription, tower: tower)
+    subscription.to_payment!
+    subscription.confirm!
+
+    FactoryGirl.create(:comment, commentable: tower, user: subscription.owner)
+  end
+  progressbar.increment
+end
