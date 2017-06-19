@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20170619071854) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "guard_id"
-    t.text "excerpt", null: false
+    t.text "excerpt"
     t.string "short_excerpt", limit: 255, null: false
     t.string "link_to_facebook"
     t.string "link_to_twitter"
