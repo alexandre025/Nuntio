@@ -44,12 +44,10 @@ class Tower < ApplicationRecord
     reports.any? ? (reports.map { |r| r.read_time }.sum / reports.count.to_d).to_i : 0
   end
 
-
   # Ransack
   ransacker :price_per_month, type: :integer, formatter: proc { |p| p * 100 } do |t|
     t.table[:price_per_month_cents]
   end
-
 
   # Paperclip
 

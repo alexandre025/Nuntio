@@ -37,24 +37,21 @@ end
 puts 'Import db/seeds/data.csv'
 csv = File.read(Rails.root.join('db', 'seeds', 'data.csv'))
 csv = CSV.parse(csv, headers: true, header_converters: :symbol, encoding: 'ISO-8859-1', col_sep: ';')
-csv.to_a.map {|row| Hash[row[0], row[1]] }
+csv.to_a.map { |row| Hash[row[0], row[1]] }
 
 progressbar = ProgressBar.create(total: csv.size)
 
 csv.each_with_index do |row, idx|
   if row[:price_per_month_cents]
-    guard = User.new({
-        email: Faker::Internet.email,
+    guard = User.new(email: Faker::Internet.email,
         password: 'nuntio',
         firstname: row[:expert_firstname],
         lastname: row[:expert_lastname],
-        terms: true
-      })
+        terms: true)
     guard.save
-    tower = Tower.new({
-        title: row[:title],
+    tower = Tower.new(title: row[:title],
         description: row[:description],
-        price_per_month: row[:price_per_month_cents].to_d/100,
+        price_per_month: row[:price_per_month_cents].to_d / 100,
         frequency: row[:frequency],
         category_id: 1,
         grade: row[:grade],
@@ -71,19 +68,16 @@ csv.each_with_index do |row, idx|
           link_to_google: row[:expert_google],
           link_to_linkedin: row[:expert_linkedin],
           roles: ['author']
-        }
-      })
+        })
     if tower.save
       3.times do |i|
         if row["report_#{i}_title".to_sym]
-          report = Report.new({
-              title: row["report_#{i}_title".to_sym],
+          report = Report.new(title: row["report_#{i}_title".to_sym],
               content: row["report_#{i}_content".to_sym],
               excerpt: row["report_#{i}_excerpt".to_sym],
               created_at: row["report_#{i}_created_at".to_sym]&.to_datetime,
               tower: tower,
-              tower_guard: tower.tower_guard
-            })
+              tower_guard: tower.tower_guard)
           report.save
         end
       end
@@ -104,3 +98,5 @@ Tower.all.each do |tower|
   end
   progressbar.increment
 end
+
+puts 'Done !'

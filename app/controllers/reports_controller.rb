@@ -46,5 +46,4 @@ class ReportsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:user, :commentable, :content, :notation)
     end
-
 end

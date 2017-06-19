@@ -11,5 +11,4 @@ class TowerGuardsController < ApplicationController
 
   def apply_confirm
   end
-
 end
