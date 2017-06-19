@@ -50,12 +50,23 @@
       color:$light-black;
     }
 
-    &:after{
+    &.input-price:after{
       content: '€';
       position:absolute;
       @include center-content('y');
       right:14px;
       color:$dark-gray;
+      font-family: $raleway;
+    }
+
+    &.input-time:after{
+      content: 'mn';
+      position:absolute;
+      @include center-content('y');
+      right:14px;
+      color:$dark-gray;
+      font-family: $raleway;
+      font-size:13px;
     }
   }
 

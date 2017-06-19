@@ -8,7 +8,7 @@
         <div class="report-card__right">
           <p class="title"><%= report.title %></p>
           <p class="details"><span class="author"><%= report.guard.fullname %></span> &nbsp; | &nbsp; <%= report.tower.theme.name %> • <%= report.tower.category.name %></p>
-          <p class="time"><%= report.average_time_to_read %> minutes à lire</p>
+          <p class="time"><%= report.read_time %> minutes à lire</p>
           <p class="description">
             <%= report.excerpt&.truncate(255, separator: ' ') %>
             <span class="more">Lire la suite</span>

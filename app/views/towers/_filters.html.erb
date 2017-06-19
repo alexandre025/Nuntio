@@ -4,10 +4,10 @@
       <%= f.input :title_or_short_excerpt_or_guard_fullname_cont, as: :hidden %>
       <%= f.select :grade_eq, Tower::GRADES.map { |g| [t("towers.grade.#{g}"), g] }, { include_blank: 'Niveau' }, {onchange: 'this.form.submit();'} %>
       <%= f.select :frequency_eq, Tower::FREQUENCIES.map { |f| [t("towers.frequency.#{f}"), f] }, { include_blank: 'Fréquence' }, {onchange: 'this.form.submit();'} %>
-      <div class="ransack-number">
+      <div class="ransack-number input-price">
         <%= f.number_field :price_per_month_gteq, min: 0, placeholder: 'Prix minimum' %>
       </div>
-      <div class="ransack-number">
+      <div class="ransack-number input-price">
         <%= f.number_field :price_per_month_lteq, min: 0, placeholder: 'Prix maximum' %>
       </div>
     </div>

@@ -10,11 +10,14 @@
     <%= search_form_for @d, url: dashboard_path, class: 'search' do |f| %>
       <div class="search-bar">
         <%= image_tag 'icons/icon-search-gray.png', class: 'icon-search' %>
-        <%= f.text_field :title_or_excerpt_cont, label: false, placeholder: 'Recherchez dans vos abonnements' %>
+        <%= f.text_field :title_or_excerpt_cont, label: false, placeholder: 'Recherchez dans vos abonnements', class: 'dashboard-search' %>
       </div>
       <div class="list-filters__left">
         <%= f.select :tower_category_id_eq, current_user.subscribed_towers.map { |t| [t.category.name, t.category.id] }.uniq, { include_blank: 'Catégories' }, {onchange: 'this.form.submit();'} %>
         <%= f.select :tower_guard_guard_id_eq, current_user.subscribed_reports.map { |t| [t.guard.fullname, t.guard.id] }.uniq, { include_blank: 'Abonnements' }, {onchange: 'this.form.submit();'} %>
+        <div class="ransack-number input-time">
+          <%= f.number_field :read_time_lteq, min: 0, placeholder: 'Temps de lecture maximum' %>
+        </div>
       </div>
       <!-- <div class="list-filters__right">
         <p>Trier par :</p>

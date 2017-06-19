@@ -1,6 +1,8 @@
 class Report < ApplicationRecord
   include Commentable
 
+  before_create :add_read_time
+
   has_many :sources, class_name: 'ReportSource'
 
   belongs_to :tower
@@ -10,8 +12,8 @@ class Report < ApplicationRecord
 
   validates :tower, :title, :content, :tower_guard, presence: true
 
-  def average_time_to_read
-    (content.split.count.to_d / 300).to_i
+  def add_read_time
+    self.read_time = (self.content.split.count.to_d / 300).to_i
   end
 
   # Paperclip
