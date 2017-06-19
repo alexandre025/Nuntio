@@ -2,9 +2,9 @@ require 'factory_girl_rails'
 require 'ruby-progressbar'
 require 'csv'
 
-# AdminUser.create!(email: 'admin@nuntio.me', password: 'nuntio', password_confirmation: 'nuntio')
+AdminUser.create!(email: 'admin@nuntio.me', password: 'nuntio', password_confirmation: 'nuntio')
 
-# FactoryGirl.create(:user, email: 'admin@nuntio.me', password: 'nuntio', password_confirmation: 'nuntio')
+FactoryGirl.create(:user, email: 'admin@nuntio.me', password: 'nuntio', password_confirmation: 'nuntio')
 
 themes = [
   { name: 'Développement',
