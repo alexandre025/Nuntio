@@ -61,7 +61,7 @@ csv.each_with_index do |row, idx|
         tower_guard_attributes: {
           guard_id: guard.id,
           description: row[:expert_description],
-          short_excerpt: row[:short_excerpt],
+          short_excerpt: row[:expert_short_excerpt],
           link_to_facebook: row[:expert_facebook],
           link_to_twitter: row[:expert_twitter],
           link_to_angellist: row[:expert_angellist],
