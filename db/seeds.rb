@@ -35,7 +35,7 @@ themes.each do |row|
 end
 
 puts 'Import db/seeds/data.csv'
-csv = File.read(Rails.root.join('db', 'seeds', 'data.csv'))
+csv = File.read(Rails.root.join('lib', 'data', 'data.csv'))
 csv = CSV.parse(csv, headers: true, header_converters: :symbol, encoding: 'ISO-8859-1', col_sep: ';')
 csv.to_a.map { |row| Hash[row[0], row[1]] }
 
@@ -49,15 +49,16 @@ csv.each_with_index do |row, idx|
         lastname: row[:expert_lastname],
         terms: true)
     guard.save
+
     tower = Tower.new(title: row[:title],
         description: row[:description],
         price_per_month: row[:price_per_month_cents].to_d / 100,
         frequency: row[:frequency],
-        category_id: 1,
+        category_id: row[:category_id],
         grade: row[:grade],
         excerpt: row[:excerpt],
         short_excerpt: row[:short_excerpt],
-        is_featured: row[:is_featured] == 'true',
+        is_featured: row[:is_featured] == 'TRUE',
         tower_guard_attributes: {
           guard_id: guard.id,
           description: row[:expert_description],
@@ -69,15 +70,28 @@ csv.each_with_index do |row, idx|
           link_to_linkedin: row[:expert_linkedin],
           roles: ['author']
         })
+
+      if image = File.open(Rails.root.join('lib', 'data', 'images', row[:filename]))
+        tower.image = image
+      end
+
     if tower.save
       3.times do |i|
         if row["report_#{i}_title".to_sym]
-          report = Report.new(title: row["report_#{i}_title".to_sym],
+
+          report = Report.new(
+              title: row["report_#{i}_title".to_sym],
               content: row["report_#{i}_content".to_sym],
               excerpt: row["report_#{i}_excerpt".to_sym],
               created_at: row["report_#{i}_created_at".to_sym]&.to_datetime,
               tower: tower,
-              tower_guard: tower.tower_guard)
+              tower_guard: tower.tower_guard
+            )
+
+          # if image = File.read(Rails.root.join('lib', 'data', 'images', row["report_#{i}_filename".to_sym]))
+          #   report.image = image
+          # end
+
           report.save
         end
       end
