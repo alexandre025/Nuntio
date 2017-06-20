@@ -1,7 +1,7 @@
 <%- if defined? tower; cache(tower) do -%>
   <div class="tower-card infinite-scroll-item">
     <a href="<%= tower_path(tower) %>">
-      <div class="tower-card__header" style="background-image:url();">
+      <div class="tower-card__header" style="background-image:url(<%= image_path tower.image %>);">
         <% if tower.is_featured %><p class="tower-card__tag">Top expert</p><% end %>
       </div>
 
