@@ -277,6 +277,11 @@
                 strong,b{
                   font-weight:$bold;
                 }
+
+                a{
+                  text-decoration:underline;
+                  color:$purple;
+                }
               }
 
               .separator{
@@ -300,6 +305,20 @@
                 strong,b{
                   font-weight:$bold;
                 }
+
+                li{
+                  margin:10px 0;
+                  margin-left:30px;
+                  &:before {
+                     content: '-\2003';
+                  }
+                }
+
+                a{
+                  text-decoration:underline;
+                  color:$purple;
+                }
+
               }
             }
 
@@ -389,10 +408,20 @@
                 p{ margin: 24px 0; }
 
                 li{
+                  margin:10px 0;
                   margin-left:30px;
                   &:before {
                      content: '-\2003';
                   }
+                }
+
+                strong,b{
+                  font-weight:$bold;
+                }
+
+                a{
+                  text-decoration:underline;
+                  color:$purple;
                 }
               }
 
