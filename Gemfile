@@ -95,3 +95,5 @@ gem 'wisper', '~> 1.6.1'
 gem 'sidekiq', '~> 5.0.2'
 
 gem 'paperclip', '~> 5.0.0'
+
+gem 'aws-sdk', '~> 2.9.43'
