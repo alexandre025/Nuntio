@@ -1,7 +1,7 @@
 <%- if defined? tower; cache(tower) do -%>
   <div class="tower-card infinite-scroll-item">
     <a href="<%= tower_path(tower) %>">
-      <div class="tower-card__header" style="background-image:url();">
+      <div class="tower-card__header" style="background-image:url(<%= tower.image.url(:thumb) %>);">
         <% if tower.is_featured %><p class="tower-card__tag">Top expert</p><% end %>
       </div>
 
@@ -9,13 +9,13 @@
 
         <div class="tower-card__content--main">
           <p class="theme"><%= tower.theme.name %> • <%= tower.category.name.truncate(25) %></p>
-          <p class="title"><%= tower.title.truncate(58) %></p>
+          <p class="title"><%= tower.title.truncate(56) %></p>
           <div class="attributes">
             <p class="frequency"><%= image_tag 'icons/icon-calendar-black.png' %> <span><%= t("towers.frequency.#{tower.frequency}") %></span></p>
             <p class="level"><%= image_tag 'icons/icon-settings-black.png' %> <span><%= t("towers.grade.#{tower.grade}") %></span></p>
           </div>
           <p class="description">
-            <%== strip_tags tower.description.truncate(255) %>
+            <%== strip_tags tower.description.truncate(110) %>
           </p>
           <div class="rating">
             <div class="rating-stars" data-rating="<%= tower.average_notation || 0 %>"></div>

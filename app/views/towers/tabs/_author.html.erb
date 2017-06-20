@@ -1,5 +1,5 @@
 <div class="author-header">
-  <div class="author-header__profile" style="background-image:url();"></div>
+  <div class="author-header__profile" style="background-image:url(<%= image_path tower.guard.avatar %>);"></div>
   <div class="author-header__right">
     <p class="name"><%= tower.guard.fullname %> <% if tower.is_featured %><span class="tower-card__tag">Top expert</span><% end %></p>
     <p class="role"><%= tower.tower_guard.short_excerpt %></p>
@@ -23,9 +23,9 @@
   </div>
 </div>
 
-<p class="author-description">
+<div class="author-description">
   <%== tower.tower_guard.description %>
-</p>
+</div>
 <% if report %>
   <hr class="separator">
 
@@ -34,10 +34,10 @@
     <div class="last-report">
       <p class="title"><%= report.title %></p>
       <p class="time">Il y a <%= time_ago_in_words report.created_at.to_date %></p>
-      <p class="description">
-        <%== report.content.truncate(255) %>
+      <div class="description">
+        <%== strip_tags(report.content.truncate(255)) %>
         <span class="preview-open">Voir un aperçu</span>
-      </p>
+      </div>
     </div>
   </div>
 <% end %>

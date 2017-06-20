@@ -4,13 +4,13 @@
     <% cache(report) do %>
       <!--<div class="icon-new"></div>-->
       <a href="<%= tower_report_path(report.tower, report) %>">
-        <div class="report-card__left" style="background-image:url();"></div>
+        <div class="report-card__left" style="background-image:url(<%= image_path report.image %>);"></div>
         <div class="report-card__right">
           <p class="title"><%= report.title %></p>
           <p class="details"><span class="author"><%= report.guard.fullname %></span> &nbsp; | &nbsp; <%= report.tower.theme.name %> • <%= report.tower.category.name %></p>
           <p class="time"><%= report.read_time %> minutes à lire</p>
           <p class="description">
-            <%= report.excerpt&.truncate(255, separator: ' ') %>
+            <%= strip_tags(report.excerpt&.truncate(230, separator: ' ')) %>
             <span class="more">Lire la suite</span>
           <div class="bottom">
             <p class="date">Il y a <%= time_ago_in_words(report.created_at)%></p>

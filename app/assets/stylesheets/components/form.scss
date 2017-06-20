@@ -120,6 +120,7 @@ input:focus:-moz-placeholder {
     height:22px !important;
     width:22px !important;
     -webkit-appearance: none;
+    appearance:none;
   }
   input[type="radio"]:checked {
     border-color:$purple;
