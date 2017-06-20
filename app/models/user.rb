@@ -35,6 +35,14 @@ class User < ApplicationRecord
     subscribed_towers.where(id: tower.id).any?
   end
 
+  def avatar
+    if image.present?
+      image
+    else
+      'img/default-avatar.png'
+    end
+  end
+
   # Ransack
 
   ransacker :fullname do |parent|
