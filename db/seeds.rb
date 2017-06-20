@@ -103,7 +103,7 @@ end
 puts 'Fake comments and notations'
 progressbar = ProgressBar.create(total: Tower.all.count)
 Tower.all.each do |tower|
-  rand(10..20).times do
+  rand(6..14).times do
     subscription = FactoryGirl.create(:subscription, tower: tower)
     subscription.to_payment!
     subscription.confirm!

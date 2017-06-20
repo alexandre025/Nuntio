@@ -16,7 +16,7 @@ FactoryGirl.define do
 
     trait :with_users do
       after :build do |tower|
-        rand(10..20).times do
+        rand(6..14).times do
           subscription = FactoryGirl.create(:subscription, tower: tower)
           subscription.to_payment!
           subscription.confirm!
