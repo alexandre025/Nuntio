@@ -71,9 +71,9 @@ csv.each_with_index do |row, idx|
           roles: ['author']
         })
 
-      if image = File.open(Rails.root.join('lib', 'data', 'images', row[:filename]))
-        tower.image = image
-      end
+    if image = File.open(Rails.root.join('lib', 'data', 'images', row[:filename]))
+      tower.image = image
+    end
 
     if tower.save
       3.times do |i|
