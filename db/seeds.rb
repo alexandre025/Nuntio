@@ -72,8 +72,10 @@ csv.each_with_index do |row, idx|
           roles: ['author']
         })
 
-    if image = File.open(Rails.root.join('lib', 'data', 'images', row[:filename]))
-      tower.image = image
+    if row[:filename]
+      if image = File.open(Rails.root.join('lib', 'data', 'images', row[:filename]))
+        tower.image = image
+      end
     end
 
     if tower.save
@@ -89,8 +91,10 @@ csv.each_with_index do |row, idx|
               tower_guard: tower.tower_guard
             )
 
-          if image = File.read(Rails.root.join('lib', 'data', 'images', row["report_#{i}_filename".to_sym]))
-            report.image = image
+          if row["report_#{i}_filename".to_sym]
+            if image = File.read(Rails.root.join('lib', 'data', 'images', row["report_#{i}_filename".to_sym]))
+              report.image = image
+            end
           end
 
           report.save
