@@ -116,7 +116,7 @@
 
       <div class="tower-preview__footer">
         <div class="tower-preview__footer-content">
-          <div class="tower-preview__footer-bg"></div>
+          <div class="tower-preview__footer-bg" style="background-image:url(<%= image_path @tower.guard.image.url(:thumb) %>);"></div>
           <p>
             Ne manquez plus jamais une nouveauté <b><%= @tower.theme.name.downcase %></b> de la part de <b><%= @tower.guard.fullname %></b>.
           </p>

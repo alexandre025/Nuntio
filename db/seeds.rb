@@ -42,6 +42,7 @@ csv.to_a.map { |row| Hash[row[0], row[1]] }
 progressbar = ProgressBar.create(total: csv.size)
 
 csv.each_with_index do |row, idx|
+
   if row[:price_per_month_cents]
     guard = User.new(email: Faker::Internet.email,
         password: 'nuntio',
@@ -58,7 +59,7 @@ csv.each_with_index do |row, idx|
         grade: row[:grade],
         excerpt: row[:excerpt],
         short_excerpt: row[:short_excerpt],
-        is_featured: row[:is_featured] == 'TRUE',
+        is_featured: %(VRAI TRUE).include?(row[:is_featured] || ''), # Excell transfom 'true' to 'TRUE' or 'VRAI', depends on your locale...
         tower_guard_attributes: {
           guard_id: guard.id,
           description: row[:expert_description],
@@ -88,9 +89,9 @@ csv.each_with_index do |row, idx|
               tower_guard: tower.tower_guard
             )
 
-          # if image = File.read(Rails.root.join('lib', 'data', 'images', row["report_#{i}_filename".to_sym]))
-          #   report.image = image
-          # end
+          if image = File.read(Rails.root.join('lib', 'data', 'images', row["report_#{i}_filename".to_sym]))
+            report.image = image
+          end
 
           report.save
         end
@@ -103,7 +104,7 @@ end
 puts 'Fake comments and notations'
 progressbar = ProgressBar.create(total: Tower.all.count)
 Tower.all.each do |tower|
-  rand(10..20).times do
+  rand(6..14).times do
     subscription = FactoryGirl.create(:subscription, tower: tower)
     subscription.to_payment!
     subscription.confirm!

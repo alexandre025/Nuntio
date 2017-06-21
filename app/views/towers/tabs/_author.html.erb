@@ -1,5 +1,5 @@
 <div class="author-header">
-  <div class="author-header__profile" style="background-image:url(<%= image_path tower.guard.avatar %>);"></div>
+  <div class="author-header__profile" style="background-image:url(<%= image_path tower.guard.image.url(:thumb) %>);"></div>
   <div class="author-header__right">
     <p class="name"><%= tower.guard.fullname %> <% if tower.is_featured %><span class="tower-card__tag">Top expert</span><% end %></p>
     <p class="role"><%= tower.tower_guard.short_excerpt %></p>
