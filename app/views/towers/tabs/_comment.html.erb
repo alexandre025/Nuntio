@@ -6,7 +6,7 @@
       <% comments.each do |comment| %>
         <li>
           <div class="comments-container__list--header">
-            <div class="profile" style="background-image:url(<%= image_path comment.user.image.url %>);"></div>
+            <div class="profile" style="background-image:url(<%= image_path comment.user.image.url(:thumb) %>);"></div>
             <p class="name"><%= comment.user.fullname %></p>
             <p class="date">Il y a <%= time_ago_in_words(comment.created_at.to_date)%></p>
           </div>

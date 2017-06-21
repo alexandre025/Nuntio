@@ -25,7 +25,7 @@
 
   <div class="report-container__content">
     <h2 class="title"><%= @report.title %></h2>
-    <%= image_tag @report.image, class: 'main-image' if @report.image.exists? %>
+    <%= image_tag @report.image.url(:banner), class: 'main-image' if @report.image.exists? %>
     <div class="text">
       <%== @report.content %>
     </div>
