@@ -18,8 +18,6 @@ App.ready(function(){
     $(window).bind('scroll', function() {
       if($('#towers_show').is('*')) {
         setSidePosition(self, selfLimit, values);
-      } else{
-        $(window).unbind('scroll');
       }
     });
 
