@@ -1457,6 +1457,12 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
+dotdotdot@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/dotdotdot/-/dotdotdot-1.7.0.tgz#5ce3cb562123a244ca2db43e2e8bcb1ea2108d3c"
+  dependencies:
+    jquery ">= 1.4.3"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -2275,7 +2281,7 @@ jquery-ujs@^1.2.2:
   dependencies:
     jquery ">=1.8.0"
 
-jquery@>=1.7, jquery@>=1.7.2, jquery@>=1.8.0, jquery@^3.2.1:
+"jquery@>= 1.4.3", jquery@>=1.7, jquery@>=1.7.2, jquery@>=1.8.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
