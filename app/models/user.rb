@@ -46,7 +46,7 @@ class User < ApplicationRecord
   has_attached_file :image,
                   styles: { thumb: '120x120^' },
                   url: '/nuntio/users/:id/:style/:basename.:extension',
-                  default_url: '/images/img/default-avatar.png',
+                  default_url: '/images/default-avatar.png',
                   path: ':rails_root/public/nuntio/users/:id/:style/:basename.:extension',
                   convert_options: { all: '-strip -auto-orient -gravity center -colorspace sRGB' }
 

@@ -75,6 +75,7 @@ csv.each_with_index do |row, idx|
     if row[:expert_filename]
       if image = File.open(Rails.root.join('lib', 'data', 'images', row[:expert_filename]))
         guard.image = image
+        guard.save
       end
     end
 

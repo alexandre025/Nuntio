@@ -54,6 +54,7 @@ class Tower < ApplicationRecord
   has_attached_file :image,
                   styles: { thumb: '260x140^', banner: '620x200^' },
                   url: '/nuntio/towers/:id/:style/:basename.:extension',
+                  default_url: '/images/default-tower.jpg',
                   path: ':rails_root/public/nuntio/towers/:id/:style/:basename.:extension',
                   convert_options: { all: '-strip -auto-orient -gravity center -colorspace sRGB' }
 

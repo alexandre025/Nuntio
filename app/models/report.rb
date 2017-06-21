@@ -21,6 +21,7 @@ class Report < ApplicationRecord
   has_attached_file :image,
                   styles: { thumb: '240x165^', banner: '620x240^' },
                   url: '/nuntio/reports/:id/:style/:basename.:extension',
+                  default_url: '/images/default-report.jpg',
                   path: ':rails_root/public/nuntio/reports/:id/:style/:basename.:extension',
                   convert_options: { all: '-strip -auto-orient -gravity center -colorspace sRGB' }
 
