@@ -4,7 +4,7 @@ class TowersController < ApplicationController
   def index
     @q = Tower.ransack(params[:q])
 
-    @recommended_towers = @q.result.order('random()').limit(10)
+    @recommended_towers = @q.result.order(:description).limit(10)
     @newest_towers = @q.result.order(:created_at).limit(10)
     @popular_towers = @q.result.sort_by(&:average_notation).reverse.take(10)
   end
