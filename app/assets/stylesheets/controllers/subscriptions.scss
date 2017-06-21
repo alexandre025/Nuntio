@@ -189,11 +189,14 @@
                     border:1px solid $purple;
                     box-sizing:border-box;
                     padding-bottom: 2px;
-                  }
 
-                  input::-webkit-outer-spin-button,
-                  input::-webkit-inner-spin-button {
-                      -webkit-appearance: none;
+                    &::-webkit-inner-spin-button,
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        margin: 0;
+                    }
                   }
                 }
 
