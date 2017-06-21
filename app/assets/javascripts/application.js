@@ -14,6 +14,7 @@
 //= require jquery-ujs
 //= require jscroll
 //= require lodash/core
+//= require dotdotdot/src/js/jquery.dotdotdot.min.js
 //= require sudoslider/js/jquery.sudoSlider.min.js
 //= require rateyo/min/jquery.rateyo.min.js
 //= require cleave.js/dist/cleave.min.js

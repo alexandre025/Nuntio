@@ -9,8 +9,8 @@
           <p class="title"><%= report.title %></p>
           <p class="details"><span class="author"><%= report.guard.fullname %></span> &nbsp; | &nbsp; <%= report.tower.theme.name %> • <%= report.tower.category.name %></p>
           <p class="time"><%= report.read_time %> minutes à lire</p>
-          <p class="description">
-            <%= strip_tags(report.excerpt&.truncate(230, separator: ' ')) %>
+          <p class="description dot-ellipsis-more">
+            <%= strip_tags(report.excerpt) %>
             <span class="more">Lire la suite</span>
           <div class="bottom">
             <p class="date">Il y a <%= time_ago_in_words(report.created_at)%></p>
