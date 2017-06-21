@@ -72,6 +72,12 @@ csv.each_with_index do |row, idx|
           roles: ['author']
         })
 
+    if row[:expert_filename]
+      if image = File.open(Rails.root.join('lib', 'data', 'images', row[:expert_filename]))
+        guard.image = image
+      end
+    end
+
     if row[:filename]
       if image = File.open(Rails.root.join('lib', 'data', 'images', row[:filename]))
         tower.image = image
