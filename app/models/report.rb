@@ -13,7 +13,7 @@ class Report < ApplicationRecord
   validates :tower, :title, :content, :tower_guard, presence: true
 
   def update_read_time
-    calculated_time = (self.content.split.count.to_d / 300).to_i
+    calculated_time = (self.content.split.count.to_d / 300).round
     self.read_time = calculated_time >= 1 ? calculated_time : 1
   end
 

@@ -10,6 +10,8 @@ class Tower < ApplicationRecord
 
   belongs_to :category
 
+  has_one :theme, through: :category
+
   has_one :tower_guard
   has_one :guard, through: :tower_guard
   accepts_nested_attributes_for :tower_guard
@@ -21,10 +23,6 @@ class Tower < ApplicationRecord
   has_many :users, through: :subscriptions
 
   has_many :reports
-
-  # Delegators
-
-  delegate :theme, to: :category
 
   # Constants
 
