@@ -27,7 +27,7 @@ class TowersController < ApplicationController
   end
 
   def show
-    @tower = Tower.find_by(slug: params[:id])
+    @tower = Tower.includes(:comments).find_by(slug: params[:id])
     if @tower
       @subscription = Subscription.new(tower: @tower, owner: current_user)
       @similars = Tower.joins(:category).where(categories: { theme: @tower.category.theme }).where.not(id: @tower).order(created_at: :asc).limit(10)
