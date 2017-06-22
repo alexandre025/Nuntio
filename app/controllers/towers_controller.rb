@@ -30,8 +30,8 @@ class TowersController < ApplicationController
     @tower = Tower.find_by(slug: params[:id])
     if @tower
       @subscription = Subscription.new(tower: @tower, owner: current_user)
-      @similars = Tower.where(category: @tower.category).order(created_at: :asc).limit(10)
-      @report = @tower.reports.order(created_at: :asc).first
+      @similars = Tower.joins(:category).where(categories: { theme: @tower.category.theme }).where.not(id: @tower).order(created_at: :asc).limit(10)
+      @report = @tower.reports.order(created_at: :desc).first
       @comments = @tower.comments.where.not(content: nil)
     else
       redirect_to root_path

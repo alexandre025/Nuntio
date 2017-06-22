@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     @tower = Tower.friendly.find(params[:tower_id])
 
     if current_user.subscribed_towers.include? @tower
-      @report = @tower.reports.find(params[:id])
+      @report = @tower.reports.includes(:comments).find(params[:id])
       @comment = Comment.new
       @rating = Comment.where(user: current_user, commentable: @report).where.not(notation: nil).first_or_initialize
     else

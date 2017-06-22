@@ -15,7 +15,7 @@
             <p class="level"><%= image_tag 'icons/icon-settings-black.png' %> <span><%= t("towers.grade.#{tower.grade}") %></span></p>
           </div>
           <p class="description dot-ellipsis">
-            <%== strip_tags tower.description %>
+            <%== strip_tags tower.description.truncate(300) %>
           </p>
           <div class="rating">
             <div class="rating-stars" data-rating="<%= tower.average_notation || 0 %>"></div>

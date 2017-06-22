@@ -1,7 +1,7 @@
 class Report < ApplicationRecord
   include Commentable
 
-  before_create :add_read_time
+  before_save :update_read_time
 
   has_many :sources, class_name: 'ReportSource'
 
@@ -12,8 +12,8 @@ class Report < ApplicationRecord
 
   validates :tower, :title, :content, :tower_guard, presence: true
 
-  def add_read_time
-    calculated_time = (self.content.split.count.to_d / 300).to_i
+  def update_read_time
+    calculated_time = (self.content.split.count.to_d / 300).round
     self.read_time = calculated_time >= 1 ? calculated_time : 1
   end
 

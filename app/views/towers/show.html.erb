@@ -80,18 +80,21 @@
 </div>
 
 <div class="tower-show__others">
-  <div class="tower-list">
-    <h2 class="tower-list__title">Recommandés pour vous</h2>
+  <% if @similars.count > 0 %>
+    <div class="tower-list">
 
-    <div class="tower-list__slider">
-      <% @similars.each do |tower| %>
-        <%= render partial: 'towers/tower_card', locals: {tower: tower} %>
-      <% end %>
+      <h2 class="tower-list__title">Les offres similaires</h2>
+
+      <div class="tower-list__slider">
+        <% @similars.each do |tower| %>
+          <%= render partial: 'towers/tower_card', locals: {tower: tower} %>
+        <% end %>
+      </div>
+
+      <div class="customSliderLink-recommended tower-list__slider-arrow arrow-prev" data-target="prev"></div>
+      <div class="customSliderLink-recommended tower-list__slider-arrow arrow-next" data-target="next"></div>
     </div>
-
-    <div class="customSliderLink-recommended tower-list__slider-arrow arrow-prev" data-target="prev"></div>
-    <div class="customSliderLink-recommended tower-list__slider-arrow arrow-next" data-target="next"></div>
-  </div>
+  <% end %>
 </div>
 
 <% if @report %>

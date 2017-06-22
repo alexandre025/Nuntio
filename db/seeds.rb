@@ -44,14 +44,16 @@ progressbar = ProgressBar.create(total: csv.size)
 csv.each_with_index do |row, idx|
 
   if row[:price_per_month_cents]
-    guard = User.new(email: Faker::Internet.email,
+    guard = User.new(
+        email: Faker::Internet.email,
         password: 'nuntio',
         firstname: row[:expert_firstname],
         lastname: row[:expert_lastname],
         terms: true)
     guard.save
 
-    tower = Tower.new(title: row[:title],
+    tower = Tower.new(
+        title: row[:title],
         description: row[:description],
         price_per_month: row[:price_per_month_cents].to_d / 100,
         frequency: row[:frequency],
@@ -120,7 +122,11 @@ Tower.all.each do |tower|
     subscription.to_payment!
     subscription.confirm!
 
-    FactoryGirl.create(:comment, commentable: tower, user: subscription.owner)
+    FactoryGirl.create(:comment, commentable: tower, user: subscription.owner, created_at: ((DateTime.current - 30).step(DateTime.current)).to_a.sample)
+
+    tower.reports.each do |report|
+      FactoryGirl.create(:comment, commentable: report, user: subscription.owner, content: nil)
+    end
   end
   progressbar.increment
 end
