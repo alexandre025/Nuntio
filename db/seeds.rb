@@ -123,6 +123,10 @@ Tower.all.each do |tower|
     subscription.confirm!
 
     FactoryGirl.create(:comment, commentable: tower, user: subscription.owner, created_at: ((DateTime.current-30).step(DateTime.current)).to_a.sample)
+
+    tower.reports.each do |report|
+      FactoryGirl.create(:comment, commentable: report, user: subscription.owner, content: nil)
+    end
   end
   progressbar.increment
 end
